@@ -1,0 +1,35 @@
+.forms-options{
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  div{
+    margin-left: 3px;
+    margin-right: 3px;
+    padding: 8px;
+  }
+  a{
+    text-decoration: none;
+    color: $darkBlue;
+  }
+
+  .border-line{
+    border-bottom: 1px solid #012450;
+    width: 50px;
+  }
+
+  .step-1, .step-2, .step-3, .step-4 {
+    background-color: #ECEFF1;
+    padding: 1px 7px;
+    border-radius: 100px;
+  }
+
+  .step-1-circle, .step-2-circle , .step-3-circle{
+    border: 1px solid $darkBlue;
+    border-radius: 100px;
+    margin-top: 5px;
+  }
+
+  .step-1, #step-1-text{
+    font-weight: bold;
+  }
+}

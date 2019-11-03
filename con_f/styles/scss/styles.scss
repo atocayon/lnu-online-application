@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Graduate&display=swap');
+@import "colors";
+@import "header";
+@import "navbar";
+@import "forms";
+@import "form-1";
+@import "form-2";
+@import "form-3";
+@import "form-4";
+@import "webTitle";
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Abel', sans-serif;
+}
+
+.flex-row{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.form-container{
+  margin-left: 200px;
+}
+
+.form-input{
+  border: 1px solid #B0BEC5;
+  border-radius: 5px;
+  padding: 5px;
+  width: 200px;
+  height: 35px;
+}
+
+.form-input-tbl{
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 5px;
+  width: 260px;
+  height: 35px;
+}
+

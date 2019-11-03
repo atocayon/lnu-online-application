@@ -1,0 +1,43 @@
+.form-1{
+  padding-top: 10px;
+  padding-bottom: 20px;
+  box-shadow: 1px 1px 1px #fafafa;
+  border: 1px solid #fafafa;
+  font-size: 1.2rem;
+  .form-1-title{
+    background-color: $darkBlue;
+    width: 300px;
+    border-bottom-right-radius: 30px;
+
+    h2{
+      padding-left: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color: #fafafa;
+    }
+  }
+
+  .check-box{
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+  }
+
+  h3{
+    margin-top: 1px;
+    margin-right: 30px;
+    margin-left: 10px;
+  }
+
+  .yes-no{
+    width: 15px;
+    height: 15px;
+  }
+
+  #returnee{
+    display: none;
+  }
+
+
+
+}

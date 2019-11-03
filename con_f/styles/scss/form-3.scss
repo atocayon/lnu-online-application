@@ -1,0 +1,38 @@
+.form-3{
+  display: none;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  box-shadow: 1px 1px 1px #fafafa;
+  border: 1px solid #fafafa;
+  font-size: 1.2rem;
+
+  .form-3-title{
+    background-color: $darkBlue;
+    width: 300px;
+    border-bottom-right-radius: 30px;
+
+    h2{
+      padding-left: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color: #fafafa;
+    }
+  }
+
+
+
+  table{
+    border: 1px solid #CFD8DC;
+
+    th{
+      border-bottom: 1px solid #CFD8DC;
+      border-right: 1px solid #CFD8DC;
+      padding: 5px;
+    }
+
+    td{
+      border-bottom: 1px solid #CFD8DC;
+      border-right: 1px solid #CFD8DC;
+    }
+  }
+}
