@@ -33,28 +33,33 @@ $contactNumber = $_POST["contactNumber"];
 
 $typeOfSchool = $_POST["typeOfSchool"];
 $categoryOfSchool = $_POST["categoryOfSchool"];
+$generalWeightedAverage = $_POST["generalWeightedAverage"];
+$membershipOrganization = $_POST["membershipOrganization"];
+$hobbiesTalentsInterest = $_POST["hobbiesTalentsInterest"];
+
 $firstSchoolName = $_POST["firstSchoolName"];
 $firstSchoolAddress = $_POST["firstSchoolAddress"];
 $firstSchoolLevel = $_POST["firstSchoolLevel"];
 $firstSchoolInclusiveDate = $_POST["firstSchoolInclusiveDate"];
 $firstSchoolAwardReceived = $_POST["firstSchoolAwardReceived"];
+
 $secondSchoolName = $_POST["secondSchoolName"];
 $secondSchoolAddress = $_POST["secondSchoolAddress"];
 $secondSchoolLevel = $_POST["secondSchoolLevel"];
 $secondSchoolInclusiveDate = $_POST["secondSchoolInclusiveDate"];
 $secondSchoolAwardReceived = $_POST["secondSchoolAwardReceived"];
+
 $thirdSchoolName = $_POST["thirdSchoolName"];
 $thirdSchoolAddress = $_POST["thirdSchoolAddress"];
 $thirdSchoolLevel = $_POST["thirdSchoolLevel"];
 $thirdSchoolInclusiveDate = $_POST["thirdSchoolInclusiveDate"];
+
 $fourthSchoolName = $_POST["fourthSchoolName"];
 $fourthSchoolAddress = $_POST["fourthSchoolAddress"];
 $fourthSchoolLevel = $_POST["fourthSchoolLevel"];
 $fourthSchoolInclusiveDate = $_POST["fourthSchoolInclusiveDate"];
 $fourthSchoolAwardReceived = $_POST["fourthSchoolAwardReceived"];
-$generalWeightedAverage = $_POST["generalWeightedAverage"];
-$membershipOrganization = $_POST["membershipOrganization"];
-$hobbiesTalentsInterest = $_POST["hobbiesTalentsInterest"];
+
 $firstPersonReferenceName = $_POST["firstPersonReferenceName"];
 $firstPersonReferenceAddress = $_POST["firstPersonReferenceAddress"];
 $firstPersonReferenceContactNum = $_POST["firstPersonReferenceContactNum"];
@@ -62,7 +67,7 @@ $secondPersonReferenceName = $_POST["secondPersonReferenceName"];
 $secondPersonReferenceAddress = $_POST["secondPersonReferenceAddress"];
 $secondPersonReferenceContactNum = $_POST["secondPersonReferenceContactNum"];
 
-$insert_tbl_applicant = "INSERT INTO applicant_tbl (
+$insert_applicant_tbl = $con->query("INSERT INTO applicant_tbl (
   applicantID,
   applicationType,
   returneeMonth,
@@ -112,17 +117,52 @@ $insert_tbl_applicant = "INSERT INTO applicant_tbl (
   0,
   '$applicationDate',
   0000-00-00
-)";
+)");
 
 
-// $insert_tbl_guardian = "INSERT INTO guardian_ tbl () VALUES ()";
+$insert_guardian_tbl = $con->query("INSERT INTO guardian_tbl (
+  applicantID,
+  name,
+  occupation,
+  contactNo
+) VALUES (
+  '$applicant_id',
+  '$guardianName',
+  '$guardianOccupation',
+  '$contactNumber'
+)");
+
+$insert_typeSchoolLastAttended_tbl = $con->query("INSERT INTO type_school_last_attended(
+  applicantID,
+  type,
+  category,
+  generalWeightedAverage,
+  membershipOrganization,
+  hobbiesTalentsInterest
+) VALUES (
+  '$applicant_id',
+  '$typeOfSchool',
+  '$categoryOfSchool',
+  '$generalWeightedAverage',
+  '$membershipOrganization',
+  '$hobbiesTalentsInterest'
+)");
+
+$insert_schoolAttended_tbl = "INSERT INTO (
+  applicantID,
+  schoolName,
+  address,
+  level,
+  inclusiveDate,
+  honorsAwardsReceived
+) VALUES ();";
 
 
-if (mysqli_query($con,$insert_tbl_applicant)) {
-  echo json_encode(array("insertApplicant" => "success_tblApplicant"));
-}else{
-  echo json_encode(array("insertApplicant" => mysqli_error($con)));
-}
+
+
+echo json_encode(array("insertApplicant" => "success"));
+
+
 
 
 

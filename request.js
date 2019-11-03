@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   $(function() {
     //First Form
     //Status Checkbox
@@ -100,14 +99,11 @@ $(document).ready(function() {
         $("#publicSchool-checkbox").is(":checked") ||
         $("#privateSchool-checkbox").is(":checked")
       ) {
-
-
         $("input[name='school-category']").click(function() {
           if (
             $("#religious-school").is(":checked") ||
             $("#non-religious-school").is(":checked")
           ) {
-
             $("#hobbies-talents-interests")
               .keyup(function() {
                 if ($(this).val().length > 0) {
@@ -159,8 +155,6 @@ $(document).ready(function() {
         $("#second-person-reference-address").val() !== "" &&
         $("#second-person-reference-cnum").val() !== ""
       ) {
-
-
         var bdate = new Date($("#bdate").val());
         bdate_day = bdate.getDate();
         bdate_month = bdate.getMonth() + 1;
@@ -194,107 +188,134 @@ $(document).ready(function() {
         fourthSchoolInclusiveDate_month = fourthSchoolInclusiveDate.getMonth();
         fourthSchoolInclusiveDate_year = fourthSchoolInclusiveDate.getFullYear();
 
-
         var returneePasser = "";
         if ($("input[name='passer-radio']").is(":checked")) {
           returneePasser = $("input[name='passer-radio']:checked").val();
-        }else{
+        } else {
           returneePasser = "undefined";
         }
 
-          $.ajax({
-            url: "insert.php",
-            type: "POST",
-            dataType: "json",
-            data: {
-              applicationDate: [year, month, day].join("-"),
-              appicantID: applicant_id,
-              applicationType: $("input[name='status']:checked").val(),
-              returneeMonth: $("#returnee-month").val(),
-              returneeYear: $("#returnee-year").val(),
-              returneePasser: returneePasser,
-              returneeSelectedCourse: $("#returnee-specify-course").val(),
-              firstCoursePreference: $("#first-course-preference").val(),
-              secondCoursePreference: $("#second-course-preference").val(),
-              lastName: $("#lname").val(),
-              firstName: $("#fname").val(),
-              middleName: $("#mname").val(),
-              birthDay: [bdate_year, bdate_month, bdate_day].join("-"),
-              age: $("#age").val(),
-              sex: $("#sex").val(),
-              status: $("#status").val(),
-              citizenship: $("#citizenship").val(),
-              completeHomeAddress: $("#complete-homeAddress").val(),
-              completeCityAddress: $("#complete-cityAddress").val(),
-              telNumber: $("#tel-no").val(),
-              mobileNumber: $("#mobile-no").val(),
-              emailAddress: $("#email-adds").val(),
-              guardianName: $("#parent-guardian").val(),
-              guardianOccupation: $("#occupation").val(),
-              contactNumber: $("#contact-no").val(),
-              typeOfSchool: $("input[name='type-of-school']:checked").val(),
-              categoryOfSchool: $("input[name='school-category']:checked").val(),
-              firstSchoolName: $("#first-school-name").val(),
-              firstSchoolAddress: $("#first-school-address").val(),
-              firstSchoolLevel: $("#first-school-level").val(),
-              firstSchoolInclusiveDate: [
-                firstSchoolInclusiveDate_year,
-                firstSchoolInclusiveDate_month,
-                firstSchoolInclusiveDate_day
-              ].join("-"),
-              firstSchoolAwardReceived: $("#first-school-award-received").val(),
-              secondSchoolName: $("#second-school-name").val(),
-              secondSchoolAddress: $("#second-school-address").val(),
-              secondSchoolLevel: $("#second-school-level").val(),
-              secondSchoolInclusiveDate:  [
-                secondSchoolInclusiveDate_year,
-                secondSchoolInclusiveDate_month,
-                secondSchoolInclusiveDate_day
-              ].join("-"),
-              secondSchoolAwardReceived: $("#second-school-award-received").val(),
-              thirdSchoolName: $("#third-school-name").val(),
-              thirdSchoolAddress: $("#third-school-address").val(),
-              thirdSchoolLevel: $("#third-school-level").val(),
-              thirdSchoolInclusiveDate: [
-                thirdSchoolInclusiveDate_year,
-                thirdSchoolInclusiveDate_month,
-                thirdSchoolInclusiveDate_day
-              ].join("-"),
-              fourthSchoolName: $("#fourth-school-name").val(),
-              fourthSchoolAddress: $("#fourth-school-address").val(),
-              fourthSchoolLevel: $("#fourth-school-level").val(),
-              fourthSchoolInclusiveDate:[
-                fourthSchoolInclusiveDate_year,
-                fourthSchoolInclusiveDate_month,
-                fourthSchoolInclusiveDate_day
-              ].join("-"),
-              fourthSchoolAwardReceived: $("#fourth-school-award-received").val(),
-              generalWeightedAverage: $("#general-weighted-average").val(),
-              membershipOrganization: $("#membership-organization").val(),
-              hobbiesTalentsInterest: $("#hobbies-talents-interests").val(),
-              firstPersonReferenceName: $("#first-person-reference-name").val(),
-              firstPersonReferenceAddress: $("#first-person-reference-address").val(),
-              firstPersonReferenceContactNum: $("#first-person-reference-cnum").val(),
-              secondPersonReferenceName: $("#second-person-reference-name").val(),
-              secondPersonReferenceAddress: $("#second-person-reference-address").val(),
-              secondPersonReferenceContactNum: $("#second-person-reference-cnum").val()
+        var fourthSchoolName = "";
+        var fourthSchoolAddress = "";
+        var fourthSchoolLevel = "";
+        var fourthSchoolAwardReceived = "";
+        if (
+          $("#fourth-school-name").val() !== "" &&
+          $("#fourth-school-address").val() !== "" &&
+          $("#fourth-school-level").val() !== "" &&
+          $("#fourth-school-award-received").val() !== ""
+        ) {
 
-            },
-            cache: false,
-            success: function(data) {
-              if (data.insertApplicant === "success_tblApplicant") {
-                console.log("success");
-              }else{
-                console.log("failed");
-              }
+          fourthSchoolName = $("#fourth-school-name").val();
+          fourthSchoolAddress = $("#fourth-school-address").val();
+          fourthSchoolLevel = $("#fourth-school-level").val();
+          fourthSchoolAwardReceived = $("#fourth-school-award-received").val();
+        }else{
+          fourthSchoolName = "undefined";
+          fourthSchoolAddress = "undefined";
+          fourthSchoolLevel = "undefined";
+          fourthSchoolAwardReceived = "undefined";
+        }
 
+        $.ajax({
+          url: "insert.php",
+          type: "POST",
+          dataType: "json",
+          data: {
+            applicationDate: [year, month, day].join("-"),
+            appicantID: applicant_id,
+            applicationType: $("input[name='status']:checked").val(),
+            returneeMonth: $("#returnee-month").val(),
+            returneeYear: $("#returnee-year").val(),
+            returneePasser: returneePasser,
+            returneeSelectedCourse: $("#returnee-specify-course").val(),
+            firstCoursePreference: $("#first-course-preference").val(),
+            secondCoursePreference: $("#second-course-preference").val(),
+            lastName: $("#lname").val(),
+            firstName: $("#fname").val(),
+            middleName: $("#mname").val(),
+            birthDay: [bdate_year, bdate_month, bdate_day].join("-"),
+            age: $("#age").val(),
+            sex: $("#sex").val(),
+            status: $("#status").val(),
+            citizenship: $("#citizenship").val(),
+            completeHomeAddress: $("#complete-homeAddress").val(),
+            completeCityAddress: $("#complete-cityAddress").val(),
+            telNumber: $("#tel-no").val(),
+            mobileNumber: $("#mobile-no").val(),
+            emailAddress: $("#email-adds").val(),
 
-            },
-            error: function(error) {
-              console.log(error);
+            guardianName: $("#parent-guardian").val(),
+            guardianOccupation: $("#occupation").val(),
+            contactNumber: $("#contact-no").val(),
+
+            typeOfSchool: $("input[name='type-of-school']:checked").val(),
+            categoryOfSchool: $("input[name='school-category']:checked").val(),
+            firstSchoolName: $("#first-school-name").val(),
+            firstSchoolAddress: $("#first-school-address").val(),
+            firstSchoolLevel: $("#first-school-level").val(),
+            firstSchoolInclusiveDate: [
+              firstSchoolInclusiveDate_year,
+              firstSchoolInclusiveDate_month,
+              firstSchoolInclusiveDate_day
+            ].join("-"),
+            firstSchoolAwardReceived: $("#first-school-award-received").val(),
+            secondSchoolName: $("#second-school-name").val(),
+            secondSchoolAddress: $("#second-school-address").val(),
+            secondSchoolLevel: $("#second-school-level").val(),
+            secondSchoolInclusiveDate: [
+              secondSchoolInclusiveDate_year,
+              secondSchoolInclusiveDate_month,
+              secondSchoolInclusiveDate_day
+            ].join("-"),
+            secondSchoolAwardReceived: $("#second-school-award-received").val(),
+            thirdSchoolName: $("#third-school-name").val(),
+            thirdSchoolAddress: $("#third-school-address").val(),
+            thirdSchoolLevel: $("#third-school-level").val(),
+            thirdSchoolInclusiveDate: [
+              thirdSchoolInclusiveDate_year,
+              thirdSchoolInclusiveDate_month,
+              thirdSchoolInclusiveDate_day
+            ].join("-"),
+            fourthSchoolName: fourthSchoolName,
+            fourthSchoolAddress: fourthSchoolAddress,
+            fourthSchoolLevel: fourthSchoolLevel,
+            fourthSchoolInclusiveDate: [
+              fourthSchoolInclusiveDate_year,
+              fourthSchoolInclusiveDate_month,
+              fourthSchoolInclusiveDate_day
+            ].join("-"),
+            fourthSchoolAwardReceived: fourthSchoolAwardReceived,
+            generalWeightedAverage: $("#general-weighted-average").val(),
+            membershipOrganization: $("#membership-organization").val(),
+            hobbiesTalentsInterest: $("#hobbies-talents-interests").val(),
+            firstPersonReferenceName: $("#first-person-reference-name").val(),
+            firstPersonReferenceAddress: $(
+              "#first-person-reference-address"
+            ).val(),
+            firstPersonReferenceContactNum: $(
+              "#first-person-reference-cnum"
+            ).val(),
+            secondPersonReferenceName: $("#second-person-reference-name").val(),
+            secondPersonReferenceAddress: $(
+              "#second-person-reference-address"
+            ).val(),
+            secondPersonReferenceContactNum: $(
+              "#second-person-reference-cnum"
+            ).val()
+          },
+          cache: false,
+          success: function(data) {
+            if (data.insertApplicant === "success") {
+              console.log("success");
+            } else {
+              console.log("failed");
             }
-          });
-
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
       }
     });
   }); //End of Fourth Form
