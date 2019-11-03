@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="con_f/styles/css/styles.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <script src="con_f/request.js"></script>
+    <script src="request.js"></script>
 </head>
 <body>
 <!--Header-->

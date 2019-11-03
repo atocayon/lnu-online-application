@@ -207,6 +207,7 @@ $(document).ready(function() {
             type: "POST",
             dataType: "json",
             data: {
+              applicationDate: [year, month, day].join("-"),
               appicantID: applicant_id,
               applicationType: $("input[name='status']:checked").val(),
               returneeMonth: $("#returnee-month").val(),
@@ -279,6 +280,7 @@ $(document).ready(function() {
               secondPersonReferenceContactNum: $("#second-person-reference-cnum").val()
 
             },
+            cache: false,
             success: function(data) {
               // if (data.insertApplicant === "success_tblApplicant") {
               //   console.log("success");

@@ -4,7 +4,7 @@ $con = mysqli_connect("localhost","root","","lnu-online-application");
 if (mysqli_connect_errno()) {
   print_r("Failed to connect to MYSQL: ". mysqli_connect_error());
 }
-
+$applicationDate = $_POST["applicationDate"];
 $applicant_id = $_POST["appicantID"];
 $applicationType = $_POST["applicationType"];
 $returneeMonth = $_POST["returneeMonth"];
@@ -84,7 +84,9 @@ $insert_tbl_applicant = "INSERT INTO applicant_tbl (
   telNo,
   mobileNo,
   emailAdd,
-  applicationStatus
+  applicationStatus,
+  applicationDate,
+  dateApprove
 ) VALUES (
   '$applicant_id',
   '$applicationType',
@@ -107,7 +109,9 @@ $insert_tbl_applicant = "INSERT INTO applicant_tbl (
   '$telNumber',
   '$mobileNumber',
   '$emailAddress',
-  '0'
+  0,
+  '$applicationDate',
+  0000-00-00
 )";
 
 
