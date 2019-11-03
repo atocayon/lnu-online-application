@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Nov 03, 2019 at 02:01 PM
--- Server version: 5.7.26
--- PHP Version: 7.2.18
+-- Host: 127.0.0.1
+-- Generation Time: Nov 03, 2019 at 03:35 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,16 +21,15 @@ SET time_zone = "+00:00";
 --
 -- Database: `lnu-online-application`
 --
-
+CREATE DATABASE `lnu-online-application`; USE `lnu-online-application`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `applicant_tbl`
 --
 
-DROP TABLE IF EXISTS `applicant_tbl`;
-CREATE TABLE IF NOT EXISTS `applicant_tbl` (
-  `applicantID` int(11) NOT NULL,
+CREATE TABLE `applicant_tbl` (
+  `applicantID` varchar(120) NOT NULL,
   `applicationType` varchar(120) NOT NULL,
   `returneeMonth` varchar(120) NOT NULL,
   `returneeYear` varchar(120) NOT NULL,
@@ -52,9 +51,8 @@ CREATE TABLE IF NOT EXISTS `applicant_tbl` (
   `mobileNo` varchar(120) NOT NULL,
   `emailAdd` varchar(120) NOT NULL,
   `applicationStatus` int(11) NOT NULL,
-  `applicationDate` timestamp NOT NULL,
-  `dateApprove` date NOT NULL,
-  PRIMARY KEY (`applicantID`)
+  `applicationDate` date NOT NULL DEFAULT current_timestamp(),
+  `dateApprove` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -63,14 +61,12 @@ CREATE TABLE IF NOT EXISTS `applicant_tbl` (
 -- Table structure for table `characterreference_tbl`
 --
 
-DROP TABLE IF EXISTS `characterreference_tbl`;
-CREATE TABLE IF NOT EXISTS `characterreference_tbl` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `characterreference_tbl` (
+  `id` int(11) NOT NULL,
   `applicantID` varchar(120) NOT NULL,
   `name` varchar(120) NOT NULL,
   `address` varchar(120) NOT NULL,
-  `contactNo` varchar(120) NOT NULL,
-  PRIMARY KEY (`id`)
+  `contactNo` varchar(120) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -79,14 +75,12 @@ CREATE TABLE IF NOT EXISTS `characterreference_tbl` (
 -- Table structure for table `guardian_tbl`
 --
 
-DROP TABLE IF EXISTS `guardian_tbl`;
-CREATE TABLE IF NOT EXISTS `guardian_tbl` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `guardian_tbl` (
+  `id` int(11) NOT NULL,
   `applicantID` varchar(120) NOT NULL,
   `name` varchar(120) NOT NULL,
   `occupation` varchar(120) NOT NULL,
-  `contactNo` varchar(120) NOT NULL,
-  PRIMARY KEY (`id`)
+  `contactNo` varchar(120) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -95,9 +89,8 @@ CREATE TABLE IF NOT EXISTS `guardian_tbl` (
 -- Table structure for table `schoolattended_tbl`
 --
 
-DROP TABLE IF EXISTS `schoolattended_tbl`;
-CREATE TABLE IF NOT EXISTS `schoolattended_tbl` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `schoolattended_tbl` (
+  `id` int(11) NOT NULL,
   `applicantID` varchar(120) NOT NULL,
   `schoolType` varchar(50) NOT NULL,
   `schoolCategory` varchar(50) NOT NULL,
@@ -105,8 +98,7 @@ CREATE TABLE IF NOT EXISTS `schoolattended_tbl` (
   `address` varchar(120) NOT NULL,
   `level` varchar(120) NOT NULL,
   `inclusiveDate` date NOT NULL,
-  `honorsAwardsReceived` varchar(120) NOT NULL,
-  PRIMARY KEY (`id`)
+  `honorsAwardsReceived` varchar(120) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -115,15 +107,75 @@ CREATE TABLE IF NOT EXISTS `schoolattended_tbl` (
 -- Table structure for table `schoolrecords_tbl`
 --
 
-DROP TABLE IF EXISTS `schoolrecords_tbl`;
-CREATE TABLE IF NOT EXISTS `schoolrecords_tbl` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `schoolrecords_tbl` (
+  `id` int(11) NOT NULL,
   `applicantID` varchar(120) NOT NULL,
   `generalWeightedAverage` varchar(120) NOT NULL,
   `membershipOrganization` varchar(120) NOT NULL,
-  `hobbiesTalentsInterest` varchar(120) NOT NULL,
-  PRIMARY KEY (`id`)
+  `hobbiesTalentsInterest` varchar(120) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `applicant_tbl`
+--
+ALTER TABLE `applicant_tbl`
+  ADD PRIMARY KEY (`applicantID`);
+
+--
+-- Indexes for table `characterreference_tbl`
+--
+ALTER TABLE `characterreference_tbl`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `guardian_tbl`
+--
+ALTER TABLE `guardian_tbl`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `schoolattended_tbl`
+--
+ALTER TABLE `schoolattended_tbl`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `schoolrecords_tbl`
+--
+ALTER TABLE `schoolrecords_tbl`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `characterreference_tbl`
+--
+ALTER TABLE `characterreference_tbl`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `guardian_tbl`
+--
+ALTER TABLE `guardian_tbl`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `schoolattended_tbl`
+--
+ALTER TABLE `schoolattended_tbl`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `schoolrecords_tbl`
+--
+ALTER TABLE `schoolrecords_tbl`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

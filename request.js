@@ -282,12 +282,12 @@ $(document).ready(function() {
             },
             cache: false,
             success: function(data) {
-              // if (data.insertApplicant === "success_tblApplicant") {
-              //   console.log("success");
-              // }else{
-              //   console.log("failed");
-              // }
-              console.log(data.insertApplicant);
+              if (data.insertApplicant === "success_tblApplicant") {
+                console.log("success");
+              }else{
+                console.log("failed");
+              }
+
 
             },
             error: function(error) {

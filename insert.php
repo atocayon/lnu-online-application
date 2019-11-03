@@ -119,8 +119,7 @@ $insert_tbl_applicant = "INSERT INTO applicant_tbl (
 
 
 if (mysqli_query($con,$insert_tbl_applicant)) {
-  $last_id = mysqli_insert_id($conn);
-  echo json_encode(array("insertApplicant" => $last_id));
+  echo json_encode(array("insertApplicant" => "success_tblApplicant"));
 }else{
   echo json_encode(array("insertApplicant" => mysqli_error($con)));
 }
