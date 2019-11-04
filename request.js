@@ -107,7 +107,7 @@ $(document).ready(function() {
             $("#hobbies-talents-interests")
               .keyup(function() {
                 if ($(this).val().length > 0) {
-                  console.log("working");
+                
                   if (
                     $("#first-school-name").val() !== "" &&
                     $("#first-school-address").val() !== "" &&
@@ -127,6 +127,7 @@ $(document).ready(function() {
                     $("#general-weighted-average").val() !== "" &&
                     $("#membership-organization").val() !== ""
                   ) {
+
                     $(".form-3").hide();
                     $(".form-4").show();
                     $(".step-3, #step-3-text").css("color", "green");
@@ -146,6 +147,8 @@ $(document).ready(function() {
   $(function() {
     $("#btn-submit").click(function(event) {
       event.preventDefault();
+
+      console.log($("#third-school-award-received").val());
 
       if (
         $("#first-person-reference-name").val() !== "" &&
@@ -217,6 +220,8 @@ $(document).ready(function() {
           fourthSchoolAwardReceived = "undefined";
         }
 
+
+
         $.ajax({
           url: "insert.php",
           type: "POST",
@@ -277,6 +282,7 @@ $(document).ready(function() {
               thirdSchoolInclusiveDate_month,
               thirdSchoolInclusiveDate_day
             ].join("-"),
+            thirdSchoolAwardReceived: $("#third-school-award-received").val(),
             fourthSchoolName: fourthSchoolName,
             fourthSchoolAddress: fourthSchoolAddress,
             fourthSchoolLevel: fourthSchoolLevel,

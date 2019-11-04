@@ -1,5 +1,9 @@
 <?php
-$con = mysqli_connect("localhost","root","","lnu-online-application");
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "lnu-online-application";
+$con = mysqli_connect($servername,$username,$password,$dbname);
 
 if (mysqli_connect_errno()) {
   print_r("Failed to connect to MYSQL: ". mysqli_connect_error());
@@ -53,6 +57,7 @@ $thirdSchoolName = $_POST["thirdSchoolName"];
 $thirdSchoolAddress = $_POST["thirdSchoolAddress"];
 $thirdSchoolLevel = $_POST["thirdSchoolLevel"];
 $thirdSchoolInclusiveDate = $_POST["thirdSchoolInclusiveDate"];
+$thirdSchoolAwardReceived = $_POST["thirdSchoolAwardReceived"];
 
 $fourthSchoolName = $_POST["fourthSchoolName"];
 $fourthSchoolAddress = $_POST["fourthSchoolAddress"];
@@ -63,6 +68,7 @@ $fourthSchoolAwardReceived = $_POST["fourthSchoolAwardReceived"];
 $firstPersonReferenceName = $_POST["firstPersonReferenceName"];
 $firstPersonReferenceAddress = $_POST["firstPersonReferenceAddress"];
 $firstPersonReferenceContactNum = $_POST["firstPersonReferenceContactNum"];
+
 $secondPersonReferenceName = $_POST["secondPersonReferenceName"];
 $secondPersonReferenceAddress = $_POST["secondPersonReferenceAddress"];
 $secondPersonReferenceContactNum = $_POST["secondPersonReferenceContactNum"];
@@ -132,7 +138,7 @@ $insert_guardian_tbl = $con->query("INSERT INTO guardian_tbl (
   '$contactNumber'
 )");
 
-$insert_typeSchoolLastAttended_tbl = $con->query("INSERT INTO type_school_last_attended(
+$insert_typeSchoolLastAttended_tbl = $con->query("INSERT INTO school_last_attended(
   applicantID,
   type,
   category,
@@ -148,16 +154,139 @@ $insert_typeSchoolLastAttended_tbl = $con->query("INSERT INTO type_school_last_a
   '$hobbiesTalentsInterest'
 )");
 
-$insert_schoolAttended_tbl = "INSERT INTO (
-  applicantID,
-  schoolName,
-  address,
-  level,
-  inclusiveDate,
-  honorsAwardsReceived
-) VALUES ();";
 
 
+try {
+   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // begin the transaction
+    $conn->beginTransaction();
+    // our SQL statements
+    $conn->exec("INSERT INTO schoolattended_tbl(
+      applicantID,
+      schoolName,
+      address,
+      level,
+      inclusiveDate,
+      honorsAwardsReceived
+    ) VALUES (
+      '$applicant_id',
+      '$firstSchoolName',
+      '$firstSchoolAddress',
+      '$firstSchoolLevel',
+      '$firstSchoolInclusiveDate',
+      '$firstSchoolAwardReceived'
+    )");
+    $conn->exec("INSERT INTO schoolattended_tbl(
+      applicantID,
+      schoolName,
+      address,
+      level,
+      inclusiveDate,
+      honorsAwardsReceived
+    ) VALUES(
+      '$applicant_id',
+      '$secondSchoolName',
+      '$secondSchoolAddress',
+      '$secondSchoolLevel',
+      '$secondSchoolInclusiveDate',
+      '$secondSchoolAwardReceived'
+    )");
+    $conn->exec("INSERT INTO schoolattended_tbl(
+      applicantID,
+      schoolName,
+      address,
+      level,
+      inclusiveDate,
+      honorsAwardsReceived
+    ) VALUES(
+      '$applicant_id',
+      '$thirdSchoolName',
+      '$thirdSchoolAddress',
+      '$thirdSchoolLevel',
+      '$thirdSchoolInclusiveDate',
+      '$thirdSchoolAwardReceived'
+    )");
+    $conn->exec(
+      "INSERT INTO schoolattended_tbl(
+        applicantID,
+        schoolName,
+        address,
+        level,
+        inclusiveDate,
+        honorsAwardsReceived
+      ) VALUES(
+        '$applicant_id',
+        '$fourthSchoolName',
+        '$fourthSchoolAddress',
+        '$fourthSchoolLevel',
+        '$fourthSchoolInclusiveDate',
+        '$fourthSchoolAwardReceived'
+      )"
+    );
+
+    // commit the transaction
+    $conn->commit();
+    echo json_encode(array("insertApplicant" => "success"));
+    }
+catch(PDOException $e)
+    {
+    // roll back the transaction if something failed
+    $conn->rollback();
+    echo "Error: " . $e->getMessage();
+    }
+
+    $conn = null;
+
+
+
+
+    try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // begin the transaction
+    $conn->beginTransaction();
+    // our SQL statements
+    $conn->exec("INSERT INTO characterreference_tbl(
+      applicantID,
+      name,
+      address,
+      contactNo
+    ) VALUES(
+      '$applicant_id',
+      '$firstPersonReferenceName',
+      '$firstPersonReferenceAddress',
+      '$firstPersonReferenceContactNum'
+    )");
+    $conn->exec("INSERT INTO characterreference_tbl(
+      applicantID,
+      name,
+      address,
+      contactNo
+    ) VALUES (
+      '$applicant_id',
+      '$secondPersonReferenceName',
+      '$secondPersonReferenceAddress',
+      '$secondPersonReferenceContactNum'
+    )");
+
+
+    // commit the transaction
+    $conn->commit();
+    echo json_encode(array("insertApplicant" => "success"));
+    }
+catch(PDOException $e)
+    {
+    // roll back the transaction if something failed
+    $conn->rollback();
+    echo "Error: " . $e->getMessage();
+    }
+
+$conn = null;
 
 
 echo json_encode(array("insertApplicant" => "success"));
