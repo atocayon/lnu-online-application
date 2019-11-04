@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2019 at 04:06 PM
+-- Generation Time: Nov 04, 2019 at 03:33 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `lnu-online-application`
 --
-
+CREATE DATABASE `lnu-online-application`; USE `lnu-online-application`;
 -- --------------------------------------------------------
 
 --
@@ -55,13 +55,6 @@ CREATE TABLE `applicant_tbl` (
   `dateApprove` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `applicant_tbl`
---
-
-INSERT INTO `applicant_tbl` (`applicantID`, `applicationType`, `returneeMonth`, `returneeYear`, `returneePasser`, `returneeSelectedCourse`, `firstCoursePreference`, `secondCoursePreference`, `lname`, `fname`, `mname`, `dateOfBirth`, `age`, `sex`, `civilStatus`, `citizenship`, `completeHomeAddress`, `completeCityAddress`, `telNo`, `mobileNo`, `emailAdd`, `applicationStatus`, `applicationDate`, `dateApprove`) VALUES
-('2019113225640287', 'returnee-applicant', '5', '2002', 'no', 'bssw', 'bsbio', 'bssw', 'Stacy Hines', 'Garth Brewer', 'Zena Jarvis', '2006-11-13', 0, 'female', 'widow', 'In sit accusamus ei', 'Perferendis nisi nih', 'Beatae maxime unde a', 'Ullam consequatur q', 'Deserunt voluptatem', 'kozeryfaj@mailinator.net', 0, '2019-11-03', '0000-00-00');
-
 -- --------------------------------------------------------
 
 --
@@ -90,13 +83,6 @@ CREATE TABLE `guardian_tbl` (
   `contactNo` varchar(120) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `guardian_tbl`
---
-
-INSERT INTO `guardian_tbl` (`id`, `applicantID`, `name`, `occupation`, `contactNo`) VALUES
-(1, '2019113225640287', 'A provident est su', 'Sapiente quaerat sed', 'Quasi conse');
-
 -- --------------------------------------------------------
 
 --
@@ -111,20 +97,6 @@ CREATE TABLE `schoolattended_tbl` (
   `level` varchar(120) NOT NULL,
   `inclusiveDate` date NOT NULL,
   `honorsAwardsReceived` varchar(120) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `schoolrecords_tbl`
---
-
-CREATE TABLE `schoolrecords_tbl` (
-  `id` int(11) NOT NULL,
-  `applicantID` varchar(120) NOT NULL,
-  `generalWeightedAverage` varchar(120) NOT NULL,
-  `membershipOrganization` varchar(120) NOT NULL,
-  `hobbiesTalentsInterest` varchar(120) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -172,12 +144,6 @@ ALTER TABLE `schoolattended_tbl`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `schoolrecords_tbl`
---
-ALTER TABLE `schoolrecords_tbl`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `school_last_attended`
 --
 ALTER TABLE `school_last_attended`
@@ -197,18 +163,12 @@ ALTER TABLE `characterreference_tbl`
 -- AUTO_INCREMENT for table `guardian_tbl`
 --
 ALTER TABLE `guardian_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `schoolattended_tbl`
 --
 ALTER TABLE `schoolattended_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `schoolrecords_tbl`
---
-ALTER TABLE `schoolrecords_tbl`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
