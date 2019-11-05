@@ -282,14 +282,14 @@
         <div class="flex-row">
             <div>
                 <label>
-                    <input type="text" placeholder="Last Name" class="form-input" name="lname" id="lname">
+                    <input type="text" placeholder="Your Last Name" class="form-input" name="lname" id="lname">
                 </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div>
-                <input type="text" placeholder="First Name" class="form-input" name="fname" id="fname">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" placeholder="Your First Name" class="form-input" name="fname" id="fname">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div>
-                <input type="text" placeholder="Middle Name" class="form-input" name="mname" id="mname">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" placeholder="Your Middle Name" class="form-input" name="mname" id="mname">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
         <br>
@@ -300,7 +300,7 @@
             </div>
             <div>
                 Age:&nbsp;&nbsp;
-                <input type="text" placeholder="age" class="form-input" name="age" id="age">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" placeholder="Your age" class="form-input" name="age" id="age">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div>
                 Sex:&nbsp;&nbsp;
@@ -331,7 +331,7 @@
                 Complete Home Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div>
-                <input type="text" placeholder="Complete Address" class="form-input" name="complete-homeAddress" id="complete-homeAddress">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" placeholder="Your Complete Address" class="form-input" name="complete-homeAddress" id="complete-homeAddress">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
     <br>
@@ -340,18 +340,18 @@
                 Complete City Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div>
-                <input type="text" placeholder="Complete City Address" class="form-input" name="complete-cityAddress" id="complete-cityAddress">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" placeholder="Your Complete City Address" class="form-input" name="complete-cityAddress" id="complete-cityAddress">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
         <br>
         <div class="flex-row">
             <div>
                 Telephone No. :&nbsp;&nbsp;
-                <input type="text" placeholder="Telephone Numbers" class="form-input" name="tel-no" id="tel-no">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" placeholder="Telephone Number" class="form-input" name="tel-no" id="tel-no">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div>
                 Mobile No.: &nbsp;&nbsp;
-                <input type="text" placeholder="Cellphone Number" class="form-input" name="mobile-no" id="mobile-no">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" placeholder="Mobile Number" class="form-input" name="mobile-no" id="mobile-no">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div>
                 E-mail Address: &nbsp;&nbsp;
@@ -363,16 +363,16 @@
         <div class="flex-row">
             <div>
                 Name of Parent/Guardian:&nbsp;&nbsp;
-                <input type="text" placeholder="name" class="form-input" name="parent-guardian" id="parent-guardian">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" placeholder="Full Name" class="form-input" name="parent-guardian" id="parent-guardian">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div>
                 Occupation:&nbsp;&nbsp;
-                <input type="text" placeholder="occupation" class="form-input" name="occupation" id="occupation">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" placeholder="Occupation" class="form-input" name="occupation" id="occupation">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
 
             <div>
                 Contact No. :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="text" placeholder="occupation" class="form-input" name="contact-no" id="contact-no">
+                <input type="text" placeholder="Mobile number" class="form-input" name="contact-no" id="contact-no">
             </div>
         </div>
 

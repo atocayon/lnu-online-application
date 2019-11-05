@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2019 at 01:32 AM
+-- Generation Time: Nov 05, 2019 at 01:47 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `lnu-online-application`
 --
-CREATE DATABASE `lnu-online-application`;USE `lnu-online-application`;
+CREATE DATABASE `lnu-online-application`; USE `lnu-online-application`;
 -- --------------------------------------------------------
 
 --
@@ -51,7 +51,7 @@ CREATE TABLE `applicant_tbl` (
   `mobileNo` varchar(120) NOT NULL,
   `emailAdd` varchar(120) NOT NULL,
   `applicationStatus` int(11) NOT NULL,
-  `applicationDate` date NOT NULL DEFAULT current_timestamp(),
+  `applicationDate` date NOT NULL,
   `dateApprove` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
