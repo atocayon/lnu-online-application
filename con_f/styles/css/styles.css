@@ -214,4 +214,42 @@ body {
   width: 260px;
   height: 35px; }
 
+.form_application {
+  display: none; }
+
+.lnu-keyword {
+  margin-top: 1vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  color: #012450;
+  font-size: 1.5vw; }
+
+.vision,
+.mission, .coe, .cas {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 2vw;
+  padding: 10px;
+  width: 20vw;
+  border-radius: 8px; }
+  .vision p,
+  .mission p, .coe p, .cas p {
+    text-align: center;
+    font-size: 1vw; }
+
+.img-carousel {
+  width: 50vw;
+  height: 65vh;
+  margin-top: 1vw; }
+
+.carousel-arrow {
+  margin-top: 1vw;
+  margin-left: -2vw; }
+
+#mission {
+  display: none; }
+
+.cme p {
+  font-size: 1vw; }
+
 /*# sourceMappingURL=styles.css.map */

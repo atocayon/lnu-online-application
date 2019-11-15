@@ -107,7 +107,7 @@ $(document).ready(function() {
             $("#hobbies-talents-interests")
               .keyup(function() {
                 if ($(this).val().length > 0) {
-                
+
                   if (
                     $("#first-school-name").val() !== "" &&
                     $("#first-school-address").val() !== "" &&
@@ -314,6 +314,7 @@ $(document).ready(function() {
           success: function(data) {
             if (data.insertApplicant === "success") {
               console.log("success");
+              location.reload();
             } else {
               console.log("failed");
             }
@@ -356,5 +357,21 @@ $(document).ready(function() {
     $(".form-1").hide();
     $(".form-2").hide();
     $(".form-3").hide();
+  });
+  var vision = 1;
+  var mission = 0;
+  $("#arrow-right").click(function(){
+    $("#vision").hide();
+    $("#mission").show();
+  });
+
+  $("#arrow-left").click(function(){
+    $("#mission").hide();
+    $("#vision").show();
+  });
+
+  $("#apply-now").click(function(){
+    $(".main-page").hide();
+    $(".form_application").show();
   });
 });

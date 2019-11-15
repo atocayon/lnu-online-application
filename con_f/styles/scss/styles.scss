@@ -13,6 +13,10 @@ body{
   margin: 0;
   padding: 0;
   font-family: 'Abel', sans-serif;
+  // background-image: url("../../../img/logo-background.png");
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  // background-position: center center;
 }
 
 .flex-row{
@@ -49,3 +53,50 @@ body{
   height: 35px;
 }
 
+.form_application{
+  display: none;
+}
+
+.lnu-keyword{
+  margin-top: 1vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  color: $darkBlue;
+  font-size: 1.5vw;
+}
+
+.vision,
+.mission , .coe,.cas{
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 2vw;
+  // border: 1px solid #ECEFF1;
+  padding: 10px;
+  width: 20vw;
+  border-radius: 8px;
+  p{
+    text-align: center;
+    font-size: 1vw;
+  }
+}
+
+.img-carousel{
+  width: 50vw;
+  height: 65vh;
+  margin-top: 1vw;
+}
+
+.carousel-arrow{
+  margin-top: 1vw;
+  margin-left: -2vw;
+}
+
+#mission{
+  display: none;
+}
+
+.cme{
+  p{
+    font-size: 1vw;
+  }
+}
