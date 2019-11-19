@@ -309,7 +309,7 @@ $(document).ready(function() {
           success: function(data) {
             if (data.insertApplicant === "success") {
               console.log("success");
-              location.reload();
+              window.location.reload(true);
             } else {
               console.log("failed");
             }
