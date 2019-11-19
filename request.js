@@ -119,11 +119,6 @@ $(document).ready(function() {
                     $("#second-school-level").val() !== "" &&
                     $("#second-school-inclusiveDate").val() !== "" &&
                     $("#second-school-award-received").val() !== "" &&
-                    $("#third-school-name").val() !== "" &&
-                    $("#third-school-address").val() !== "" &&
-                    $("#third-school-level").val() !== "" &&
-                    $("#third-school-inclusiveDate").val() !== "" &&
-                    $("#third-school-award-received").val() !== "" &&
                     $("#general-weighted-average").val() !== "" &&
                     $("#membership-organization").val() !== ""
                   ) {
