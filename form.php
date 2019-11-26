@@ -213,6 +213,12 @@
             </div>
         </div>
 
+        <!-- <div class="flex-row right btn-container">
+          <div class="">
+            <button type="button" name="button" class="btn-form" id="btn-next-to-second-step">Next</button>
+          </div>
+        </div> -->
+
     </div>
 </div>
 <!--End of Form 1-->
@@ -326,6 +332,18 @@
         </div>
 
     </div>
+
+    <!-- <div class="flex-row right btn-container">
+      <div class="">
+        <button type="button" name="button" class="btn-form" id="btn-next-to-third-step">Previous</button>
+      </div>
+      <div class="">
+        <button type="button" name="button" class="btn-form" id="btn-prev-to-first-step">Next</button>
+      </div>
+
+    </div> -->
+
+
 </div>
 <!--End of Form 2-->
 
@@ -541,6 +559,16 @@
         </div>
         <div style="height: 50px;"></div>
     </div>
+
+    <!-- <div class="flex-row right btn-container">
+      <div class="">
+        <button type="button" name="button" class="btn-form" id="btn-next-to-fourth-step">Previous</button>
+      </div>
+      <div class="">
+        <button type="button" name="button" class="btn-form" id="btn-prev-to-second-step">Next</button>
+      </div>
+
+    </div> -->
 </div>
 <!--End of Form 3-->
 
@@ -633,11 +661,9 @@
 
         <br>
         <br>
-        <div class="flex-row" style="justify-content: flex-end; margin-right: 100px;">
+        <div class="flex-row right">
             <div>
-                <a href="#" id="btn-submit" style="text-decoration: none;color: #012450;border: 1px solid #fafafa;background-color: #fafafa;padding: 10px;border-radius: 5px">
-                    <b>Submit</b>
-                </a>
+              <button type="button" name="button" class="btn-form" id="btn-submit">Submit</button>
             </div>
         </div>
     </div>

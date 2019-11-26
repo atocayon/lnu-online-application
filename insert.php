@@ -229,7 +229,7 @@ try {
 
     // commit the transaction
     $conn->commit();
-    echo json_encode(array("insertApplicant" => "success"));
+    // echo json_encode(array("insertApplicant" => "success"));
     }
 catch(PDOException $e)
     {
@@ -277,7 +277,7 @@ catch(PDOException $e)
 
     // commit the transaction
     $conn->commit();
-    echo json_encode(array("insertApplicant" => "success"));
+    // echo json_encode(array("insertApplicant" => "success"));
     }
 catch(PDOException $e)
     {

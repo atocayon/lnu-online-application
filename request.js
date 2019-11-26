@@ -307,9 +307,12 @@ $(document).ready(function() {
           },
           cache: false,
           success: function(data) {
+            console.log(data);
             if (data.insertApplicant === "success") {
               console.log("success");
-              window.location.reload(true);
+              $(".modal-container").show();
+              $(".backdrop").show();
+              $("body").css("overflow","hidden");
             } else {
               console.log("failed");
             }
@@ -353,8 +356,7 @@ $(document).ready(function() {
     $(".form-2").hide();
     $(".form-3").hide();
   });
-  var vision = 1;
-  var mission = 0;
+
   $("#arrow-right").click(function(){
     $("#vision").hide();
     $("#mission").show();
@@ -368,5 +370,14 @@ $(document).ready(function() {
   $("#apply-now").click(function(){
     $(".main-page").hide();
     $(".form_application").show();
+  });
+
+  $("#btn-modal").click(function(){
+    $(".modal-container").hide();
+    $(".backdrop").hide();
+    $(".form_application").hide();
+    $(".main-page").hide();
+    $("body").css("overflow","auto");
+    $(".printable-page").show();
   });
 });
