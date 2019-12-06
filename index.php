@@ -1,5 +1,6 @@
 <html lang="en">
 <head>
+  <meta charset="utf-8">
     <link rel="icon" href="img/logo.png" type="image/gif">
     <title>LNU Online Application</title>
     <link rel="stylesheet" type="text/css" href="con_f/styles/css/styles.css">
@@ -15,13 +16,13 @@
 <?php require "navbar.php"; ?>
 <!--End Navbar-->
 
-<div class="form_application" style="display: none">
+<div class="form_application">
   <!-- Forms -->
   <?php require "form.php"; ?>
   <!-- End of Forms -->
 </div>
 
-<div class="main-page" style="display: none">
+<div class="main-page">
   <?php require "main.php"; ?>
 </div>
 
@@ -54,7 +55,6 @@
 
  var applicant_id = year+""+month+""+day+""+hours+""+minutes+""+seconds+""+milliseconds;
 
- console.log();
 </script>
 </body>
 </html>

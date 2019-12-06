@@ -213,11 +213,11 @@
             </div>
         </div>
 
-        <!-- <div class="flex-row right btn-container">
+        <div class="flex-row right btn-container">
           <div class="">
             <button type="button" name="button" class="btn-form" id="btn-next-to-second-step">Next</button>
           </div>
-        </div> -->
+        </div>
 
     </div>
 </div>
@@ -333,15 +333,15 @@
 
     </div>
 
-    <!-- <div class="flex-row right btn-container">
+    <div class="flex-row right btn-container">
       <div class="">
-        <button type="button" name="button" class="btn-form" id="btn-next-to-third-step">Previous</button>
+        <button type="button" name="button" class="btn-form" id="btn-prev-to-first-step">Previous</button>
       </div>
       <div class="">
-        <button type="button" name="button" class="btn-form" id="btn-prev-to-first-step">Next</button>
+        <button type="button" name="button" class="btn-form" id="btn-next-to-third-step">Next</button>
       </div>
 
-    </div> -->
+    </div>
 
 
 </div>
@@ -560,15 +560,15 @@
         <div style="height: 50px;"></div>
     </div>
 
-    <!-- <div class="flex-row right btn-container">
+    <div class="flex-row right btn-container">
       <div class="">
-        <button type="button" name="button" class="btn-form" id="btn-next-to-fourth-step">Previous</button>
+        <button type="button" name="button" class="btn-form" id="btn-prev-to-second-step" >Previous</button>
       </div>
       <div class="">
-        <button type="button" name="button" class="btn-form" id="btn-prev-to-second-step">Next</button>
+        <button type="button" name="button" class="btn-form" id="btn-next-to-fourth-step">Next</button>
       </div>
 
-    </div> -->
+    </div>
 </div>
 <!--End of Form 3-->
 

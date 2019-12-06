@@ -171,6 +171,56 @@
   font-size: 1.5rem;
   color: #012450; }
 
+.sidebar {
+  background: #fafafa;
+  height: 100vh; }
+  .sidebar div {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    font-size: 1vw; }
+    .sidebar div:hover {
+      background: #333; }
+      .sidebar div:hover a {
+        color: #fafafa; }
+  .sidebar a {
+    color: #333;
+    text-decoration: none; }
+  .sidebar .sidebar-applicant {
+    background: #333;
+    color: #fafafa; }
+    .sidebar .sidebar-applicant a {
+      color: #fafafa; }
+
+.applicant {
+  margin-left: 2vw;
+  margin-top: 2vh; }
+  .applicant table {
+    width: 60vw; }
+    .applicant table th {
+      font-size: 1vw;
+      border-bottom: 0.5px solid #333;
+      padding: 0.3vw; }
+    .applicant table td {
+      font-size: 0.7vw;
+      padding: 0.3vw;
+      text-align: center; }
+
+.enrolled {
+  margin-left: 2vw;
+  margin-top: 2vh; }
+  .enrolled table {
+    width: 60vw; }
+    .enrolled table th {
+      font-size: 1vw;
+      border-bottom: 0.5px solid #333;
+      padding: 0.3vw; }
+    .enrolled table td {
+      font-size: 0.7vw;
+      padding: 0.3vw;
+      text-align: center; }
+
 body {
   margin: 0;
   padding: 0;
@@ -305,29 +355,95 @@ body {
   padding: 0.5vw;
   border: 1px solid #012450; }
 
+.buttonPrint {
+  display: none;
+  padding: 2vw; }
+
+#print {
+  width: 5vw;
+  height: 5vh;
+  padding: 0.5vw;
+  border-radius: 10px;
+  border: 1px solid #333; }
+
 .printable-form-container {
-  margin-left: 20%;
-  margin-right: 20%;
-  border: 5px solid #fafafa;
+  display: none;
+  margin-left: 10%;
+  margin-right: 10%;
   padding: 2vw; }
   .printable-form-container .user-avatar {
-    width: 120px;
-    margin-left: 10vw;
+    width: 8vw;
+    margin-left: 15vw;
     margin-top: 7vh;
     border: 1px solid #333;
     padding: 1vw; }
   .printable-form-container .lnu-logo {
-    width: 120px;
-    margin-right: 7vw; }
+    width: 8vw;
+    margin-right: 10vw; }
   .printable-form-container .printable-content {
-    margin-left: 3vw;
-    margin-right: 3vw; }
+    margin-left: 5px; }
   .printable-form-container table {
-    width: 40vw; }
+    width: 50vw; }
     .printable-form-container table th {
       text-align: left;
-      padding: 0.5vw; }
+      padding: 0.5vw;
+      border: 1px solid #333; }
     .printable-form-container table td {
-      padding: 0.5vw; }
+      padding: 0.5vw;
+      border-bottom: 1px solid #333;
+      border-left: 1px solid #333;
+      border-right: 1px solid #333; }
+  .printable-form-container .applicant-signature, .printable-form-container .date-accomplish {
+    display: none; }
+  .printable-form-container .guidance-remarks {
+    display: none; }
+  .printable-form-container .personalStatement {
+    display: none; }
+  .printable-form-container .coursePreferenceContainer {
+    display: none; }
+  @media print {
+    .printable-form-container {
+      margin-left: 0px;
+      margin-right: 0px; }
+      .printable-form-container .lnu-logo {
+        width: 110px;
+        margin-right: 100px; }
+      .printable-form-container .user-avatar {
+        width: 130px;
+        margin-left: 90px;
+        margin-top: 50px;
+        border: 1px solid #333;
+        padding: 1vw; }
+      .printable-form-container table {
+        width: 100vw; }
+        .printable-form-container table th {
+          text-align: left;
+          padding: 0.5vw; }
+        .printable-form-container table td {
+          padding: 0.5vw; }
+      .printable-form-container #character-reference {
+        margin-top: 5px; }
+      .printable-form-container .applicant-signature, .printable-form-container .date-accomplish {
+        display: block;
+        text-align: center;
+        margin-top: 100px;
+        margin-left: 150px;
+        margin-right: 150px; }
+      .printable-form-container .guidance-remarks {
+        display: block;
+        border: 1px solid #333;
+        padding: 10px;
+        width: 200px;
+        height: 50px;
+        margin-top: 100px; }
+      .printable-form-container .personalStatement {
+        display: block;
+        margin-top: 350px; }
+      .printable-form-container .coursePreferenceContainer {
+        display: block;
+        margin-top: 50px; }
+      .printable-form-container .course-preference {
+        margin-left: 100px;
+        margin-right: 100px; } }
 
 /*# sourceMappingURL=styles.css.map */

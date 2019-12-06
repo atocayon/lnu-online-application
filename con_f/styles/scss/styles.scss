@@ -8,7 +8,8 @@
 @import "form-3";
 @import "form-4";
 @import "webTitle";
-
+@import "sidebar";
+@import "adminDisplay";
 body{
   margin: 0;
   padding: 0;
@@ -162,38 +163,137 @@ body{
   border: 1px solid $darkBlue;
 }
 
+.buttonPrint{
+  display: none;
+  padding: 2vw;
+}
+
+#print{
+  width: 5vw;
+  height: 5vh;
+  padding: 0.5vw;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
 .printable-form-container{
-  margin-left: 20%;
-  margin-right: 20%;
-  border: 5px solid #fafafa;
+  display: none;
+  margin-left: 10%;
+  margin-right: 10%;
   padding: 2vw;
 
   .user-avatar{
-    width: 120px;
-    margin-left: 10vw;
+    width: 8vw;
+    margin-left: 15vw;
     margin-top: 7vh;
     border: 1px solid #333;
     padding: 1vw;
   }
 
   .lnu-logo{
-    width: 120px;
-    margin-right: 7vw;
+    width: 8vw;
+    margin-right: 10vw;
   }
 
   .printable-content{
-    margin-left: 3vw;
-    margin-right: 3vw;
+    margin-left: 5px;
   }
 
   table{
-    width: 40vw;
+    width: 50vw;
     th{
       text-align: left;
       padding: 0.5vw;
+      border: 1px solid #333;
     }
     td{
       padding: 0.5vw;
+      border-bottom: 1px solid #333;
+      border-left: 1px solid #333;
+      border-right: 1px solid #333;
+    }
+  }
+
+  .applicant-signature, .date-accomplish{
+    display: none;
+
+  }
+
+  .guidance-remarks{
+    display: none;
+  }
+
+  .personalStatement{
+    display: none;
+  }
+
+  .coursePreferenceContainer{
+    display: none;
+  }
+
+  @media print {
+    margin-left: 0px;
+    margin-right: 0px;
+
+    .lnu-logo{
+      width: 110px;
+      margin-right: 100px;
+    }
+
+    .user-avatar{
+      width: 130px;
+      margin-left: 90px;
+      margin-top: 50px;
+      border: 1px solid #333;
+      padding: 1vw;
+    }
+
+    table{
+      width: 100vw;
+      th{
+        text-align: left;
+        padding: 0.5vw;
+      }
+      td{
+        padding: 0.5vw;
+      }
+    }
+
+    #character-reference{
+      margin-top: 5px;
+    }
+
+    .applicant-signature, .date-accomplish{
+      display: block;
+      text-align: center;
+      margin-top: 100px;
+      margin-left: 150px;
+      margin-right: 150px;
+    }
+
+    .guidance-remarks{
+      display: block;
+      border: 1px solid #333;
+      padding: 10px;
+      width: 200px;
+      height: 50px;
+      margin-top: 100px;
+    }
+
+    .personalStatement{
+      display: block;
+      margin-top: 350px;
+    }
+
+    .coursePreferenceContainer{
+      display: block;
+      margin-top: 50px;
+    }
+
+
+    .course-preference{
+      margin-left: 100px;
+      margin-right: 100px;
     }
   }
 }

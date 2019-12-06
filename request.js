@@ -2,149 +2,121 @@ $(document).ready(function() {
   $(function() {
     //First Form
     //Status Checkbox
+
+    $("#btn-next-to-second-step").click(function() {
+      if ($("input[name='status']:checked").val() !== "") {
+        if ($("input[name='status']:checked").val() === "returnee-applicant") {
+          if (
+            $("#returnee-month").val() !== "" &&
+            $("#returnee-year").val() !== "" &&
+            $("input[name='passer-radio']:checked").val() !== "" &&
+            $("#returnee-specify-course").val() !== "undefined" &&
+            $("#first-course-preference").val() !== "" &&
+            $("#second-course-preference").val() !== ""
+          ) {
+            $(".form-1").hide();
+            $(".form-2").show();
+            $(".step-1, #step-1-text").css("color", "green");
+            $(".step-1-circle").css("background-color", "#012450");
+            $(".step-2, #step-2-text").css("font-weight", "bold");
+          }
+        } else {
+          if (
+            $("#first-course-preference").val() !== "" &&
+            $("#second-course-preference").val() !== ""
+          ) {
+            $(".form-1").hide();
+            $(".form-2").show();
+            $(".step-1, #step-1-text").css("color", "green");
+            $(".step-1-circle").css("background-color", "#012450");
+            $(".step-2, #step-2-text").css("font-weight", "bold");
+          }
+        }
+      }
+    });
+
+    $("#btn-prev-to-first-step").click(function() {
+      $(".form-1").show();
+      $(".form-2").hide();
+      $(".step-1, #step-1-text").css("color", "#012450");
+      $(".step-1-circle").css("background-color", "#fafafa");
+      $(".step-2, #step-2-text").css("font-weight", "normal");
+      $(".step-2, #step-2-text").css("color", "#012450");
+    });
+
     $("input[name='status']").click(function() {
       //IF returnee checkbox is checked
       if ($("#checkbox-returnee").is(":checked")) {
         $("#returnee").show();
-        $("input[name='passer-radio']").click(function() {
-          if ($("#pass-no").is(":checked") || $("#pass-yes").is(":checked")) {
-            $("#second-course-preference").change(function() {
-              if (
-                $("#returnee-month").val() !== "" &&
-                $("#returnee-year").val() !== "" &&
-                $("#returnee-specify-course").val() !== "undefined" &&
-                $("#first-course-preference").val() !== "" &&
-                $("#second-course-preference").val() !== ""
-              ) {
-                $(".form-2").show();
-                $(".form-1").hide();
-                $(".step-1, #step-1-text").css("color", "green");
-                $(".step-1-circle").css("background-color", "#012450");
-                $(".step-2, #step-2-text").css("font-weight", "bold");
-              } else {
-                $(".step-1, #step-1-text").css("color", "#012450");
-                $(".step-1-circle").css("background-color", "#fafafa");
-                $(".step-2, #step-2-text").css("font-weight", "regular");
-              }
-            });
-          }
-        });
-
-        //If new or transferee checkbox is checked
       } else {
         $("#returnee").hide();
-        if (
-          $("#checkbox-new").is(":checked") ||
-          $("#checkbox-transferee").is(":checked")
-        ) {
-          $("#second-course-preference").change(function() {
-            if (
-              $("#first-course-preference").val() !== "" &&
-              $("#second-course-preference").val() !== ""
-            ) {
-              $(".form-2").show();
-              $(".form-1").hide();
-              $(".step-1, #step-1-text").css("color", "green");
-              $(".step-1-circle").css("background-color", "#012450");
-              $(".step-2, #step-2-text").css("font-weight", "bold");
-            } else {
-              $(".step-1, #step-1-text").css("color", "#012450");
-              $(".step-1-circle").css("background-color", "#fafafa");
-              $(".step-2, #step-2-text").css("font-weight", "regular");
-            }
-          });
-        }
       }
     });
   }); //    End First Forms
 
-  //    Second Form
-  $(function() {
-    $("#contact-no")
-      .keyup(function() {
-        if ($(this).val().length === 11) {
-          if (
-            $("#lname").val() !== "" &&
-            $("#fname").val() !== "" &&
-            $("#mname").val() !== "" &&
-            $("#age").val() !== "" &&
-            $("#gender").val() !== "" &&
-            $("#status").val() !== "" &&
-            $("#citizenship").val() !== "" &&
-            $("#complete-homeAddress").val() !== "" &&
-            $("#complete-cityAddress").val() !== "" &&
-            $("#tel-no").val() !== "" &&
-            $("#mobile-no").val() !== "" &&
-            $("#email-adds").val() !== "" &&
-            $("#parent-guardian").val() !== "" &&
-            $("#occupation").val() !== "" &&
-            $("#contact-no").val() !== ""
-          ) {
-            $(".form-2").hide();
-            $(".form-3").show();
-            $(".step-2, #step-2-text").css("color", "green");
-            $(".step-2-circle").css("background-color", "#012450");
-            $(".step-3, #step-3-text").css("font-weight", "bold");
-          }
-        }
-      })
-      .keyup();
+  $("#btn-next-to-third-step").click(function() {
+    if (
+      $("#lname").val() !== "" &&
+      $("#fname").val() !== "" &&
+      $("#mname").val() !== "" &&
+      $("#age").val() !== "" &&
+      $("#gender").val() !== "" &&
+      $("#status").val() !== "" &&
+      $("#citizenship").val() !== "" &&
+      $("#complete-homeAddress").val() !== "" &&
+      $("#complete-cityAddress").val() !== "" &&
+      $("#tel-no").val() !== "" &&
+      $("#mobile-no").val() !== "" &&
+      $("#email-adds").val() !== "" &&
+      $("#parent-guardian").val() !== "" &&
+      $("#occupation").val() !== "" &&
+      $("#contact-no").val() !== ""
+    ) {
+      $(".form-2").hide();
+      $(".form-3").show();
+      $(".step-2, #step-2-text").css("color", "green");
+      $(".step-2-circle").css("background-color", "#012450");
+      $(".step-3, #step-3-text").css("font-weight", "bold");
+    }
   });
-  //End of Second Form
 
-  //Third Form
-  $(function() {
-    $("input[name='type-of-school']").click(function() {
-      if (
-        $("#publicSchool-checkbox").is(":checked") ||
-        $("#privateSchool-checkbox").is(":checked")
-      ) {
-        $("input[name='school-category']").click(function() {
-          if (
-            $("#religious-school").is(":checked") ||
-            $("#non-religious-school").is(":checked")
-          ) {
-            $("#hobbies-talents-interests")
-              .keyup(function() {
-                if ($(this).val().length > 0) {
+  $("#btn-prev-to-second-step").click(function() {
+    $(".form-3").hide();
+    $(".form-2").show();
+    $(".step-2, #step-2-text").css("color", "#012450");
+    $(".step-2-circle").css("background-color", "#fafafa");
+    $(".step-3, #step-3-text").css("font-weight", "normal");
+    $(".step-3, #step-3-text").css("color", "#012450");
+  });
 
-                  if (
-                    $("#first-school-name").val() !== "" &&
-                    $("#first-school-address").val() !== "" &&
-                    $("#first-school-level").val() !== "" &&
-                    $("#first-school-inclusiveDate").val() !== "" &&
-                    $("#first-school-award-received").val() !== "" &&
-                    $("#second-school-name").val() !== "" &&
-                    $("#second-school-address").val() !== "" &&
-                    $("#second-school-level").val() !== "" &&
-                    $("#second-school-inclusiveDate").val() !== "" &&
-                    $("#second-school-award-received").val() !== "" &&
-                    $("#general-weighted-average").val() !== "" &&
-                    $("#membership-organization").val() !== ""
-                  ) {
-
-                    $(".form-3").hide();
-                    $(".form-4").show();
-                    $(".step-3, #step-3-text").css("color", "green");
-                    $(".step-3-circle").css("background-color", "#012450");
-                    $(".step-4, #step-4-text").css("font-weight", "bold");
-                  }
-                }
-              })
-              .keyup();
-          }
-        });
-      }
-    });
-  }); // End of third form
+  $("#btn-next-to-fourth-step").click(function() {
+    if (
+      $("input[name='type-of-school']:checked").val() !== "" &&
+      $("input[name='school-category']").val() !== "" &&
+      $("#first-school-name").val() !== "" &&
+      $("#first-school-address").val() !== "" &&
+      $("#first-school-level").val() !== "" &&
+      $("#first-school-inclusiveDate").val() !== "" &&
+      $("#first-school-award-received").val() !== "" &&
+      $("#second-school-name").val() !== "" &&
+      $("#second-school-address").val() !== "" &&
+      $("#second-school-level").val() !== "" &&
+      $("#second-school-inclusiveDate").val() !== "" &&
+      $("#second-school-award-received").val() !== "" &&
+      $("#general-weighted-average").val() !== "" &&
+      $("#membership-organization").val() !== ""
+    ) {
+      $(".form-3").hide();
+      $(".form-4").show();
+      $(".step-3, #step-3-text").css("color", "green");
+      $(".step-3-circle").css("background-color", "#012450");
+      $(".step-4, #step-4-text").css("font-weight", "bold");
+    }
+  });
 
   //Fourth Form
   $(function() {
-    $("#btn-submit").click(function(event) {
-      event.preventDefault();
-
-      console.log($("#third-school-award-received").val());
-
+    $("#btn-submit").click(function() {
       if (
         $("#first-person-reference-name").val() !== "" &&
         $("#first-person-reference-address").val() !== "" &&
@@ -203,19 +175,16 @@ $(document).ready(function() {
           $("#fourth-school-level").val() !== "" &&
           $("#fourth-school-award-received").val() !== ""
         ) {
-
           fourthSchoolName = $("#fourth-school-name").val();
           fourthSchoolAddress = $("#fourth-school-address").val();
           fourthSchoolLevel = $("#fourth-school-level").val();
           fourthSchoolAwardReceived = $("#fourth-school-award-received").val();
-        }else{
+        } else {
           fourthSchoolName = "undefined";
           fourthSchoolAddress = "undefined";
           fourthSchoolLevel = "undefined";
           fourthSchoolAwardReceived = "undefined";
         }
-
-
 
         $.ajax({
           url: "insert.php",
@@ -312,7 +281,175 @@ $(document).ready(function() {
               console.log("success");
               $(".modal-container").show();
               $(".backdrop").show();
-              $("body").css("overflow","hidden");
+              $("body").css("overflow", "hidden");
+              if ($("input[name='status']:checked").val() === "new-applicant") {
+                $("#statusNew").prop("checked", true);
+              }
+
+              if (
+                $("input[name='status']:checked").val() ===
+                "transferee-applicant"
+              ) {
+                $("#statusTransferee").prop("checked", true);
+              }
+
+              if (
+                $("input[name='status']:checked").val() === "returnee-applicant"
+              ) {
+                $("#statusReturnee").prop("checked", true);
+              }
+
+              if ($("#returnee-month").val() !== "undefined") {
+                $("#last_apply_month").text($("#returnee-month").val());
+              }
+
+              if ($("#returnee-year").val() !== "undefined") {
+                $("#last_apply_year").text($("#returnee-year").val());
+              }
+
+              if ($("input[name='passer-radio']:checked").val() === "no") {
+                $("#last_apply_passerNo").prop("checked", true);
+              }
+
+              if ($("input[name='passer-radio']:checked").val() === "yes") {
+                $("#last_apply_passerYes").prop("checked", true);
+              }
+
+              if ($("#returnee-specify-course").val() !== "undefined") {
+                $("#last_applyCourse").text(
+                  $("#returnee-specify-course").val()
+                );
+              }
+
+              $("#applicantFirstCoursePreference").text(
+                $("#first-course-preference").val()
+              );
+              $("#applicantSecondCourserPreference").text(
+                $("#second-course-preference").val()
+              );
+              $("#applicantLastName").text($("#lname").val());
+              $("#applicantFirstName").text($("#fname").val());
+              $("#applicantMiddleName").text($("#mname").val());
+              $("#applicantDateOfBirth").text(
+                [bdate_year, bdate_month, bdate_day].join("-")
+              );
+              $("#applicantAge").text($("#age").val());
+              $("#applicantGender").text($("#sex").val());
+              $("#applicantStatus").text($("#status").val());
+              $("#applicantCitizenship").text($("#citizenship").val());
+              $("#applicantHomeAddress").text($("#complete-homeAddress").val());
+              $("#applicantCityAddress").text($("#complete-cityAddress").val());
+              $("#applicantTelNo").text($("#tel-no").val());
+              $("#applicantMobileNo").text($("#mobile-no").val());
+              $("#applicantEmail").text($("#email-adds").val());
+              $("#applicantGuardianName").text($("#parent-guardian").val());
+              $("#applicantGuardianOccupation").text($("#occupation").val());
+              $("#applicantGuardianContactNo").text($("#contact-no").val());
+              $("#applicantLastSchoolAttendedType").text(
+                $("input[name='type-of-school']:checked").val()
+              );
+              $("#applicantLastSchoolAttendedCategory").text(
+                $("input[name='school-category']:checked").val()
+              );
+
+              $("#applicantGWA").text($("#general-weighted-average").val());
+              $("#applicantMembershipOrgranization").text(
+                $("#membership-organization").val()
+              );
+              $("#applicantInterest").text(
+                $("#hobbies-talents-interests").val()
+              );
+
+              var fullName = $("#fname").val()+""+$("#mname").val()+""+$("#lname").val();
+
+              $("#applicantFullName").text(fullName);
+              $("#date_applied").text([year, month, day].join("-"));
+
+              var nameOfSchoolAttended = [
+                {
+                  name: $("#first-school-name").val(),
+                  address: $("#first-school-address").val(),
+                  level: $("#first-school-level").val(),
+                  inclusiveDate: [
+                    firstSchoolInclusiveDate_year,
+                    firstSchoolInclusiveDate_month,
+                    firstSchoolInclusiveDate_day
+                  ].join("-"),
+                  award: $("#first-school-award-received").val()
+                },
+
+                {
+                  name: $("#second-school-name").val(),
+                  address: $("#second-school-address").val(),
+                  level: $("#second-school-level").val(),
+                  inclusiveDate: [
+                    secondSchoolInclusiveDate_year,
+                    secondSchoolInclusiveDate_month,
+                    secondSchoolInclusiveDate_day
+                  ].join("-"),
+                  award: $("#second-school-award-received").val()
+                },
+                {
+                  name: $("#third-school-name").val(),
+                  address: $("#third-school-address").val(),
+                  level: $("#third-school-level").val(),
+                  inclusiveDate: [
+                    thirdSchoolInclusiveDate_year,
+                    thirdSchoolInclusiveDate_month,
+                    thirdSchoolInclusiveDate_day
+                  ].join("-"),
+                  award: $("#third-school-award-received").val()
+                },
+                {
+                  name: fourthSchoolName,
+                  address: fourthSchoolAddress,
+                  level: fourthSchoolLevel,
+                  inclusiveDate: [
+                    fourthSchoolInclusiveDate_year,
+                    fourthSchoolInclusiveDate_month,
+                    fourthSchoolInclusiveDate_day
+                  ].join("-"),
+                  award: fourthSchoolAwardReceived
+                }
+              ];
+
+              var tbl1 = "";
+              for (var i = 0; i < nameOfSchoolAttended.length; i++) {
+                tbl1 += "<tr>";
+                tbl1 += "<td>" + nameOfSchoolAttended[i]["name"] + "</td>";
+                tbl1 += "<td>" + nameOfSchoolAttended[i]["address"] + "</td>";
+                tbl1 += "<td>" + nameOfSchoolAttended[i]["level"] + "</td>";
+                tbl1 +=
+                  "<td>" + nameOfSchoolAttended[i]["inclusiveDate"] + "</td>";
+                tbl1 += "<td>" + nameOfSchoolAttended[i]["award"] + "</td>";
+                tbl1 += "</tr>";
+              }
+
+              $("#nameOfSchoolAttended").prepend(tbl1);
+
+              var characterReference = [
+                {
+                  name: $("#first-person-reference-name").val(),
+                  address: $("#first-person-reference-address").val(),
+                  cnum: $("#first-person-reference-cnum").val()
+                },
+                {
+                  name: $("#second-person-reference-name").val(),
+                  address: $("#second-person-reference-address").val(),
+                  cnum: $("#second-person-reference-cnum").val()
+                }
+              ];
+
+              var tbl2 = "";
+              for (var i = 0; i < characterReference.length; i++) {
+                tbl2 += "<tr>";
+                tbl2 += "<td>"+characterReference[i]["name"]+"</td>";
+                tbl2 += "<td>"+characterReference[i]["address"]+"</td>";
+                tbl2 += "<td>"+characterReference[i]["cnum"]+"</td>";
+                tbl2 += "</tr>";
+              }
+
+              $("#characterReference").prepend(tbl2);
             } else {
               console.log("failed");
             }
@@ -357,27 +494,65 @@ $(document).ready(function() {
     $(".form-3").hide();
   });
 
-  $("#arrow-right").click(function(){
+  $("#arrow-right").click(function() {
     $("#vision").hide();
     $("#mission").show();
   });
 
-  $("#arrow-left").click(function(){
+  $("#arrow-left").click(function() {
     $("#mission").hide();
     $("#vision").show();
   });
 
-  $("#apply-now").click(function(){
+  $("#apply-now").click(function() {
     $(".main-page").hide();
     $(".form_application").show();
   });
 
-  $("#btn-modal").click(function(){
+  $("#btn-modal").click(function() {
     $(".modal-container").hide();
     $(".backdrop").hide();
     $(".form_application").hide();
     $(".main-page").hide();
-    $("body").css("overflow","auto");
+    $("body").css("overflow", "auto");
     $(".printable-page").show();
+    $(".buttonPrint").show();
+    $(".printable-form-container").show();
+  });
+
+  $("#link-schedule").click(function(){
+    $(".applicant").hide();
+    $(".enrolled").hide();
+    $(".schedule").show();
+    $(".sidebar-applicant").css("background","#fafafa");
+    $(".sidebar-applicant > a").css("color","#333");
+    $(".sidebar-enrolled").css("background","#fafafa");
+    $(".sidebar-enrolled > a ").css("color","#333");
+    $(".sidebar-schedule").css("background","#333");
+    $(".sidebar-schedule > a").css("color","#fafafa");
+  });
+
+  $("#link-applicants").click(function(){
+    $(".applicant").show();
+    $(".enrolled").hide();
+    $(".schedule").hide();
+    $(".sidebar-applicant").css("background","#333");
+    $(".sidebar-applicant > a").css("color","#fafafa");
+    $(".sidebar-enrolled").css("background","#fafafa");
+    $(".sidebar-enrolled > a ").css("color","#333");
+    $(".sidebar-schedule").css("background","#fafafa");
+    $(".sidebar-schedule > a").css("color","#333");
+  });
+
+  $("#link-enrolled").click(function(){
+    $(".applicant").hide();
+    $(".enrolled").show();
+    $(".schedule").hide();
+    $(".sidebar-applicant").css("background","#fafafa");
+    $(".sidebar-applicant > a").css("color","#333");
+    $(".sidebar-enrolled").css("background","#333");
+    $(".sidebar-enrolled > a ").css("color","#fafafa");
+    $(".sidebar-schedule").css("background","#fafafa");
+    $(".sidebar-schedule > a").css("color","#333");
   });
 });
