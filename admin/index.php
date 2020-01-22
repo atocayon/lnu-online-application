@@ -41,8 +41,8 @@ session_start();
               <a href="#" id="link-enrolled">Approved</a>
             </div>
 
-            <div class="sidebar-enrolled">
-              <a href="#" id="link-enrolled">Logout, <?= $_SESSION['user'] ?></a>
+            <div class="sidebar-logout">
+              <a href="admin-logout.php" id="link-logout">Logout, <?= $_SESSION['user'] ?></a>
             </div>
           </div>
 
