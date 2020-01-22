@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -8,128 +13,145 @@
     <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
   </head>
   <body>
-    <!--Header-->
-    <?php require "header.php"; ?>
 
-    <!--Navbar-->
-    <?php require "navbar.php"; ?>
-    <!--End Navbar-->
+    <?php
+      if (isset($_SESSION['user'])) {
+        ?>
 
-    <div class="flex-row">
+        <!--Header-->
+        <?php require "header.php"; ?>
 
-      <div class="flex-column sidebar">
-        <div class="sidebar-schedule">
-          <a href="#" id="link-schedule">Set Application Schedule</a>
-        </div>
+        <!--Navbar-->
+        <?php require "navbar.php"; ?>
+        <!--End Navbar-->
 
-        <div class="sidebar-applicant">
-          <a href="#" id="link-applicants">Applicants</a>
+        <div class="flex-row">
 
-        </div>
+          <div class="flex-column sidebar">
+            <div class="sidebar-schedule">
+              <a href="#" id="link-schedule">Set Application Schedule</a>
+            </div>
 
-        <div class="sidebar-enrolled">
-          <a href="#" id="link-enrolled">Approved</a>
-        </div>
-      </div>
+            <div class="sidebar-applicant">
+              <a href="#" id="link-applicants">Applicants</a>
 
-      <div class="flex-column schedule" style="display:none">
-        <div class="">
-          <h1>Schedule</h1>
-        </div>
-      </div>
+            </div>
 
-      <div class="flex-column applicant">
-          <div class="">
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>First Course Preference</th>
-                  <th>Second Course Preference</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="applicants-tbl">
-                <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "lnu-online-application";
-                $con = mysqli_connect($servername,$username,$password,$dbname);
+            <div class="sidebar-enrolled">
+              <a href="#" id="link-enrolled">Approved</a>
+            </div>
 
-                $sql = $con->query("SELECT * FROM applicant_tbl WHERE applicationStatus = 0");
-
-                while ($row = mysqli_fetch_array($sql)) {
-                  ?>
-                    <tr>
-                      <td><?= $row["fname"]." ".$row["mname"]." ".$row["lname"] ?></td>
-                      <td><?= $row["firstCoursePreference"] ?></td>
-                      <td><?= $row["secondCoursePreference"] ?></td>
-                      <td>
-                      <?php
-
-                        if ($row["applicationStatus"] == 0) {
-                          echo "New Applicant";
-                        }
-
-                      ?></td>
-                      <td> <button type="button" name="button">Accept</button>  <button type="button" name="button">Reject</button> <button type="button" name="button">View</button> </td>
-                    </tr>
-                  <?php
-                }
-                ?>
-              </tbody>
-            </table>
+            <div class="sidebar-enrolled">
+              <a href="#" id="link-enrolled">Logout, <?= $_SESSION['user'] ?></a>
+            </div>
           </div>
-      </div>
 
-      <div class="flex-column enrolled" style="display:none">
-        <div class="">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>First Course Preference</th>
-                <th>Second Course Preference</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              $servername1 = "localhost";
-              $username1 = "root";
-              $password1 = "";
-              $dbname1 = "lnu-online-application";
-              $con1 = mysqli_connect($servername1,$username1,$password1,$dbname1);
-                $sql1 = $con->query("SELECT * FROM applicant_tbl WHERE applicationStatus = 1");
-                while ($row1 = mysqli_fetch_array($sql1)) {
-                  ?>
+          <div class="flex-column schedule" style="display:none">
+            <div class="">
+              <h1>Schedule</h1>
+            </div>
+          </div>
+
+          <div class="flex-column applicant">
+              <div class="">
+                <table>
+                  <thead>
                     <tr>
-                      <td><?= $row1["fname"]." ".$row1["mname"]." ".$row1["lname"] ?></td>
-                      <td><?= $row1["firstCoursePreference"] ?></td>
-                      <td><?= $row1["secondCoursePreference"] ?></td>
-                      <td>
-                      <?php
-
-                        if ($row1["applicationStatus"] == 0) {
-                          echo "New Applicant";
-                        }
-
-                      ?></td>
-                      <td><button type="button" name="button">View</button> </td>
+                      <th>Name</th>
+                      <th>First Course Preference</th>
+                      <th>Second Course Preference</th>
+                      <th>Status</th>
+                      <th>Action</th>
                     </tr>
+                  </thead>
+                  <tbody id="applicants-tbl">
+                    <?php
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "lnu-online-application";
+                    $con = mysqli_connect($servername,$username,$password,$dbname);
+
+                    $sql = $con->query("SELECT * FROM applicant_tbl WHERE applicationStatus = 0");
+
+                    while ($row = mysqli_fetch_array($sql)) {
+                      ?>
+                        <tr>
+                          <td><?= $row["fname"]." ".$row["mname"]." ".$row["lname"] ?></td>
+                          <td><?= $row["firstCoursePreference"] ?></td>
+                          <td><?= $row["secondCoursePreference"] ?></td>
+                          <td>
+                          <?php
+
+                            if ($row["applicationStatus"] == 0) {
+                              echo "New Applicant";
+                            }
+
+                          ?></td>
+                          <td> <button type="button" name="button">Accept</button>  <button type="button" name="button">Reject</button> <button type="button" name="button">View</button> </td>
+                        </tr>
+                      <?php
+                    }
+                    ?>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+
+          <div class="flex-column enrolled" style="display:none">
+            <div class="">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>First Course Preference</th>
+                    <th>Second Course Preference</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
                   <?php
-                }
-                ?>
+                  $servername1 = "localhost";
+                  $username1 = "root";
+                  $password1 = "";
+                  $dbname1 = "lnu-online-application";
+                  $con1 = mysqli_connect($servername1,$username1,$password1,$dbname1);
+                    $sql1 = $con->query("SELECT * FROM applicant_tbl WHERE applicationStatus = 1");
+                    while ($row1 = mysqli_fetch_array($sql1)) {
+                      ?>
+                        <tr>
+                          <td><?= $row1["fname"]." ".$row1["mname"]." ".$row1["lname"] ?></td>
+                          <td><?= $row1["firstCoursePreference"] ?></td>
+                          <td><?= $row1["secondCoursePreference"] ?></td>
+                          <td>
+                          <?php
 
-            </tbody>
-          </table>
+                            if ($row1["applicationStatus"] == 0) {
+                              echo "New Applicant";
+                            }
+
+                          ?></td>
+                          <td><button type="button" name="button">View</button> </td>
+                        </tr>
+                      <?php
+                    }
+                    ?>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+
         </div>
-      </div>
 
-    </div>
+        <?php
+      }else{
+        require "login.php";
+      }
+
+    ?>
+
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>

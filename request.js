@@ -555,4 +555,32 @@ $(document).ready(function() {
     $(".sidebar-schedule").css("background","#fafafa");
     $(".sidebar-schedule > a").css("color","#333");
   });
+
+  $("#btn-admin-login").click(function(){
+
+
+    if ($("#username").val() !== "" &&
+        $("#password").val() !== "") {
+        $.ajax({
+          url: "login-action.php",
+          type: "POST",
+          dataType: "json",
+          data: {
+            username: $("#username").val(),
+            password: $("#password").val()
+          },
+          cache: false,
+            success: function(data){
+            window.location.replace("http://localhost/online-application/admin/");
+          },
+          error: function(err){
+            alert("Unregistered user");
+            //window.location.replace("http://localhost/online-application/admin/");
+          }
+        });
+    }else{
+      $("#username").css("border", "1px solid red");
+      $("#password").css("border", "1px solid red");
+    }
+  });
 });

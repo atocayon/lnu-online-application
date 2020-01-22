@@ -221,6 +221,44 @@
       padding: 0.3vw;
       text-align: center; }
 
+.admin-login-container {
+  color: #607D8B;
+  margin-top: 5vh;
+  border: 1px solid #9E9E9E;
+  width: 30vw;
+  height: 45vh;
+  border-radius: 5px; }
+  .admin-login-container h2 {
+    text-align: center;
+    margin-bottom: 5vh; }
+  .admin-login-container input {
+    margin-left: 1vw;
+    height: 3.5vh;
+    width: 27vw;
+    border: 1px solid #9E9E9E;
+    border-radius: 30px;
+    padding-left: 1vw; }
+  .admin-login-container p {
+    margin-left: 1vw; }
+  .admin-login-container #btn-admin-login {
+    margin-top: 5vh;
+    width: 10vw;
+    height: 5vh;
+    border-radius: 30px;
+    background: #012450;
+    border: 1px solid #012450;
+    color: #fff;
+    font-size: 1vw; }
+  .admin-login-container #btn-admin-signup {
+    margin-top: 2vh;
+    width: 10vw;
+    height: 5vh;
+    border-radius: 30px;
+    background: #fff;
+    border: 1px solid #012450;
+    color: #012450;
+    font-size: 1vw; }
+
 body {
   margin: 0;
   padding: 0;
@@ -445,5 +483,8 @@ body {
       .printable-form-container .course-preference {
         margin-left: 100px;
         margin-right: 100px; } }
+
+.file_upload {
+  margin-top: 2vh; }
 
 /*# sourceMappingURL=styles.css.map */
