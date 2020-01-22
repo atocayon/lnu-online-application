@@ -583,4 +583,41 @@ $(document).ready(function() {
       $("#password").css("border", "1px solid red");
     }
   });
+
+  $("#btn-set-schedule").click(function(){
+
+    var dateStart = new Date(
+      $("#date_start").val()
+    );
+    dateStart_day = dateStart.getDate();
+    dateStart_month = dateStart.getMonth();
+    dateStart_year = dateStart.getFullYear();
+
+    var dateEnd = new Date(
+      $("#date_end").val()
+    );
+    dateEnd_day = dateEnd.getDate();
+    dateEnd_month = dateEnd.getMonth();
+    dateEnd_year = dateEnd.getFullYear();
+
+    $.ajax({
+      url: "setApplicationPeriod-action.php",
+      type: "POST",
+      dateType: "json",
+      data: {
+        term: $("#term").val(),
+        schoolYear: $("#school_year").val(),
+        dateStart: [dateStart_year, dateStart_month+1, dateStart_day].join("-"),
+        dateEnd: [dateEnd_year, dateEnd_month+1, dateEnd_day].join("-")
+      },
+      success: function(data){
+        console.log(data);
+        location.reload(true);
+      },
+      error: function(err){
+        alert("error");
+        console.log(err);
+      }
+    });
+  });
 });

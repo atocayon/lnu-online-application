@@ -259,6 +259,40 @@
     color: #012450;
     font-size: 1vw; }
 
+.schedule-container {
+  border: 1px solid #CFD8DC;
+  margin-left: 18vw;
+  width: 40vw;
+  color: #607D8B;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-top: 5vh;
+  -webkit-box-shadow: 1px 1px 1px #CFD8DC;
+  box-shadow: 1px 1px 1px #CFD8DC; }
+  .schedule-container h1 {
+    text-align: center; }
+  .schedule-container input {
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    border: 1px solid #9E9E9E;
+    width: 12vw;
+    height: 3vh;
+    border-radius: 30px;
+    padding-left: 1.5vw; }
+  .schedule-container select {
+    height: 3vh;
+    width: 13vw; }
+  .schedule-container button {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    width: 10vw;
+    height: 4vh;
+    border-radius: 30px;
+    border: 1px solid #012450;
+    background: #012450;
+    color: #fff;
+    font-size: 1vw; }
+
 body {
   margin: 0;
   padding: 0;

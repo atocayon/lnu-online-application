@@ -48,98 +48,19 @@ session_start();
 
           <div class="flex-column schedule" style="display:none">
             <div class="">
-              <h1>Schedule</h1>
+              <?php include 'setSchedule.php'; ?>
             </div>
           </div>
 
           <div class="flex-column applicant">
               <div class="">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>First Course Preference</th>
-                      <th>Second Course Preference</th>
-                      <th>Status</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody id="applicants-tbl">
-                    <?php
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "lnu-online-application";
-                    $con = mysqli_connect($servername,$username,$password,$dbname);
-
-                    $sql = $con->query("SELECT * FROM applicant_tbl WHERE applicationStatus = 0");
-
-                    while ($row = mysqli_fetch_array($sql)) {
-                      ?>
-                        <tr>
-                          <td><?= $row["fname"]." ".$row["mname"]." ".$row["lname"] ?></td>
-                          <td><?= $row["firstCoursePreference"] ?></td>
-                          <td><?= $row["secondCoursePreference"] ?></td>
-                          <td>
-                          <?php
-
-                            if ($row["applicationStatus"] == 0) {
-                              echo "New Applicant";
-                            }
-
-                          ?></td>
-                          <td> <button type="button" name="button">Accept</button>  <button type="button" name="button">Reject</button> <button type="button" name="button">View</button> </td>
-                        </tr>
-                      <?php
-                    }
-                    ?>
-                  </tbody>
-                </table>
+                <?php include 'list-applicants.php'; ?>
               </div>
           </div>
 
           <div class="flex-column enrolled" style="display:none">
             <div class="">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>First Course Preference</th>
-                    <th>Second Course Preference</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  $servername1 = "localhost";
-                  $username1 = "root";
-                  $password1 = "";
-                  $dbname1 = "lnu-online-application";
-                  $con1 = mysqli_connect($servername1,$username1,$password1,$dbname1);
-                    $sql1 = $con->query("SELECT * FROM applicant_tbl WHERE applicationStatus = 1");
-                    while ($row1 = mysqli_fetch_array($sql1)) {
-                      ?>
-                        <tr>
-                          <td><?= $row1["fname"]." ".$row1["mname"]." ".$row1["lname"] ?></td>
-                          <td><?= $row1["firstCoursePreference"] ?></td>
-                          <td><?= $row1["secondCoursePreference"] ?></td>
-                          <td>
-                          <?php
-
-                            if ($row1["applicationStatus"] == 0) {
-                              echo "New Applicant";
-                            }
-
-                          ?></td>
-                          <td><button type="button" name="button">View</button> </td>
-                        </tr>
-                      <?php
-                    }
-                    ?>
-
-                </tbody>
-              </table>
+              <?php include 'list-approvedApplicants.php'; ?>
             </div>
           </div>
 
