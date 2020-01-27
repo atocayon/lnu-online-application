@@ -10,12 +10,14 @@ if (mysqli_connect_errno()) {
 }
 $date = date("Y-m-d");
 $year = date("Y");
-$query = $con->query("SELECT * FROM application_period WHERE dateStart >= '$date' AND dateEnd < '$date'");
-
-if (mysqli_num_rows($query)) {
+$query = $con->query("SELECT count(id) as count, id FROM application_period WHERE status = '1'");
+$result = $query->fetch_assoc();
+$count = $result['count'];
+if ($count !== '0') {
   ?>
   <!--Forms Button-->
   <div  class="flex-row justify-center forms-options">
+      <input type="text" value="<?= $result['id'] ?>" id="application_period" hidden>
       <div>
           <a href="#" id="prog-application"><span class="step-1">1</span><br><span id="step-1-text">Status of Application</span></a>
       </div>
@@ -271,7 +273,7 @@ if (mysqli_num_rows($query)) {
               </div>
               <div>
                   Age:&nbsp;&nbsp;
-                  <input type="text" placeholder="Your age" class="form-input" name="age" id="age">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input type="number" placeholder="Your age" class="form-input" name="age" id="age">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               </div>
               <div>
                   Sex:&nbsp;&nbsp;
@@ -694,7 +696,7 @@ if (mysqli_num_rows($query)) {
   <?php
 }else{
   ?>
-    <h1>Application Period Not Started</h1>
+    <h1 style="text-align: center;margin-top: 20vh;font-weight: bold;color: ">Application Period Not Started</h1>
   <?php
 }
 

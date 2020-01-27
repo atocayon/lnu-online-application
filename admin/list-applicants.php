@@ -1,4 +1,5 @@
-<table>
+
+<table id="table_id">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,7 +17,7 @@
     $con = mysqli_connect($servername,$username,$password,$dbname);
 
     $date = date("Y-m-d");
-    $sql = $con->query("SELECT * FROM applicant_tbl INNER JOIN application_period ON applicant_tbl.applicationPeriod = application_period.id WHERE applicant_tbl.applicationStatus = 0 AND application_period.dateStart <= '$date' AND application_period.dateEnd > '$date'");
+    $sql = $con->query("SELECT * FROM applicant_tbl INNER JOIN application_period ON applicant_tbl.applicationPeriod = application_period.id WHERE applicant_tbl.applicationStatus = 1 AND application_period.status = 1");
 
     while ($row = mysqli_fetch_array($sql)) {
       ?>
@@ -24,7 +25,7 @@
           <td><?= $row["fname"]." ".$row["mname"]." ".$row["lname"] ?></td>
           <td><?= $row["firstCoursePreference"] ?></td>
           <td><?= $row["secondCoursePreference"] ?></td>
-          <td> <button type="button" name="button">Accept</button>  <button type="button" name="button">Reject</button> <button type="button" name="button">View</button> </td>
+          <td> <a href="acceptApplicant.php?id=<?= $row['applicantID'] ?>&email=<?= $row['emailAdd'] ?>" onclick="return confirm('Are you sure?')" id="btn-acceptApplicant">Accept</a>  <a href="rejectApplicant.php?id=<?= $row['applicantID'] ?>" onclick="return confirm('Are you sure?')" id="btn-rejectApplicant">Reject</a> <a href="viewApplicant.php?id=<?= $row['applicantID'] ?>" id="btn-viewApplicant">View</a> </td>
         </tr>
       <?php
     }

@@ -1,17 +1,49 @@
 .applicant{
-  margin-left: 2vw;
-  margin-top: 2vh;
+  margin-left: 15vw;
+  margin-top: 5vh;
   table{
-    width: 60vw;
+    width: 100vw;
+    border-collapse: collapse;
+
     th{
       font-size: 1vw;
-      border-bottom: 0.5px solid #333;
-      padding: 0.3vw;
+      //border-bottom: 0.5px solid #333;
+      padding-left: 1vw;
+      padding-right: 1vw;
     }
     td{
       font-size: 0.7vw;
       padding: 0.3vw;
       text-align: center;
+      #btn-acceptApplicant{
+        text-decoration: none;
+        border: 1px solid #4CAF50;
+        padding-left: 0.5vw;
+        padding-right: 0.5vw;
+        background: #4CAF50;
+        color: #fff;
+        margin-right: 0.5vw;
+      }
+
+      #btn-rejectApplicant{
+        text-decoration: none;
+        border: 1px solid #d50000;
+        padding-left: 0.5vw;
+        padding-right: 0.5vw;
+        background: #d50000;
+        color: #fff;
+        margin-right: 0.5vw;
+      }
+
+      #btn-viewApplicant{
+        text-decoration: none;
+        border: 1px solid #2196F3;
+        padding-left: 0.5vw;
+        padding-right: 0.5vw;
+        background: #2196F3;
+        color: #fff;
+        margin-right: 0.5vw;
+      }
     }
   }
 }
@@ -20,7 +52,7 @@
   margin-left: 2vw;
   margin-top: 2vh;
   table{
-    width: 60vw;
+    width: 100vw;
     th{
       font-size: 1vw;
       border-bottom: 0.5px solid #333;

@@ -16,6 +16,14 @@ session_start();
 
     <?php
       if (isset($_SESSION['user'])) {
+
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "lnu-online-application";
+        $con = mysqli_connect($servername,$username,$password,$dbname);
+        $date = date("Y-m-d");
+        $query = $con->query("UPDATE application_period SET status = '0' WHERE dateEnd <= '$date'");
         ?>
 
         <!--Header-->
@@ -37,8 +45,20 @@ session_start();
 
             </div>
 
-            <div class="sidebar-enrolled">
-              <a href="#" id="link-enrolled">Approved</a>
+            <div class="sidebar-forExam">
+              <a href="#" id="link-forExam">For Exam</a>
+            </div>
+
+            <div class="sidebar-forInterview">
+              <a href="#" id="link-forInterview">For Interview</a>
+            </div>
+
+            <div class="sidebar-forQualified">
+              <a href="#" id="link-forQualified">Qualified</a>
+            </div>
+
+            <div class="sidebar-userManagement">
+              <a href="#" id="link-userManagement">User Management</a>
             </div>
 
             <div class="sidebar-logout">
@@ -58,9 +78,27 @@ session_start();
               </div>
           </div>
 
-          <div class="flex-column enrolled" style="display:none">
+          <div class="flex-column forExam" style="display:none">
             <div class="">
-              <?php include 'list-approvedApplicants.php'; ?>
+              <h1>For Exam</h1>
+            </div>
+          </div>
+
+          <div class="flex-column forInterview" style="display:none">
+            <div class="">
+              <h1>for Interview</h1>
+            </div>
+          </div>
+
+          <div class="flex-column forQualified" style="display:none">
+            <div class="">
+              <h1>for Qualified</h1>
+            </div>
+          </div>
+
+          <div class="flex-column userManagement" style="display:none">
+            <div class="">
+              <h1>User Management</h1>
             </div>
           </div>
 
@@ -78,6 +116,10 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
     <script src="../request.js"></script>
   </body>
 </html>

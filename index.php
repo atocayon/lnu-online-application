@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -7,6 +8,16 @@
     <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
 </head>
 <body>
+  <?php
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "lnu-online-application";
+  $con = mysqli_connect($servername,$username,$password,$dbname);
+  $date = date("Y-m-d");
+  $query = $con->query("UPDATE application_period SET status = '0' WHERE dateEnd <= '$date'");
+
+   ?>
 <!--Header-->
 <?php require "header.php"; ?>
 

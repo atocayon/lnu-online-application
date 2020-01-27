@@ -186,11 +186,14 @@ $(document).ready(function() {
           fourthSchoolAwardReceived = "undefined";
         }
 
+        console.log($("#application_period").val());
+
         $.ajax({
           url: "insert.php",
           type: "POST",
           dataType: "json",
           data: {
+            applicationPeriod: $("#application_period").val(),
             applicationDate: [year, month, day].join("-"),
             appicantID: applicant_id,
             applicationType: $("input[name='status']:checked").val(),
@@ -276,8 +279,9 @@ $(document).ready(function() {
           },
           cache: false,
           success: function(data) {
-            console.log(data);
+
             if (data.insertApplicant === "success") {
+              console.log(data);
               console.log("success");
               $(".modal-container").show();
               $(".backdrop").show();
@@ -507,6 +511,8 @@ $(document).ready(function() {
   $("#apply-now").click(function() {
     $(".main-page").hide();
     $(".form_application").show();
+    $("#apply-now").hide();
+    $("#backToHome").show();
   });
 
   $("#btn-modal").click(function() {
@@ -518,42 +524,159 @@ $(document).ready(function() {
     $(".printable-page").show();
     $(".buttonPrint").show();
     $(".printable-form-container").show();
+    $("#apply-now").hide();
+    $("#backToHome").show();
   });
 
   $("#link-schedule").click(function(){
     $(".applicant").hide();
     $(".enrolled").hide();
     $(".schedule").show();
+    $(".forExam").hide();
+    $(".forInterview").hide();
+    $(".forQualified").hide();
+      $(".userManagement").hide();
     $(".sidebar-applicant").css("background","#fafafa");
     $(".sidebar-applicant > a").css("color","#333");
     $(".sidebar-enrolled").css("background","#fafafa");
     $(".sidebar-enrolled > a ").css("color","#333");
     $(".sidebar-schedule").css("background","#333");
     $(".sidebar-schedule > a").css("color","#fafafa");
+    $(".sidebar-logout").css("background","#fafafa");
+    $(".sidebar-logout > a").css("color","#333");
+    $(".sidebar-userManagement").css("background","#fafafa");
+    $(".sidebar-userManagement > a").css("color","#333");
+
+    $(".sidebar-forQualified").css("background","#fafafa");
+    $(".sidebar-forQualified > a ").css("color","#333");
+    $(".sidebar-forInterview").css("background","#fafafa");
+    $(".sidebar-forInterview > a").css("color","#333");
+    $(".sidebar-forExam").css("background","#fafafa");
+    $(".sidebar-forExam > a").css("color","#333");
   });
 
   $("#link-applicants").click(function(){
     $(".applicant").show();
     $(".enrolled").hide();
     $(".schedule").hide();
+    $(".forExam").hide();
+    $(".forInterview").hide();
+    $(".forQualified").hide();
+    $(".userManagement").hide();
     $(".sidebar-applicant").css("background","#333");
     $(".sidebar-applicant > a").css("color","#fafafa");
     $(".sidebar-enrolled").css("background","#fafafa");
     $(".sidebar-enrolled > a ").css("color","#333");
     $(".sidebar-schedule").css("background","#fafafa");
     $(".sidebar-schedule > a").css("color","#333");
+    $(".sidebar-logout").css("background","#fafafa");
+    $(".sidebar-logout > a").css("color","#333");
+    $(".sidebar-userManagement").css("background","#fafafa");
+    $(".sidebar-userManagement > a").css("color","#333");
+
+    $(".sidebar-forQualified").css("background","#fafafa");
+    $(".sidebar-forQualified > a ").css("color","#333");
+    $(".sidebar-forInterview").css("background","#fafafa");
+    $(".sidebar-forInterview > a").css("color","#333");
+    $(".sidebar-forExam").css("background","#fafafa");
+    $(".sidebar-forExam > a").css("color","#333");
   });
 
-  $("#link-enrolled").click(function(){
+  $("#link-forExam").click(function(){
     $(".applicant").hide();
-    $(".enrolled").show();
+    $(".forExam").show();
     $(".schedule").hide();
+    $(".forInterview").hide();
+    $(".forQualified").hide();
+    $(".userManagement").hide();
     $(".sidebar-applicant").css("background","#fafafa");
     $(".sidebar-applicant > a").css("color","#333");
-    $(".sidebar-enrolled").css("background","#333");
-    $(".sidebar-enrolled > a ").css("color","#fafafa");
+    $(".sidebar-forExam").css("background","#333");
+    $(".sidebar-forExam > a ").css("color","#fafafa");
     $(".sidebar-schedule").css("background","#fafafa");
     $(".sidebar-schedule > a").css("color","#333");
+    $(".sidebar-logout").css("background","#fafafa");
+    $(".sidebar-logout > a").css("color","#333");
+    $(".sidebar-userManagement").css("background","#fafafa");
+    $(".sidebar-userManagement > a").css("color","#333");
+
+    $(".sidebar-forInterview").css("background","#fafafa");
+    $(".sidebar-forInterview > a").css("color","#333");
+    $(".sidebar-forQualified").css("background","#fafafa");
+    $(".sidebar-forQualified > a").css("color","#333");
+  });
+
+  $("#link-forInterview").click(function(){
+    $(".applicant").hide();
+    $(".forExam").hide();
+    $(".schedule").hide();
+    $(".forInterview").show();
+    $(".forQualified").hide();
+    $(".userManagement").hide();
+    $(".sidebar-applicant").css("background","#fafafa");
+    $(".sidebar-applicant > a").css("color","#333");
+    $(".sidebar-forInterview").css("background","#333");
+    $(".sidebar-forInterview > a ").css("color","#fafafa");
+    $(".sidebar-schedule").css("background","#fafafa");
+    $(".sidebar-schedule > a").css("color","#333");
+    $(".sidebar-logout").css("background","#fafafa");
+    $(".sidebar-logout > a").css("color","#333");
+    $(".sidebar-userManagement").css("background","#fafafa");
+    $(".sidebar-userManagement > a").css("color","#333");
+
+    $(".sidebar-forExam").css("background","#fafafa");
+    $(".sidebar-forExam > a").css("color","#333");
+    $(".sidebar-forQualified").css("background","#fafafa");
+    $(".sidebar-forQualified > a").css("color","#333");
+  });
+
+  $("#link-forQualified").click(function(){
+    $(".applicant").hide();
+    $(".forExam").hide();
+    $(".schedule").hide();
+    $(".forInterview").hide();
+    $(".forQualified").show();
+    $(".userManagement").hide();
+    $(".sidebar-applicant").css("background","#fafafa");
+    $(".sidebar-applicant > a").css("color","#333");
+    $(".sidebar-forQualified").css("background","#333");
+    $(".sidebar-forQualified > a ").css("color","#fafafa");
+    $(".sidebar-schedule").css("background","#fafafa");
+    $(".sidebar-schedule > a").css("color","#333");
+    $(".sidebar-logout").css("background","#fafafa");
+    $(".sidebar-logout > a").css("color","#333");
+    $(".sidebar-userManagement").css("background","#fafafa");
+    $(".sidebar-userManagement > a").css("color","#333");
+
+    $(".sidebar-forInterview").css("background","#fafafa");
+    $(".sidebar-forInterview > a").css("color","#333");
+    $(".sidebar-forExam").css("background","#fafafa");
+    $(".sidebar-forExam > a").css("color","#333");
+  });
+
+  $("#link-userManagement").click(function(){
+    $(".applicant").hide();
+    $(".schedule").hide();
+    $(".forExam").hide();
+    $(".forInterview").hide();
+    $(".forQualified").hide();
+    $(".userManagement").show();
+    $(".sidebar-applicant").css("background","#fafafa");
+    $(".sidebar-applicant > a").css("color","#333");
+    $(".sidebar-schedule").css("background","#fafafa");
+    $(".sidebar-schedule > a").css("color","#333");
+
+    $(".sidebar-logout").css("background","#fafafa");
+    $(".sidebar-logout > a").css("color","#333");
+    $(".sidebar-userManagement").css("background","#333");
+    $(".sidebar-userManagement > a").css("color","#fafafa");
+
+    $(".sidebar-forQualified").css("background","#fafafa");
+    $(".sidebar-forQualified > a ").css("color","#333");
+    $(".sidebar-forInterview").css("background","#fafafa");
+    $(".sidebar-forInterview > a").css("color","#333");
+    $(".sidebar-forExam").css("background","#fafafa");
+    $(".sidebar-forExam > a").css("color","#333");
   });
 
   $("#btn-admin-login").click(function(){
@@ -620,4 +743,6 @@ $(document).ready(function() {
       }
     });
   });
+
+  $('#table_id').DataTable();
 });

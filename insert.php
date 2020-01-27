@@ -8,6 +8,7 @@ $con = mysqli_connect($servername,$username,$password,$dbname);
 if (mysqli_connect_errno()) {
   print_r("Failed to connect to MYSQL: ". mysqli_connect_error());
 }
+$applicationPeriod = $_POST['applicationPeriod'];
 $applicationDate = $_POST["applicationDate"];
 $applicant_id = $_POST["appicantID"];
 $applicationType = $_POST["applicationType"];
@@ -97,7 +98,8 @@ $insert_applicant_tbl = $con->query("INSERT INTO applicant_tbl (
   emailAdd,
   applicationStatus,
   applicationDate,
-  dateApprove
+  dateApprove,
+  applicationPeriod
 ) VALUES (
   '$applicant_id',
   '$applicationType',
@@ -120,10 +122,13 @@ $insert_applicant_tbl = $con->query("INSERT INTO applicant_tbl (
   '$telNumber',
   '$mobileNumber',
   '$emailAddress',
-  0,
+  1,
   '$applicationDate',
-  0000-00-00
+  0000-00-00,
+  '$applicationPeriod'
 )");
+
+
 
 
 $insert_guardian_tbl = $con->query("INSERT INTO guardian_tbl (

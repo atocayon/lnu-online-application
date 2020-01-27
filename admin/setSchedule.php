@@ -9,9 +9,10 @@
     $dbname = "lnu-online-application";
     $con = mysqli_connect($servername,$username,$password,$dbname);
     $date = date("Y-m-d");
-      $query = $con->query("SELECT * FROM application_period WHERE dateStart >= '$date' AND dateEnd < '$date'");
-
-      if (mysqli_num_rows($query)) {
+    $query = $con->query("SELECT count(id) as count FROM application_period WHERE status = '1'");
+    $result = $query->fetch_assoc();
+    $count = $result['count'];
+      if ($count === '0') {
         ?>
         <div class="flex-row justify-center">
 
