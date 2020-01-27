@@ -25,7 +25,11 @@
           <td><?= $row["fname"]." ".$row["mname"]." ".$row["lname"] ?></td>
           <td><?= $row["firstCoursePreference"] ?></td>
           <td><?= $row["secondCoursePreference"] ?></td>
-          <td> <a href="acceptApplicant.php?id=<?= $row['applicantID'] ?>&email=<?= $row['emailAdd'] ?>" onclick="return confirm('Are you sure?')" id="btn-acceptApplicant">Accept</a>  <a href="rejectApplicant.php?id=<?= $row['applicantID'] ?>" onclick="return confirm('Are you sure?')" id="btn-rejectApplicant">Reject</a> <a href="viewApplicant.php?id=<?= $row['applicantID'] ?>" id="btn-viewApplicant">View</a> </td>
+          <td>
+            <?php $data = array('id' => $row['applicantID'], 'email' => $row['emailAdd']); ?>
+            <a href="acceptApplicant.php?<?= http_build_query($data).'\n' ?>" onclick="return confirm('Are you sure?')" id="btn-acceptApplicant">Accept</a>
+            <a href="rejectApplicant.php?<?= http_build_query($data).'\n' ?>" onclick="return confirm('Are you sure you? This action cannot be undone...')" id="btn-rejectApplicant">Reject</a>
+            <a href="viewApplicant.php?<?= http_build_query($data).'\n' ?>" id="btn-viewApplicant">View</a> </td>
         </tr>
       <?php
     }

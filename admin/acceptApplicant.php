@@ -20,6 +20,7 @@ $dbname = "lnu-online-application";
 $con = mysqli_connect($servername,$username,$password,$dbname);
 
 $applicantID = $_GET['id'];
+$email = $_GET['email'];
 $date = date('Y-m-d');
 $update = $con->query("UPDATE applicant_tbl SET applicationStatus = '2' , dateApprove = '$date' WHERE applicantID = '$applicantID' ");
 
