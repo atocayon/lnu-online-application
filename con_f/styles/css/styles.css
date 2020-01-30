@@ -194,57 +194,80 @@
       color: #fafafa; }
 
 .applicant {
-  margin-left: 15vw;
-  margin-top: 5vh; }
-  .applicant table {
-    width: 100vw;
-    border-collapse: collapse; }
-    .applicant table th {
-      font-size: 1vw;
-      padding-left: 1vw;
-      padding-right: 1vw; }
-    .applicant table td {
-      font-size: 0.7vw;
-      padding: 0.3vw;
-      text-align: center; }
-      .applicant table td #btn-acceptApplicant {
-        text-decoration: none;
-        border: 1px solid #4CAF50;
-        padding-left: 0.5vw;
-        padding-right: 0.5vw;
-        background: #4CAF50;
-        color: #fff;
-        margin-right: 0.5vw; }
-      .applicant table td #btn-rejectApplicant {
-        text-decoration: none;
-        border: 1px solid #d50000;
-        padding-left: 0.5vw;
-        padding-right: 0.5vw;
-        background: #d50000;
-        color: #fff;
-        margin-right: 0.5vw; }
-      .applicant table td #btn-viewApplicant {
-        text-decoration: none;
-        border: 1px solid #2196F3;
-        padding-left: 0.5vw;
-        padding-right: 0.5vw;
-        background: #2196F3;
-        color: #fff;
-        margin-right: 0.5vw; }
+  margin-left: 5vw;
+  margin-top: 5vh;
+  width: 70vw; }
+  .applicant table th {
+    font-size: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw; }
+  .applicant table td {
+    font-size: 0.7vw;
+    padding-left: 1vw;
+    padding-right: 1vw; }
+    .applicant table td #btn-acceptApplicant {
+      text-decoration: none;
+      border: 1px solid #4CAF50;
+      padding-left: 0.5vw;
+      padding-right: 0.5vw;
+      background: #4CAF50;
+      color: #fff;
+      margin-right: 0.5vw; }
+    .applicant table td #btn-rejectApplicant {
+      text-decoration: none;
+      border: 1px solid #d50000;
+      padding-left: 0.5vw;
+      padding-right: 0.5vw;
+      background: #d50000;
+      color: #fff;
+      margin-right: 0.5vw; }
+    .applicant table td #btn-viewApplicant {
+      text-decoration: none;
+      border: 1px solid #2196F3;
+      padding-left: 0.5vw;
+      padding-right: 0.5vw;
+      background: #2196F3;
+      color: #fff;
+      margin-right: 0.5vw; }
 
-.enrolled {
-  margin-left: 2vw;
-  margin-top: 2vh; }
-  .enrolled table {
-    width: 100vw; }
-    .enrolled table th {
-      font-size: 1vw;
-      border-bottom: 0.5px solid #333;
-      padding: 0.3vw; }
-    .enrolled table td {
-      font-size: 0.7vw;
-      padding: 0.3vw;
-      text-align: center; }
+.forExam {
+  margin-left: 5vw;
+  width: 70vw;
+  margin-top: 5vh; }
+  .forExam table th {
+    font-size: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw; }
+  .forExam table td {
+    font-size: 0.7vw;
+    padding-left: 1vw;
+    padding-right: 1vw; }
+
+.forInterview {
+  margin-left: 5vw;
+  width: 70vw;
+  margin-top: 5vh; }
+  .forInterview table th {
+    font-size: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw; }
+  .forInterview table td {
+    font-size: 0.7vw;
+    padding-left: 1vw;
+    padding-right: 1vw; }
+
+.forQualified {
+  margin-left: 5vw;
+  width: 70vw;
+  margin-top: 5vh; }
+  .forQualified table th {
+    font-size: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw; }
+  .forQualified table td {
+    font-size: 0.7vw;
+    padding-left: 1vw;
+    padding-right: 1vw; }
 
 .admin-login-container {
   color: #607D8B;

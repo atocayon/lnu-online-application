@@ -1,4 +1,6 @@
-
+<?php
+date_default_timezone_set('Asia/Taipei');
+?>
 <html lang="en">
 <head>
   <meta charset="utf-8">

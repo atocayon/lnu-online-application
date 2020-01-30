@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+date_default_timezone_set('Asia/Taipei');
 ?>
 
 <!DOCTYPE html>
@@ -80,19 +80,19 @@ session_start();
 
           <div class="flex-column forExam" style="display:none">
             <div class="">
-              <h1>For Exam</h1>
+              <?php include 'list-approvedApplicants.php'; ?>
             </div>
           </div>
 
           <div class="flex-column forInterview" style="display:none">
             <div class="">
-              <h1>for Interview</h1>
+              <?php include 'list-forInterview.php'; ?>
             </div>
           </div>
 
           <div class="flex-column forQualified" style="display:none">
             <div class="">
-              <h1>for Qualified</h1>
+              <?php include 'list-qualified.php'; ?>
             </div>
           </div>
 

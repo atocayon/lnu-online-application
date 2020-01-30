@@ -1,4 +1,4 @@
-<table id="tbl_approvedApplicants">
+<table id="tbl_forInterview">
   <thead>
     <tr>
       <th>Name</th>
@@ -15,7 +15,7 @@
     $dbname1 = "lnu-online-application";
     $con1 = mysqli_connect($servername1,$username1,$password1,$dbname1);
     $date = date("Y-m-d");
-      $sql1 = $con->query("SELECT * FROM applicant_tbl INNER JOIN application_period ON applicant_tbl.applicationPeriod = application_period.id WHERE applicant_tbl.applicationStatus = 2 AND applicant_tbl.applicationStatus = 1 AND application_period.status = 1");
+      $sql1 = $con->query("SELECT * FROM applicant_tbl INNER JOIN application_period ON applicant_tbl.applicationPeriod = application_period.id WHERE applicant_tbl.applicationStatus = 3 AND applicant_tbl.applicationStatus = 1 AND application_period.status = 1");
       while ($row1 = mysqli_fetch_array($sql1)) {
         ?>
           <tr>

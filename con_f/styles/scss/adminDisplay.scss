@@ -1,9 +1,8 @@
 .applicant{
-  margin-left: 15vw;
+  margin-left: 5vw;
   margin-top: 5vh;
+  width: 70vw;
   table{
-    width: 100vw;
-    border-collapse: collapse;
 
     th{
       font-size: 1vw;
@@ -13,8 +12,8 @@
     }
     td{
       font-size: 0.7vw;
-      padding: 0.3vw;
-      text-align: center;
+      padding-left: 1vw;
+      padding-right: 1vw;
       #btn-acceptApplicant{
         text-decoration: none;
         border: 1px solid #4CAF50;
@@ -48,20 +47,59 @@
   }
 }
 
-.enrolled{
-  margin-left: 2vw;
-  margin-top: 2vh;
+.forExam{
+  margin-left: 5vw;
+width: 70vw;
+  margin-top: 5vh;
   table{
-    width: 100vw;
+
     th{
       font-size: 1vw;
-      border-bottom: 0.5px solid #333;
-      padding: 0.3vw;
+      padding-left: 1vw;
+      padding-right: 1vw;
     }
     td{
       font-size: 0.7vw;
-      padding: 0.3vw;
-      text-align: center;
+      padding-left: 1vw;
+      padding-right: 1vw;
+    }
+  }
+}
+
+.forInterview{
+  margin-left: 5vw;
+width: 70vw;
+  margin-top: 5vh;
+  table{
+
+    th{
+      font-size: 1vw;
+      padding-left: 1vw;
+      padding-right: 1vw;
+    }
+    td{
+      font-size: 0.7vw;
+      padding-left: 1vw;
+      padding-right: 1vw;
+    }
+  }
+}
+
+.forQualified{
+  margin-left: 5vw;
+width: 70vw;
+  margin-top: 5vh;
+  table{
+
+    th{
+      font-size: 1vw;
+      padding-left: 1vw;
+      padding-right: 1vw;
+    }
+    td{
+      font-size: 0.7vw;
+      padding-left: 1vw;
+      padding-right: 1vw;
     }
   }
 }

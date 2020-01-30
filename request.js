@@ -745,4 +745,7 @@ $(document).ready(function() {
   });
 
   $('#table_id').DataTable();
+  $("#tbl_approvedApplicants").DataTable();
+  $("#tbl_forInterview").DataTable();
+  $("#tbl_qualified").DataTable();
 });
