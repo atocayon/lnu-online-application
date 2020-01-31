@@ -16,7 +16,7 @@ $dateStart = $_POST['dateStart'];
 $dateEnd = $_POST['dateEnd'];
 
 
-$query = $con->query("INSERT INTO application_period (term,school_year,dateStart,dateEnd,status) VALUES('$term','$school_year','$dateStart','$dateEnd','1')");
+$query = $con->query("INSERT INTO application_period (term,school_year,dateStart,dateEnd,status) VALUES('$term','$school_year','$dateStart','$dateEnd',1)");
 if ($query) {
   echo json_encode(array("insert" => "success"));
 }else{

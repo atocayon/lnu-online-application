@@ -32,20 +32,19 @@ if ($reject) {
             $mail->isSMTP();                                            // Send using SMTP
             $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-            $mail->Username   = 'atocayon27@gmail.com';                     // SMTP username
-            $mail->Password   = 'whowndqifqhsudwb';                               // SMTP password
+            $mail->Username   = 'info.leytenormaluniversity@gmail.com';                     // SMTP username
+            $mail->Password   = 's v g y i n t t f y u l g n b m';                               // SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
             $mail->Port       = 587;                                    // TCP port to connect to
 
             //Recipients
-            $mail->setFrom('atocayon27@gmail.com', 'Leyte Normal University');
-            $mail->addAddress('atocayon27@gmail.com', 'Joe User');     // Add a recipient             // Name is optional
+            $mail->setFrom('info.leytenormaluniversity@gmail.com', 'Leyte Normal University');
+            $mail->addAddress($email);     // Add a recipient             // Name is optional
 
             // Content
             $mail->isHTML(true);                                  // Set email format to HTML
-            $mail->Subject = 'Sorry! Your Application  has been rejected';
-            $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+            $mail->Subject = 'Leyte Normal University Online Application';
+            $mail->Body    = 'Your application has been disapproved';
 
             $mail->send();
             echo 'Message has been sent';
