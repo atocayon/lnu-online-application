@@ -72,10 +72,18 @@ date_default_timezone_set('Asia/Taipei');
             </div>
           </div>
 
+
+
           <div class="flex-column applicant">
-              <div class="">
-                <?php include 'list-applicants.php'; ?>
-              </div>
+                <div class="">
+                    <?php include 'list-applicants.php'; ?>
+                </div>
+          </div>
+
+          <div class="flex-column view-applicant" style="display:none">
+            <div class="">
+              <?php include 'printable.php' ?>
+            </div>
           </div>
 
           <div class="flex-column forExam" style="display:none">
@@ -101,6 +109,7 @@ date_default_timezone_set('Asia/Taipei');
               <h1>User Management</h1>
             </div>
           </div>
+
 
         </div>
 

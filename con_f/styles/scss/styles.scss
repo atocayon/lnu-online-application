@@ -299,6 +299,129 @@ body{
   }
 }
 
+.printable-form-container-admin{
+  display: none;
+  margin-left: 15%;
+  margin-right: 10%;
+  padding: 2vw;
+  margin-top: -100vh;
+
+  .user-avatar{
+    width: 8vw;
+    margin-left: 15vw;
+    margin-top: 7vh;
+    border: 1px solid #333;
+    padding: 1vw;
+  }
+
+  .lnu-logo{
+    width: 8vw;
+    margin-right: 10vw;
+  }
+
+  .printable-content{
+    margin-left: 5px;
+  }
+
+  table{
+    width: 50vw;
+    th{
+      text-align: left;
+      padding: 0.5vw;
+      border: 1px solid #333;
+    }
+    td{
+      padding: 0.5vw;
+      border-bottom: 1px solid #333;
+      border-left: 1px solid #333;
+      border-right: 1px solid #333;
+    }
+  }
+
+  .applicant-signature, .date-accomplish{
+    display: none;
+
+  }
+
+  .guidance-remarks{
+    display: none;
+  }
+
+  .personalStatement{
+    display: none;
+  }
+
+  .coursePreferenceContainer{
+    display: none;
+  }
+
+  @media print {
+    margin-left: 0px;
+    margin-right: 0px;
+
+    .lnu-logo{
+      width: 110px;
+      margin-right: 100px;
+    }
+
+    .user-avatar{
+      width: 130px;
+      margin-left: 90px;
+      margin-top: 50px;
+      border: 1px solid #333;
+      padding: 1vw;
+    }
+
+    table{
+      width: 100vw;
+      th{
+        text-align: left;
+        padding: 0.5vw;
+      }
+      td{
+        padding: 0.5vw;
+      }
+    }
+
+    #character-reference{
+      margin-top: 5px;
+    }
+
+    .applicant-signature, .date-accomplish{
+      display: block;
+      text-align: center;
+      margin-top: 100px;
+      margin-left: 150px;
+      margin-right: 150px;
+    }
+
+    .guidance-remarks{
+      display: block;
+      border: 1px solid #333;
+      padding: 10px;
+      width: 200px;
+      height: 50px;
+      margin-top: 100px;
+    }
+
+    .personalStatement{
+      display: block;
+      margin-top: 350px;
+    }
+
+    .coursePreferenceContainer{
+      display: block;
+      margin-top: 50px;
+    }
+
+
+    .course-preference{
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+  }
+}
+
 .file_upload{
   margin-top: 2vh;
 }
