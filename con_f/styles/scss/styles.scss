@@ -306,7 +306,7 @@ body{
   padding: 2vw;
   margin-top: -100vh;
 
-  .user-avatar{
+  .user-avatar-adminside{
     width: 8vw;
     margin-left: 15vw;
     margin-top: 7vh;
@@ -314,12 +314,12 @@ body{
     padding: 1vw;
   }
 
-  .lnu-logo{
+  .lnu-logo-adminside{
     width: 8vw;
     margin-right: 10vw;
   }
 
-  .printable-content{
+  .printable-content-adminside{
     margin-left: 5px;
   }
 
@@ -338,20 +338,20 @@ body{
     }
   }
 
-  .applicant-signature, .date-accomplish{
+  .applicant-signature-adminside, .date-accomplish-adminside{
     display: none;
 
   }
 
-  .guidance-remarks{
+  .guidance-remarks-adminside{
     display: none;
   }
 
-  .personalStatement{
+  .personalStatement-adminside{
     display: none;
   }
 
-  .coursePreferenceContainer{
+  .coursePreferenceContainer-adminside{
     display: none;
   }
 
@@ -359,12 +359,12 @@ body{
     margin-left: 0px;
     margin-right: 0px;
 
-    .lnu-logo{
+    .lnu-logo-adminside{
       width: 110px;
       margin-right: 100px;
     }
 
-    .user-avatar{
+    .user-avatar-adminside{
       width: 130px;
       margin-left: 90px;
       margin-top: 50px;
@@ -383,11 +383,11 @@ body{
       }
     }
 
-    #character-reference{
+    #character-reference-adminside{
       margin-top: 5px;
     }
 
-    .applicant-signature, .date-accomplish{
+    .applicant-signature-adminside, .date-accomplish-adminside{
       display: block;
       text-align: center;
       margin-top: 100px;
@@ -395,7 +395,7 @@ body{
       margin-right: 150px;
     }
 
-    .guidance-remarks{
+    .guidance-remarks-adminside{
       display: block;
       border: 1px solid #333;
       padding: 10px;
@@ -404,18 +404,18 @@ body{
       margin-top: 100px;
     }
 
-    .personalStatement{
+    .personalStatement-adminside{
       display: block;
       margin-top: 350px;
     }
 
-    .coursePreferenceContainer{
+    .coursePreferenceContainer-adminside{
       display: block;
       margin-top: 50px;
     }
 
 
-    .course-preference{
+    .course-preference-adminside{
       margin-left: 100px;
       margin-right: 100px;
     }

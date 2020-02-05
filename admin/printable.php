@@ -1,10 +1,10 @@
 
 
 <div class="printable-form-container-admin" id="printable-form-admin">
-  <div class="flex-column">
+  <div class="flex-column ">
     <div class="flex-row justify-center">
       <div class="">
-        <img src="../img/logo.png" alt="logo" class="lnu-logo">
+        <img src="../img/logo.png" alt="logo" class="lnu-logo-adminside">
       </div>
       <div class="">
         <h1 style="text-align:center;">LNU COLLEGE SCREENING<br>FOR ADMISSION</h1>
@@ -14,13 +14,13 @@
       </div>
       <div class="flex-row right" >
         <div class="">
-          <img src="../img/avatar.jpg" alt="user-avatar" class="user-avatar">
+          <img src="../img/avatar.jpg" alt="user-avatar" class="user-avatar-adminside">
         </div>
       </div>
     </div>
 
     <div class="flex-row ">
-      <div class="status-of-application printable-content">
+      <div class="status-of-application printable-content-adminside">
         <h3>Status of Application</h3>
         <p>(Pls.Check which applies to you)</p>
         <input type="checkbox" name="" value="" id="statusNew"> New
@@ -35,7 +35,7 @@
         Passer: <input type="checkbox" name="" value="" id="last_apply_passerNo"> No <input type="checkbox" name="" value="" id="last_apply_passerYes"> Yes, specify the course <u><span id="last_applyCourse"></span></u>
       </div>
 
-      <div class="schoo-year-and-course-preference printable-content">
+      <div class="schoo-year-and-course-preference printable-content-adminside">
         <b>School Year:</b><span id="schoolYear"><u></u> </span> <b>Term:</b><span id="term"><u></u> </span><br>
         <b>Course Preference:</b><br>
         <p>(Pls. indicate below)</p>
@@ -46,13 +46,13 @@
 
 
     <div class="flex-row">
-      <div class=" printable-content">
+      <div class=" printable-content-adminside">
         <h3>Personal Information</h3>
       </div>
     </div>
 
     <div class="flex-row">
-      <div class=" printable-content">
+      <div class=" printable-content-adminside">
         Name of Applicant: &nbsp;&nbsp;&nbsp;<u><span id="applicantLastName"></span>,&nbsp;&nbsp;&nbsp;<span id="applicantFirstName"></span>&nbsp;&nbsp;&nbsp;<span id="applicantMiddleName"></span></u>
         <br>
         Date of Birth: &nbsp;&nbsp;&nbsp;<u><span id="applicantDateOfBirth"></span></u>&nbsp;&nbsp;&nbsp;Age:&nbsp;&nbsp;&nbsp;<u><span id="applicantAge"></span></u> &nbsp;&nbsp;&nbsp;Gender: &nbsp;&nbsp;&nbsp;<u><span id="applicantGender"></span></u>
@@ -76,7 +76,7 @@
     </div>
 
     <div class="flex-row">
-      <div class=" printable-content">
+      <div class=" printable-content-adminside">
         <table >
           <thead>
             <tr>
@@ -103,7 +103,7 @@
     </div>
 
     <div class="flex-row">
-      <div class=" printable-content">
+      <div class=" printable-content-adminside">
 
         <h3 id="character-reference">Character Reference</h3>
         Write down at least 2 names and address of persons as character references (Teacher/Adviser, Guidance Counselors, Barangay Officia, Priest/Pastor)
@@ -125,7 +125,7 @@
     </div>
 
     <div class="flex-row">
-      <div class=" printable-content">
+      <div class=" printable-content-adminside">
         I understand that my application for admission is subject to approval of the Admission Commitee of the University. By signing below, I certify that the information given is true and correct
         . Falsifying any og the information is sufficient ground for any legal action and rejection relative to my application. In addition, I understand that LNU has no obligation to provide
         my with reasons in case this application will be denied.
@@ -133,13 +133,13 @@
     </div>
 
     <div class="flex-row justify-center ">
-      <div class="printable-content applicant-signature">
+      <div class="printable-content-adminside applicant-signature-adminside">
         <u> <span id="applicantFullName"></span> </u>
         <br>
         Signature Above Printed Name
       </div>
 
-      <div class="printable-content date-accomplish">
+      <div class="printable-content-adminside date-accomplish-adminside">
         <u><span id="date_applied"></span> </u>
         <br>
         Date
@@ -147,14 +147,14 @@
     </div>
 
     <div class="flex-row justify-center">
-      <div class="guidance-remarks">
+      <div class="guidance-remarks-adminside">
         <p style="text-align: center">Guidance Remarks</p>
       </div>
     </div>
 
 
     <div class="flex-row">
-      <div class="printable-content personalStatement">
+      <div class="printable-content-adminside personalStatement-adminside">
         <h3>Personal Statement</h3>
         <p>Explain your purpose in seeking admission to the university and what personal objectives do you hope to achieve. <br>Your statement should reflect both organization of ideas and language fluency. <br>
           ________________________________________________________________________________________________________________________________________________________________________________________
@@ -168,20 +168,20 @@
 
 
     <div class="flex-row ">
-      <div class="printable-content coursePreferenceContainer" >
+      <div class="printable-content-adminside coursePreferenceContainer-adminside" >
         <br>
         <h3>TO BE FILLED UP BY THE INTERVIEW OFFICER/S</h3>
       </div>
     </div>
 
     <div class="flex-row justify-center">
-      <div class="coursePreferenceContainer">
+      <div class="coursePreferenceContainer-adminside">
         <h2 style="text-align: center">Interview Data</h2>
       </div>
     </div>
 
     <div class="flex-row justify-center">
-      <div class="printable-content course-preference coursePreferenceContainer">
+      <div class="printable-content-adminside course-preference coursePreferenceContainer-adminside">
         <h3>First Course Preference: <span><u>Something</u></span></h3>
         Remarks:<br>
         ________________________________ <br>
@@ -202,7 +202,7 @@
         </center>
       </div>
 
-      <div class="printable-content course-preference coursePreferenceContainer">
+      <div class="printable-content-adminside course-preference coursePreferenceContainer-adminside">
         <h3>Second Course Preference: <span><u>Something</u></span> </h3>
         Remarks:<br>
         ________________________________ <br>
@@ -228,8 +228,8 @@
   </div>
 </div>
 
-<div class="flex-row right buttonPrint">
-  <div class="">
-    <button type="button" name="button" onclick="printJS({printable: 'printable-form',type: 'html', css: ['con_f/styles/css/styles.css'], scanStyles: false})" id="print"><i class="fas fa-print"></i> Print</button>
+<!-- <div class="flex-row right buttonPrint">
+  <div class="right">
+    <button type="button" name="button" onclick="printJS({printable: 'printable-form-admin',type: 'html', css: ['../con_f/styles/css/styles.css'], scanStyles: false})" id="print"><i class="fas fa-print"></i> Print</button>
   </div>
-</div>
+</div> -->

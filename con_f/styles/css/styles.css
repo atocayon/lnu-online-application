@@ -572,16 +572,16 @@ body {
   margin-right: 10%;
   padding: 2vw;
   margin-top: -100vh; }
-  .printable-form-container-admin .user-avatar {
+  .printable-form-container-admin .user-avatar-adminside {
     width: 8vw;
     margin-left: 15vw;
     margin-top: 7vh;
     border: 1px solid #333;
     padding: 1vw; }
-  .printable-form-container-admin .lnu-logo {
+  .printable-form-container-admin .lnu-logo-adminside {
     width: 8vw;
     margin-right: 10vw; }
-  .printable-form-container-admin .printable-content {
+  .printable-form-container-admin .printable-content-adminside {
     margin-left: 5px; }
   .printable-form-container-admin table {
     width: 50vw; }
@@ -594,22 +594,22 @@ body {
       border-bottom: 1px solid #333;
       border-left: 1px solid #333;
       border-right: 1px solid #333; }
-  .printable-form-container-admin .applicant-signature, .printable-form-container-admin .date-accomplish {
+  .printable-form-container-admin .applicant-signature-adminside, .printable-form-container-admin .date-accomplish-adminside {
     display: none; }
-  .printable-form-container-admin .guidance-remarks {
+  .printable-form-container-admin .guidance-remarks-adminside {
     display: none; }
-  .printable-form-container-admin .personalStatement {
+  .printable-form-container-admin .personalStatement-adminside {
     display: none; }
-  .printable-form-container-admin .coursePreferenceContainer {
+  .printable-form-container-admin .coursePreferenceContainer-adminside {
     display: none; }
   @media print {
     .printable-form-container-admin {
       margin-left: 0px;
       margin-right: 0px; }
-      .printable-form-container-admin .lnu-logo {
+      .printable-form-container-admin .lnu-logo-adminside {
         width: 110px;
         margin-right: 100px; }
-      .printable-form-container-admin .user-avatar {
+      .printable-form-container-admin .user-avatar-adminside {
         width: 130px;
         margin-left: 90px;
         margin-top: 50px;
@@ -622,28 +622,28 @@ body {
           padding: 0.5vw; }
         .printable-form-container-admin table td {
           padding: 0.5vw; }
-      .printable-form-container-admin #character-reference {
+      .printable-form-container-admin #character-reference-adminside {
         margin-top: 5px; }
-      .printable-form-container-admin .applicant-signature, .printable-form-container-admin .date-accomplish {
+      .printable-form-container-admin .applicant-signature-adminside, .printable-form-container-admin .date-accomplish-adminside {
         display: block;
         text-align: center;
         margin-top: 100px;
         margin-left: 150px;
         margin-right: 150px; }
-      .printable-form-container-admin .guidance-remarks {
+      .printable-form-container-admin .guidance-remarks-adminside {
         display: block;
         border: 1px solid #333;
         padding: 10px;
         width: 200px;
         height: 50px;
         margin-top: 100px; }
-      .printable-form-container-admin .personalStatement {
+      .printable-form-container-admin .personalStatement-adminside {
         display: block;
         margin-top: 350px; }
-      .printable-form-container-admin .coursePreferenceContainer {
+      .printable-form-container-admin .coursePreferenceContainer-adminside {
         display: block;
         margin-top: 50px; }
-      .printable-form-container-admin .course-preference {
+      .printable-form-container-admin .course-preference-adminside {
         margin-left: 100px;
         margin-right: 100px; } }
 
