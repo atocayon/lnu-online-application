@@ -892,7 +892,141 @@ $(document).ready(function() {
      error: function(err){
        alert(err);
      }
-   })
+   });
+ });
+
+ $("#btn-viewApplicantForExam").click(function(){
+   $.ajax({
+     url: "applicant.php",
+     type: "POST",
+     dataType: "json",
+     data:{
+       id: $("#applicantForExamID").val()
+     },
+     success: function(data){
+       console.log(data);
+       $(".applicant").hide();
+       $(".view-applicant").show();
+       $(".printable-form-container-admin").show();
+       $(".buttonPrint").show();
+
+
+       if (data.applicationType === "new-applicant") {
+         $("#statusNew").prop("checked",true);
+         $("#statusTransferee").prop("checked",false);
+         $("#statusReturnee").prop("checked",false);
+       }
+
+       if (data.applicationType === "transferee-applicant") {
+         $("#statusNew").prop("checked",false);
+         $("#statusTransferee").prop("checked",true);
+         $("#statusReturnee").prop("checked",false);
+       }
+
+       if (data.applicationType === "returnee-applicant") {
+         $("#statusNew").prop("checked",false);
+         $("#statusTransferee").prop("checked",false);
+         $("#statusReturnee").prop("checked",true);
+       }
+
+
+        if (data.returneePasser === "no") {
+          $("#last_apply_passerNo").prop("checked",true);
+          $("#last_apply_passerYes").prop("checked",false);
+
+          $("#last_apply_month").text("N/A");
+          $("#last_apply_year").text("N/A");
+          $("#last_applyCourse").text("N/A");
+        }
+
+        if (data.returneePasser === "yes") {
+          $("#last_apply_passerNo").prop("checked",false);
+          $("#last_apply_passerYes").prop("checked",true);
+
+          $("#last_apply_month").text(data.returneeMonth);
+          $("#last_apply_year").text(data.returneeYear);
+          $("#last_applyCourse").text(data.returneeSelectedCourse);
+        }
+
+
+        $("#schoolYear").text(data.schoolYear);
+        $("#term").text(data.term);
+        $("#applicantFirstCoursePreference").text(data.firstCoursePreference);
+        $("#applicantSecondCourserPreference").text(data.secondCoursePreference);
+        $("#applicantLastName").text(data.lname);
+        $("#applicantFirstName").text(data.fname);
+        $("#applicantMiddleName").text(data.mname);
+        $("#applicantDateOfBirth").text(data.dateOfBirth);
+        $("#applicantAge").text(data.age);
+        $("#applicantGender").text(data.sex);
+        $("#applicantStatus").text(data.civilStatus);
+        $("#applicantCitizenship").text(data.citizenship);
+        $("#applicantHomeAddress").text(data.completeHomeAddress);
+        $("#applicantCityAddress").text(data.completeCityAddress);
+        $("#applicantTelNo").text(data.telNo);
+        $("#applicantMobileNo").text(data.mobileNo);
+        $("#applicantEmail").text(data.emailAdd);
+        $("#applicantGuardianName").text(data.guardianName);
+        $("#applicantGuardianOccupation").text(data.guardianOccupation);
+        $("#applicantGuardianContactNo").text(data.guardianContactNo);
+        $("#applicantLastSchoolAttendedType").text(data.typeOfSchoolLastAttended);
+        $("#applicantLastSchoolAttendedCategory").text(data.categoryOfSchoolLastAttended);
+        //nameOfSchoolAttended
+        //console.log(data.schoolAttended[0]['reference'][0]);
+         var tbl = "";
+        for (var i = 0; i < data.schoolAttended.length; i++) {
+          //console.log("i "+i);
+          tbl += "<tr>";
+          for (var x = 0; x < data.schoolAttended[i]['school'].length; ++x) {
+            //console.log(data.schoolAttended[i]['reference'][x]);
+            tbl +=
+              "<td><label>" +data.schoolAttended[i]['school'][x]+ "</label></td>";
+
+          }
+          tbl += "</tr>";
+          //console.log(data.schoolAttended[i]['reference'][i]);
+
+        }
+
+        $("#nameOfSchoolAttended").prepend(tbl);
+
+        $("#applicantGWA").text(data.gwa);
+        $("#applicantMembershipOrgranization").text(data.membershipOrganization);
+        $("#applicantInterest").text(data.hobbiesAndTalent);
+        //characterReference
+
+        var tbl1 = "";
+       for (var z = 0; z < data.character_reference.length; z++) {
+         //console.log("i "+i);
+         tbl1 += "<tr>";
+         for (var q = 0; q < data.character_reference[z]['reference'].length; ++q) {
+           //console.log(data.schoolAttended[i]['reference'][x]);
+           tbl1 +=
+             "<td><label>" +data.character_reference[z]['reference'][q]+ "</label></td>";
+
+         }
+         tbl1 += "</tr>";
+         //console.log(data.schoolAttended[i]['reference'][i]);
+
+       }
+
+       $("#characterReference").prepend(tbl1);
+
+        $("#applicantFullName").text(data.fname+" "+data.mname+". "+data.lname);
+        $("#date_applied").text(data.applicationDate);
+     },
+     error: function(err){
+       alert(err);
+     }
+   });
+ });
+
+
+ $("#btn-evaluateApplicantForExam").click(function(){
+   $("#applicantExamResult").show();
+   $("#submitExamResult").show();
+   $("#btn-viewApplicantForExam").hide();
+   $("#btn-evaluateApplicantForExam").hide();
  });
 
 });

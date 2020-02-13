@@ -21,9 +21,10 @@
           ?>
             <tr>
               <td><?= $row["fname"]." ".$row["mname"]." ".$row["lname"] ?></td>
+              <input type="text" name="" value="<?= $row['applicantID'] ?>" hidden id="applicantForExamID">
               <td><?= $row["firstCoursePreference"] ?></td>
               <td><?= $row["secondCoursePreference"] ?></td>
-              <td><button type="button" name="button">View</button> <button type="button" name="button">Evaluate</button> </td>
+              <td><button type="button" id="btn-viewApplicantForExam">View</button> <button type="button" name="button" id="btn-evaluateApplicantForExam">Evaluate</button> <input type="text" placeholder="Exam Result Percentage" id="applicantExamResult" hidden> <button type="button" name="button" id="submitExamResult" style="display:none">submit</button> </td>
             </tr>
           <?php
         }

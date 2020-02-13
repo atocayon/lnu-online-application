@@ -22,7 +22,7 @@
             <td><?= $row1["fname"]." ".$row1["mname"]." ".$row1["lname"] ?></td>
             <td><?= $row1["firstCoursePreference"] ?></td>
             <td><?= $row1["secondCoursePreference"] ?></td>
-            <td><button type="button" name="button">View</button> </td>
+            <td><button type="button" name="button">View</button> <button type="button" name="button">Evaluate</button> </td>
           </tr>
         <?php
       }
