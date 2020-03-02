@@ -21,10 +21,27 @@
           ?>
             <tr>
               <td><?= $row["fname"]." ".$row["mname"]." ".$row["lname"] ?></td>
-              <input type="text" name="" value="<?= $row['applicantID'] ?>" hidden id="applicantForExamID">
+
               <td><?= $row["firstCoursePreference"] ?></td>
               <td><?= $row["secondCoursePreference"] ?></td>
-              <td><button type="button" id="btn-viewApplicantForExam">View</button> <button type="button" name="button" id="btn-evaluateApplicantForExam">Evaluate</button> <input type="text" placeholder="Exam Result Percentage" id="applicantExamResult" hidden> <button type="button" name="button" id="submitExamResult" style="display:none">submit</button> </td>
+              <td>
+                <button type="button" class="btn-viewApplicantForExam" value="<?= $row['applicantID'] ?>" id="<?= $row['applicantID'] ?>_btnViewApplicant">View</button>
+                <button type="button" name="button" class="btn-evaluateApplicantForExam" value="<?= $row['applicantID'] ?>" id="<?= $row['applicantID'] ?>_btnEvaluate" >Evaluate</button>
+                <input type="number" placeholder="ART" id="<?= $row['applicantID'] ?>_art" class="input_grades_exam"  hidden>
+                <input type="number" placeholder="SCI" id="<?= $row['applicantID'] ?>_sci" class="input_grades_exam" hidden>
+                <input type="number" placeholder="NAT" id="<?= $row['applicantID'] ?>_nat" class="input_grades_exam" hidden>
+                <input type="number" placeholder="PRO" id="<?= $row['applicantID'] ?>_pro" class="input_grades_exam" hidden>
+                <input type="number" placeholder="MEC" id="<?= $row['applicantID'] ?>_mec" class="input_grades_exam" hidden>
+                <input type="number" placeholder="IND" id="<?= $row['applicantID'] ?>_ind" class="input_grades_exam" hidden>
+                <input type="number" placeholder="BUS" id="<?= $row['applicantID'] ?>_bus" class="input_grades_exam" hidden>
+                <input type="number" placeholder="SEL" id="<?= $row['applicantID'] ?>_sel" class="input_grades_exam" hidden>
+                <input type="number" placeholder="ACC" id="<?= $row['applicantID'] ?>_acc" class="input_grades_exam" hidden>
+                <input type="number" placeholder="HUM" id="<?= $row['applicantID'] ?>_hum" class="input_grades_exam" hidden>
+                <input type="number" placeholder="LEA" id="<?= $row['applicantID'] ?>_lea" class="input_grades_exam" hidden>
+                <input type="number" placeholder="PHY" id="<?= $row['applicantID'] ?>_phy" class="input_grades_exam" hidden>
+                <button type="button" name="button" class="submitExamResult" value="<?= $row['applicantID'] ?>" id="<?= $row['applicantID'] ?>_btnSubmitEvaluate" style="display:none">submit</button>
+                <button type="button" name="button" class="cancelExamEvaluation" value="<?= $row['applicantID'] ?>" id="<?= $row['applicantID'] ?>_btnCancelEvaluate" style="display:none">cancel</button>
+              </td>
             </tr>
           <?php
         }

@@ -53,7 +53,7 @@
 
     <div class="flex-row">
       <div class=" printable-content-adminside">
-        Name of Applicant: &nbsp;&nbsp;&nbsp;<u><span id="applicantLastName"></span>,&nbsp;&nbsp;&nbsp;<span id="applicantFirstName"></span>&nbsp;&nbsp;&nbsp;<span id="applicantMiddleName"></span></u>
+        Name of Applicant: &nbsp;&nbsp;&nbsp;<u><span id="applicantFirstName"></span>&nbsp;&nbsp;&nbsp;<span id="applicantMiddleName"></span>&nbsp;&nbsp;&nbsp;<span id="applicantLastName"></span></u>
         <br>
         Date of Birth: &nbsp;&nbsp;&nbsp;<u><span id="applicantDateOfBirth"></span></u>&nbsp;&nbsp;&nbsp;Age:&nbsp;&nbsp;&nbsp;<u><span id="applicantAge"></span></u> &nbsp;&nbsp;&nbsp;Gender: &nbsp;&nbsp;&nbsp;<u><span id="applicantGender"></span></u>
         &nbsp;&nbsp;&nbsp;Status:&nbsp;&nbsp;&nbsp;<u><span id="applicantStatus"></span></u>&nbsp;&nbsp;&nbsp;Citizenship:&nbsp;&nbsp;&nbsp;<u><span id="applicantCitizenship"></span></u>
@@ -77,7 +77,7 @@
 
     <div class="flex-row">
       <div class=" printable-content-adminside">
-        <table >
+        <table id="tbl-nameOfSchoolAttended">
           <thead>
             <tr>
               <th>Name of Schools Attended</th>
@@ -107,7 +107,7 @@
 
         <h3 id="character-reference">Character Reference</h3>
         Write down at least 2 names and address of persons as character references (Teacher/Adviser, Guidance Counselors, Barangay Officia, Priest/Pastor)
-        <table >
+        <table id="tbl-characterReference" >
           <thead>
             <tr>
               <th>Name</th>

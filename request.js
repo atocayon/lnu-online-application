@@ -559,6 +559,8 @@ $(document).ready(function() {
   });
 
   $("#link-applicants").click(function(){
+    $("#tbl-nameOfSchoolAttended tbody tr").remove();
+    $("#tbl-characterReference tbody tr").remove();
     $(".applicant").show();
     $(".enrolled").hide();
     $(".schedule").hide();
@@ -589,6 +591,8 @@ $(document).ready(function() {
   });
 
   $("#link-forExam").click(function(){
+    $("#tbl-nameOfSchoolAttended tbody tr").remove();
+    $("#tbl-characterReference tbody tr").remove();
     $(".applicant").hide();
     $(".forExam").show();
     $(".schedule").hide();
@@ -616,6 +620,8 @@ $(document).ready(function() {
   });
 
   $("#link-forInterview").click(function(){
+    $("#tbl-nameOfSchoolAttended tbody tr").remove();
+    $("#tbl-characterReference tbody tr").remove();
     $(".applicant").hide();
     $(".forExam").hide();
     $(".schedule").hide();
@@ -643,6 +649,8 @@ $(document).ready(function() {
   });
 
   $("#link-forQualified").click(function(){
+    $("#tbl-nameOfSchoolAttended tbody tr").remove();
+    $("#tbl-characterReference tbody tr").remove();
     $(".applicant").hide();
     $(".forExam").hide();
     $(".schedule").hide();
@@ -670,6 +678,8 @@ $(document).ready(function() {
   });
 
   $("#link-userManagement").click(function(){
+    $("#tbl-nameOfSchoolAttended tbody tr").remove();
+    $("#tbl-characterReference tbody tr").remove();
     $(".applicant").hide();
     $(".schedule").hide();
     $(".forExam").hide();
@@ -766,16 +776,20 @@ $(document).ready(function() {
   $("#tbl_approvedApplicants").DataTable();
   $("#tbl_forInterview").DataTable();
   $("#tbl_qualified").DataTable();
+  $("#tbl-userManagement").DataTable();
+  $("#tbl-interviewer").DataTable();
+  $("#tbl-doneInterviews").DataTable();
 
- $("#btn-viewApplicant").click(function(){
-
+ $(".btn-viewApplicant").click(function(){
+   var value = $(this).attr("value");
+   console.log(value);
 
    $.ajax({
      url: "applicant.php",
      type: "POST",
      dataType: "json",
      data:{
-       id: $("#applicantID").val()
+       id: value
      },
      success: function(data){
        console.log(data);
@@ -895,13 +909,16 @@ $(document).ready(function() {
    });
  });
 
- $("#btn-viewApplicantForExam").click(function(){
+ $(".btn-viewApplicantForExam").click(function(){
+   var value = $(this).attr("value");
+   console.log(value);
+   $(".forExam").hide();
    $.ajax({
      url: "applicant.php",
      type: "POST",
      dataType: "json",
      data:{
-       id: $("#applicantForExamID").val()
+       id: value
      },
      success: function(data){
        console.log(data);
@@ -1022,11 +1039,522 @@ $(document).ready(function() {
  });
 
 
- $("#btn-evaluateApplicantForExam").click(function(){
-   $("#applicantExamResult").show();
-   $("#submitExamResult").show();
-   $("#btn-viewApplicantForExam").hide();
-   $("#btn-evaluateApplicantForExam").hide();
+ $(".btn-evaluateApplicantForExam").click(function(){
+   var value = $(this).attr("value");
+   console.log(value);
+
+    $("#"+value+"_art").show();
+    $("#"+value+"_sci").show();
+    $("#"+value+"_nat").show()
+    $("#"+value+"_pro").show();
+    $("#"+value+"_mec").show();
+    $("#"+value+"_ind").show();
+    $("#"+value+"_bus").show();
+    $("#"+value+"_sel").show();
+    $("#"+value+"_acc").show();
+    $("#"+value+"_hum").show();
+    $("#"+value+"_lea").show();
+    $("#"+value+"_phy").show();
+   $("#"+value+"_btnSubmitEvaluate").show();
+   $("#"+value+"_btnViewApplicant").hide();
+   $("#"+value+"_btnEvaluate").hide();
+   $("#"+value+"_btnCancelEvaluate").show();
  });
+
+ $(".cancelExamEvaluation").click(function(){
+   var value = $(this).attr("value");
+   console.log(value);
+
+
+   $("#"+value+"_art").hide();
+   $("#"+value+"_sci").hide();
+   $("#"+value+"_nat").hide()
+   $("#"+value+"_pro").hide();
+   $("#"+value+"_mec").hide();
+   $("#"+value+"_ind").hide();
+   $("#"+value+"_bus").hide();
+   $("#"+value+"_sel").hide();
+   $("#"+value+"_acc").hide();
+   $("#"+value+"_hum").hide();
+   $("#"+value+"_lea").hide();
+   $("#"+value+"_phy").hide();
+  $("#"+value+"_btnSubmitEvaluate").hide();
+  $("#"+value+"_btnViewApplicant").show();
+  $("#"+value+"_btnEvaluate").show();
+  $("#"+value+"_btnCancelEvaluate").hide();
+
+  $("#"+value+"_art").css("border","1px solid #E0E0E0");
+  $("#"+value+"_sci").css("border","1px solid #E0E0E0");
+  $("#"+value+"_nat").css("border","1px solid #E0E0E0");
+  $("#"+value+"_pro").css("border","1px solid #E0E0E0");
+  $("#"+value+"_mec").css("border","1px solid #E0E0E0");
+  $("#"+value+"_ind").css("border","1px solid #E0E0E0");
+  $("#"+value+"_bus").css("border","1px solid #E0E0E0");
+  $("#"+value+"_sel").css("border","1px solid #E0E0E0");
+  $("#"+value+"_acc").css("border","1px solid #E0E0E0");
+  $("#"+value+"_hum").css("border","1px solid #E0E0E0");
+  $("#"+value+"_lea").css("border","1px solid #E0E0E0");
+  $("#"+value+"_phy").css("border","1px solid #E0E0E0");
+ });
+
+ $(".submitExamResult").click(function(){
+   var value = $(this).attr("value");
+   console.log(value);
+
+   if (
+     $("#"+value+"_art").val() !== "" &&
+     $("#"+value+"_sci").val() !== "" &&
+     $("#"+value+"_nat").val() !== "" &&
+     $("#"+value+"_pro").val() !== "" &&
+     $("#"+value+"_mec").val() !== "" &&
+     $("#"+value+"_ind").val() !== "" &&
+     $("#"+value+"_bus").val() !== "" &&
+     $("#"+value+"_sel").val() !== "" &&
+     $("#"+value+"_acc").val() !== "" &&
+     $("#"+value+"_hum").val() !== "" &&
+     $("#"+value+"_lea").val() !== "" &&
+     $("#"+value+"_phy").val() !== ""
+   ) {
+     $.ajax({
+       url: "insertExamResult.php",
+       type: "POST",
+       dataType: "json",
+       data:{
+         id: value,
+         art: $("#"+value+"_art").val(),
+         sci: $("#"+value+"_sci").val(),
+         nat: $("#"+value+"_nat").val(),
+         pro: $("#"+value+"_pro").val(),
+         mec: $("#"+value+"_mec").val(),
+         ind: $("#"+value+"_ind").val(),
+         bus: $("#"+value+"_bus").val(),
+         sel: $("#"+value+"_sel").val(),
+         acc: $("#"+value+"_acc").val(),
+         hum: $("#"+value+"_hum").val(),
+         lea: $("#"+value+"_lea").val(),
+         phy: $("#"+value+"_phy").val()
+       },
+       success: function(data){
+         console.log(data);
+         if (data.insert === "success") {
+           location.reload(true);
+         }
+       },
+       error: function(err){
+
+       }
+     });
+
+
+   }else{
+     $("#"+value+"_art").css("border","1px solid red");
+     $("#"+value+"_sci").css("border","1px solid red");
+     $("#"+value+"_nat").css("border","1px solid red");
+     $("#"+value+"_pro").css("border","1px solid red");
+     $("#"+value+"_mec").css("border","1px solid red");
+     $("#"+value+"_ind").css("border","1px solid red");
+     $("#"+value+"_bus").css("border","1px solid red");
+     $("#"+value+"_sel").css("border","1px solid red");
+     $("#"+value+"_acc").css("border","1px solid red");
+     $("#"+value+"_hum").css("border","1px solid red");
+     $("#"+value+"_lea").css("border","1px solid red");
+     $("#"+value+"_phy").css("border","1px solid red");
+   }
+ });
+
+ $(".editUser").click(function(){
+    var value = $(this).attr("value");
+    console.log(value);
+    $("#"+value+"_uname").hide();
+    $("#"+value+"_inputUname").show();
+    $("#"+value+"_inputPword").prop("disabled", false);
+    $("#"+value+"_role").hide();
+    $("#"+value+"_inputRole").show();
+    $("#"+value+"_office").hide();
+    $("#"+value+"_inputOffice").show();
+    $("#"+value+"_editUser").hide();
+    $("#"+value+"_deleteUser").hide();
+    $("#"+value+"_saveUser").show();
+    $("#"+value+"_cancelUser").show();
+ });
+
+ $(".cancelUser").click(function(){
+   var value = $(this).attr("value");
+   console.log(value);
+   $("#"+value+"_uname").show();
+   $("#"+value+"_inputUname").hide();
+   $("#"+value+"_inputPword").prop("disabled", true);
+   $("#"+value+"_role").show();
+   $("#"+value+"_inputRole").hide();
+   $("#"+value+"_office").show();
+   $("#"+value+"_inputOffice").hide();
+   $("#"+value+"_editUser").show();
+   $("#"+value+"_deleteUser").show();
+   $("#"+value+"_saveUser").hide();
+   $("#"+value+"_cancelUser").hide();
+ });
+
+ $(".saveUser").click(function(){
+   var value = $(this).attr("value");
+   console.log(value);
+
+   if ($("#"+value+"_inputUname").val() !== "" && $("#"+value+"_inputPword").val() !== "" && $("#"+value+"_inputRole").val() !== "") {
+     $.ajax({
+       url: "updateAdminUserInfo.php",
+       type: "POST",
+       dataType: "json",
+       data:{
+         id: value,
+         uname: $("#"+value+"_inputUname").val(),
+         pword: $("#"+value+"_inputPword").val(),
+         role: $("#"+value+"_inputRole").val(),
+         office: $("#"+value+"_inputOffice").val()
+       },
+       success: function(data){
+         console.log(data);
+         location.reload(true);
+       },
+       error: function(err){
+         alert(err);
+       }
+     });
+   }else{
+     $("#"+value+"_uname").show();
+     $("#"+value+"_inputUname").hide();
+     $("#"+value+"_inputPword").prop("disabled", true);
+     $("#"+value+"_role").show();
+     $("#"+value+"_inputRole").hide();
+     $("#"+value+"_office").show();
+     $("#"+value+"_inputOffice").hide();
+     $("#"+value+"_editUser").show();
+     $("#"+value+"_deleteUser").show();
+     $("#"+value+"_saveUser").hide();
+     $("#"+value+"_cancelUser").hide();
+   }
+
+
+ });
+
+ $(".deleteUser").click(function(){
+   var value = $(this).attr("value");
+   console.log(value);
+   $.ajax({
+     url: "deleteAdminUser.php",
+     type: "POST",
+     dataType: "json",
+     data:{
+       id: value
+     },
+     success: function(data){
+       console.log(data);
+       location.reload(true);
+     },
+     error: function(err){
+       alert(err);
+     }
+   });
+ });
+
+ $("#btn-addNewUser").click(function(){
+   if ($("#admin_uname").val() !== "" && $("#admin_pword").val() !== "" && $("#admin_role").val() !== "" && $("#office").val() !== "") {
+     $.ajax({
+       url: "addAdminUser.php",
+       type: "POST",
+       dataType: "json",
+       data:{
+         uname: $("#admin_uname").val(),
+         pword: $("#admin_pword").val(),
+         role: $("#admin_role").val(),
+         office: $("#office").val()
+       },
+       success: function(data){
+         console.log(data);
+         if (data.insert === "dupplicate") {
+           alert("Data Already exist!");
+         }
+
+         if (data.insert === "success") {
+           location.reload(true);
+         }
+
+       },
+       error: function(err){
+         alert(err);
+       }
+     });
+   }else{
+     alert("Required input fields...");
+   }
+ });
+
+ $(".viewApplicantInterviewee").click(function(event){
+   event.preventDefault();
+   var value = $(this).attr("value");
+   console.log(value);
+
+   $.ajax({
+     url: "applicant.php",
+     type: "POST",
+     dataType: "json",
+     data:{
+       id: value
+     },
+     success: function(data){
+       console.log(data);
+       $("#for-interview").hide();
+       $("#back-home").show();
+       $(".interviewer-container").hide();
+       $(".view-applicant").show();
+       $(".printable-form-container-admin").show();
+       $(".buttonPrint").show();
+
+
+       if (data.applicationType === "new-applicant") {
+         $("#statusNew").prop("checked",true);
+         $("#statusTransferee").prop("checked",false);
+         $("#statusReturnee").prop("checked",false);
+       }
+
+       if (data.applicationType === "transferee-applicant") {
+         $("#statusNew").prop("checked",false);
+         $("#statusTransferee").prop("checked",true);
+         $("#statusReturnee").prop("checked",false);
+       }
+
+       if (data.applicationType === "returnee-applicant") {
+         $("#statusNew").prop("checked",false);
+         $("#statusTransferee").prop("checked",false);
+         $("#statusReturnee").prop("checked",true);
+       }
+
+
+        if (data.returneePasser === "no") {
+          $("#last_apply_passerNo").prop("checked",true);
+          $("#last_apply_passerYes").prop("checked",false);
+
+          $("#last_apply_month").text("N/A");
+          $("#last_apply_year").text("N/A");
+          $("#last_applyCourse").text("N/A");
+        }
+
+        if (data.returneePasser === "yes") {
+          $("#last_apply_passerNo").prop("checked",false);
+          $("#last_apply_passerYes").prop("checked",true);
+
+          $("#last_apply_month").text(data.returneeMonth);
+          $("#last_apply_year").text(data.returneeYear);
+          $("#last_applyCourse").text(data.returneeSelectedCourse);
+        }
+
+        $("#schoolYear").text(data.schoolYear);
+        $("#term").text(data.term);
+        $("#applicantFirstCoursePreference").text(data.firstCoursePreference);
+        $("#applicantSecondCourserPreference").text(data.secondCoursePreference);
+        $("#applicantLastName").text(data.lname);
+        $("#applicantFirstName").text(data.fname);
+        $("#applicantMiddleName").text(data.mname);
+        $("#applicantDateOfBirth").text(data.dateOfBirth);
+        $("#applicantAge").text(data.age);
+        $("#applicantGender").text(data.sex);
+        $("#applicantStatus").text(data.civilStatus);
+        $("#applicantCitizenship").text(data.citizenship);
+        $("#applicantHomeAddress").text(data.completeHomeAddress);
+        $("#applicantCityAddress").text(data.completeCityAddress);
+        $("#applicantTelNo").text(data.telNo);
+        $("#applicantMobileNo").text(data.mobileNo);
+        $("#applicantEmail").text(data.emailAdd);
+        $("#applicantGuardianName").text(data.guardianName);
+        $("#applicantGuardianOccupation").text(data.guardianOccupation);
+        $("#applicantGuardianContactNo").text(data.guardianContactNo);
+        $("#applicantLastSchoolAttendedType").text(data.typeOfSchoolLastAttended);
+        $("#applicantLastSchoolAttendedCategory").text(data.categoryOfSchoolLastAttended);
+        //nameOfSchoolAttended
+        //console.log(data.schoolAttended[0]['reference'][0]);
+         var tbl = "";
+        for (var i = 0; i < data.schoolAttended.length; i++) {
+          //console.log("i "+i);
+          tbl += "<tr>";
+          for (var x = 0; x < data.schoolAttended[i]['school'].length; ++x) {
+            //console.log(data.schoolAttended[i]['reference'][x]);
+            tbl +=
+              "<td><label>" +data.schoolAttended[i]['school'][x]+ "</label></td>";
+
+          }
+          tbl += "</tr>";
+          //console.log(data.schoolAttended[i]['reference'][i]);
+
+        }
+
+        $("#nameOfSchoolAttended").prepend(tbl);
+
+        $("#applicantGWA").text(data.gwa);
+        $("#applicantMembershipOrgranization").text(data.membershipOrganization);
+        $("#applicantInterest").text(data.hobbiesAndTalent);
+        //characterReference
+
+        var tbl1 = "";
+       for (var z = 0; z < data.character_reference.length; z++) {
+         //console.log("i "+i);
+         tbl1 += "<tr>";
+         for (var q = 0; q < data.character_reference[z]['reference'].length; ++q) {
+           //console.log(data.schoolAttended[i]['reference'][x]);
+           tbl1 +=
+             "<td><label>" +data.character_reference[z]['reference'][q]+ "</label></td>";
+
+         }
+         tbl1 += "</tr>";
+         //console.log(data.schoolAttended[i]['reference'][i]);
+
+       }
+
+       $("#characterReference").prepend(tbl1);
+
+        $("#applicantFullName").text(data.fname+" "+data.mname+". "+data.lname);
+        $("#date_applied").text(data.applicationDate);
+     },
+     error: function(err){
+       alert(err);
+     }
+   });
+ });
+
+ $("#back-home").click(function(event){
+   event.preventDefault();
+   $("#for-interview").show();
+   $("#back-home").hide();
+   $(".interviewer-container").show();
+   $(".view-applicant").hide();
+   $(".printable-form-container-admin").hide();
+   $(".buttonPrint").hide();
+   $("#tbl-nameOfSchoolAttended tbody tr").remove();
+   $("#tbl-characterReference tbody tr").remove();
+ });
+
+ $(".evauluateApplicantInterviewee").click(function(event){
+   event.preventDefault();
+   var value = $(this).attr("value");
+   console.log(value);
+
+    $("#"+value+"_grammar").show();
+    $("#"+value+"_clarity").show();
+    $("#"+value+"_fluency").show();
+    $("#"+value+"_development_deliveryOfInfo").show();
+    $("#"+value+"_interest").show();
+    $("#"+value+"_viewApplicantInterviewee").hide();
+    $("#"+value+"_evalutateApplicantInterviewee").hide();
+    $("#"+value+"_saveApplicantInterviewee").show();
+    $("#"+value+"_cancelApplicantInterviewee").show();
+ });
+
+ $(".cancelApplicantInterviewee").click(function(event){
+   event.preventDefault();
+   var value = $(this).attr("value");
+   console.log(value);
+
+   $("#"+value+"_grammar").hide();
+   $("#"+value+"_clarity").hide();
+   $("#"+value+"_fluency").hide();
+   $("#"+value+"_development_deliveryOfInfo").hide();
+   $("#"+value+"_interest").hide();
+   $("#"+value+"_viewApplicantInterviewee").show();
+   $("#"+value+"_evalutateApplicantInterviewee").show();
+   $("#"+value+"_saveApplicantInterviewee").hide();
+   $("#"+value+"_cancelApplicantInterviewee").hide();
+
+   $("#"+value+"_grammar").css("border", "1px solid #E0E0E0");
+   $("#"+value+"_clarity").css("border", "1px solid #E0E0E0");
+   $("#"+value+"_fluency").css("border", "1px solid #E0E0E0");
+   $("#"+value+"_development_deliveryOfInfo").css("border", "1px solid #E0E0E0");
+   $("#"+value+"_interest").css("border", "1px solid #E0E0E0");
+ });
+
+ $(".saveApplicantInterviewee").click(function(event){
+   event.preventDefault();
+   var value = $(this).attr("value");
+   console.log(value);
+
+   if ($("#"+value+"_grammar").val() > 9 ||
+   $("#"+value+"_clarity").val() > 9 ||
+   $("#"+value+"_fluency").val() > 9 ||
+   $("#"+value+"_development_deliveryOfInfo").val() > 9 ||
+   $("#"+value+"_interest").val() > 9 ) {
+     alert("Input grade must not be greater than 9...");
+   }
+
+   if ($("#"+value+"_grammar").val() !== "" &&
+   $("#"+value+"_clarity").val() !== "" &&
+   $("#"+value+"_fluency").val() !== "" &&
+   $("#"+value+"_development_deliveryOfInfo").val() !== "" &&
+   $("#"+value+"_interest").val() !== ""
+ ) {
+
+   $.ajax({
+     url: "interviewResult.php",
+     type: "POST",
+     dataType: "json",
+     data: {
+       id: value,
+       grammar: $("#"+value+"_grammar").val(),
+       clarity: $("#"+value+"_clarity").val(),
+       fluency: $("#"+value+"_fluency").val(),
+       developmentDeliveryOfInfo: $("#"+value+"_development_deliveryOfInfo").val(),
+       interest: $("#"+value+"_interest").val()
+     },
+     success: function(data){
+       console.log(data);
+       if (data.insert === "success") {
+         $("#"+value+"_grammar").val('');
+         $("#"+value+"_clarity").val('');
+         $("#"+value+"_fluency").val('');
+         $("#"+value+"_development_deliveryOfInfo").val('');
+         $("#"+value+"_interest").val('');
+          window.location.replace("http://localhost/online-application/admin/");
+       }
+
+     },
+     error: function(err){
+       alert(err);
+     }
+   });
+
+
+ }else{
+   $("#"+value+"_grammar").css("border", "1px solid red");
+   $("#"+value+"_clarity").css("border", "1px solid red");
+   $("#"+value+"_fluency").css("border", "1px solid red");
+   $("#"+value+"_development_deliveryOfInfo").css("border", "1px solid red");
+   $("#"+value+"_interest").css("border", "1px solid red");
+ }
+ });
+
+
+ $("#doneInterview").click(function(event){
+   event.preventDefault();
+   $("#for-interview").show();
+   $("#back-home").hide();
+   $(".interviewer-container").hide();
+   $(".view-applicant").hide();
+   $(".printable-form-container-admin").hide();
+   $(".buttonPrint").hide();
+   $("#tbl-nameOfSchoolAttended tbody tr").remove();
+   $("#tbl-characterReference tbody tr").remove();
+   $(".view-doneInterview").show();
+ });
+
+ $("#for-interview").click(function(){
+   $("#for-interview").show();
+   $("#back-home").hide();
+   $(".interviewer-container").show();
+   $(".view-applicant").show();
+   $(".printable-form-container-admin").hide();
+   $(".buttonPrint").hide();
+   $("#tbl-nameOfSchoolAttended tbody tr").remove();
+   $("#tbl-characterReference tbody tr").remove();
+   $(".view-doneInterview").hide();
+ });
+
+
+
+
 
 });

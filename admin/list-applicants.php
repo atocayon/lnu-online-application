@@ -27,10 +27,10 @@
           <td><?= $row["secondCoursePreference"] ?></td>
           <td>
             <?php $data = array('id' => $row['applicantID'], 'email' => $row['emailAdd']); ?>
-            <input type="text" name="" value="<?= $row['applicantID'] ?>" hidden id="applicantID">
+
             <a href="acceptApplicant.php?<?= http_build_query($data) ?>" onclick="return confirm('Are you sure?')" id="btn-acceptApplicant">Accept</a>
             <a href="rejectApplicant.php?<?= http_build_query($data) ?>" onclick="return confirm('Are you sure you? This action cannot be undone...')" id="btn-rejectApplicant">Reject</a>
-            <a href="#" id="btn-viewApplicant">View</a> </td>
+            <button class="btn-viewApplicant" value="<?= $row['applicantID'] ?>">View</button> </td>
         </tr>
       <?php
     }

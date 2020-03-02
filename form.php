@@ -159,20 +159,14 @@ if ($count !== '0') {
                       <label>
                           <select class="form-input" name="returnee-specify-course" id="returnee-specify-course">
                               <option value="undefined">Select Course</option>
-                              <option value="bsit">Bachelor of Sciences in Information Technology</option>
-                              <option value="bssw">Bachelor of Science in Social Work</option>
-                              <option value="bael">Bachelor of Arts in English Language</option>
-                              <option value="baps">Bachelor of Arts in Political Science</option>
-                              <option value="bssw">Bachelor of Science in Social Work</option>
-                              <option value="blis">blis</option>
-                              <option value="bsbio">Bachelor of Sciences in Biology</option>
-                              <option value="bsmath">Bachelor of Science in Mathematics</option>
-                              <option value="bsthrm">bsthrm</option>
-                              <option value="bshae">bshae</option>
-                              <option value="bshrm">bshrm</option>
-                              <option value="beed">Bachelor of Elementary Education</option>
-                              <option value="bsed">Bachelor of Secondary Education</option>
-                              <option value="bacom">Bachelor of Arts in Communication</option>
+                              <?php
+                                $query_course = $con->query("SELECT * FROM office WHERE id != 1");
+                                while($row = mysqli_fetch_array($query_course)){
+                                  ?>
+                                    <option value="<?= $row['id'] ?>"><?= $row['course'] ?></option>
+                                  <?php
+                                }
+                              ?>
                           </select>
                       </label>
                   </div>
@@ -188,20 +182,13 @@ if ($count !== '0') {
                   <label>
                       <select class="form-input" name="first-course-preference" id="first-course-preference">
                           <option value="">Select Course</option>
-                          <option value="bsit">Bachelor of Sciences in Information Technology</option>
-                          <option value="bssw">Bachelor of Science in Social Work</option>
-                          <option value="bael">Bachelor of Arts in English Language</option>
-                          <option value="baps">Bachelor of Arts in Political Science</option>
-                          <option value="bssw">Bachelor of Science in Social Work</option>
-                          <option value="blis">blis</option>
-                          <option value="bsbio">Bachelor of Sciences in Biology</option>
-                          <option value="bsmath">Bachelor of Science in Mathematics</option>
-                          <option value="bsthrm">bsthrm</option>
-                          <option value="bshae">bshae</option>
-                          <option value="bshrm">bshrm</option>
-                          <option value="beed">Bachelor of Elementary Education</option>
-                          <option value="bsed">Bachelor of Secondary Education</option>
-                          <option  value="bacom">Bachelor of Arts in Communication</option>
+                          <?php
+                          while($row1 = mysqli_fetch_array($query_course)){
+                            ?>
+                              <option value="<?= $row1['id'] ?>"><?= $row1['course'] ?></option>
+                            <?php
+                          }
+                          ?>
                       </select>
                   </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               </div>
@@ -212,20 +199,13 @@ if ($count !== '0') {
                   <label>
                       <select class="form-input" name="second-course-preference" id="second-course-preference">
                           <option value="">Select Course</option>
-                          <option value="bsit">Bachelor of Sciences in Information Technology</option>
-                          <option value="bssw">Bachelor of Science in Social Work</option>
-                          <option value="bael">Bachelor of Arts in English Language</option>
-                          <option value="baps">Bachelor of Arts in Political Science</option>
-                          <option value="bssw">Bachelor of Science in Social Work</option>
-                          <option value="blis">blis</option>
-                          <option value="bsbio">Bachelor of Sciences in Biology</option>
-                          <option value="bsmath">Bachelor of Science in Mathematics</option>
-                          <option value="bsthrm">bsthrm</option>
-                          <option value="bshae">bshae</option>
-                          <option value="bshrm">bshrm</option>
-                          <option value="beed">Bachelor of Elementary Education</option>
-                          <option value="bsed">Bachelor of Secondary Education</option>
-                          <option value="bacom">Bachelor of Arts in Communication</option>
+                          <?php
+                          while($row2 = mysqli_fetch_array($query_course)){
+                            ?>
+                              <option value="<?= $row2['id'] ?>"><?= $row2['course'] ?></option>
+                            <?php
+                          }
+                          ?>
                       </select>
                   </label>
               </div>

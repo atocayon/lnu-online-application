@@ -1,7 +1,7 @@
 .applicant{
-  margin-left: 5vw;
+  margin-left: 3vw;
   margin-top: 5vh;
-  width: 70vw;
+  width: 80vw;
   table{
 
     th{
@@ -48,8 +48,8 @@
 }
 
 .forExam{
-  margin-left: 5vw;
-width: 70vw;
+  margin-left: 3vw;
+width: 80vw;
   margin-top: 5vh;
   table{
 
@@ -57,6 +57,56 @@ width: 70vw;
       font-size: 1vw;
       padding-left: 1vw;
       padding-right: 1vw;
+    }
+    td{
+      font-size: 0.7vw;
+      padding-left: 1vw;
+      padding-right: 1vw;
+    }
+  }
+
+    .btn-viewApplicantForExam, .submitExamResult{
+      background: #2196F3;
+      border: 1px solid #2196F3;
+      color: #fff;
+      padding-left: 0.5vw;
+      padding-right: 0.5vw;
+      padding-top: 0.5vh;
+      padding-bottom: 0.5vh;
+    }
+    .btn-evaluateApplicantForExam{
+      background: #fff;
+      border: 1px solid #4CAF50;
+      color: #4CAF50;
+      padding-left: 0.5vw;
+      padding-right: 0.5vw;
+      padding-top: 0.5vh;
+      padding-bottom: 0.5vh;
+    }
+
+    .cancelExamEvaluation{
+      background: #fff;
+      border: 1px solid #d50000;
+      color: #d50000;
+      padding-left: 0.5vw;
+      padding-right: 0.5vw;
+      padding-top: 0.5vh;
+      padding-bottom: 0.5vh;
+    }
+}
+
+
+  .forInterview, .forQualified,.userManagement{
+  margin-left: 5vw;
+  width: 70vw;
+  margin-top: 5vh;
+  table{
+
+    th{
+      font-size: 1vw;
+      padding-left: 1vw;
+      padding-right: 1vw;
+      text-align: left;
     }
     td{
       font-size: 0.7vw;
@@ -67,42 +117,70 @@ width: 70vw;
 }
 
 .forInterview{
-  margin-left: 5vw;
-width: 70vw;
-  margin-top: 5vh;
-  table{
-
-    th{
-      font-size: 1vw;
-      padding-left: 1vw;
-      padding-right: 1vw;
-    }
-    td{
-      font-size: 0.7vw;
-      padding-left: 1vw;
-      padding-right: 1vw;
-    }
+  .btn-viewForInterviewApplicant{
+    background: #2196F3;
+    border: 1px solid #2196F3;
+    color: #fff;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
   }
 }
 
-.forQualified{
-  margin-left: 5vw;
-width: 70vw;
-  margin-top: 5vh;
-  table{
-
-    th{
-      font-size: 1vw;
-      padding-left: 1vw;
-      padding-right: 1vw;
-    }
-    td{
-      font-size: 0.7vw;
-      padding-left: 1vw;
-      padding-right: 1vw;
-    }
+.userManagement{
+  input{
+    border: 1px solid #E0E0E0;
+    width: 15vw;
+    height: 2vh;
+    font-size: 1vw;
+    padding-left: 1vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
   }
+  select{
+    border: 1px solid #E0E0E0;
+    width: 15vw;
+    height: 3vh;
+    font-size: 1vw;
+    padding-left: 1vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+  }
+
+  #btn-addNewUser{
+    background: #4CAF50;
+    border: 1px solid #4CAF50;
+    color: #fff;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+  }
+
+  .editUser, .saveUser{
+    background: #2196F3;
+    border: 1px solid #2196F3;
+    color: #fff;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+  }
+  .deleteUser, .cancelUser{
+    background: #fff;
+    border: 1px solid #d50000;
+    color: #d50000;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+  }
+
+
+
 }
+
 
 .admin-login-container{
   color: #607D8B;
@@ -150,4 +228,26 @@ width: 70vw;
     color: $darkBlue;
     font-size: 1vw;
   }
+
+
+}
+
+.input_grades_exam{
+  width: 1.8vw;
+  padding-left: 5px;
+}
+
+.interviewer-container{
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-top: 5vh;
+
+  .input_interview{
+    width: 1.8vw;
+    padding-left: 5px;
+  }
+}
+
+.printable-interviewee{
+  margin-top: 100vh;
 }

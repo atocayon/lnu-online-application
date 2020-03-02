@@ -194,9 +194,9 @@
       color: #fafafa; }
 
 .applicant {
-  margin-left: 5vw;
+  margin-left: 3vw;
   margin-top: 5vh;
-  width: 70vw; }
+  width: 80vw; }
   .applicant table th {
     font-size: 1vw;
     padding-left: 1vw;
@@ -231,8 +231,8 @@
       margin-right: 0.5vw; }
 
 .forExam {
-  margin-left: 5vw;
-  width: 70vw;
+  margin-left: 3vw;
+  width: 80vw;
   margin-top: 5vh; }
   .forExam table th {
     font-size: 1vw;
@@ -242,32 +242,98 @@
     font-size: 0.7vw;
     padding-left: 1vw;
     padding-right: 1vw; }
+  .forExam .btn-viewApplicantForExam, .forExam .submitExamResult {
+    background: #2196F3;
+    border: 1px solid #2196F3;
+    color: #fff;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh; }
+  .forExam .btn-evaluateApplicantForExam {
+    background: #fff;
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh; }
+  .forExam .cancelExamEvaluation {
+    background: #fff;
+    border: 1px solid #d50000;
+    color: #d50000;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh; }
 
-.forInterview {
+.forInterview, .forQualified, .userManagement {
   margin-left: 5vw;
   width: 70vw;
   margin-top: 5vh; }
-  .forInterview table th {
+  .forInterview table th, .forQualified table th, .userManagement table th {
     font-size: 1vw;
     padding-left: 1vw;
-    padding-right: 1vw; }
-  .forInterview table td {
+    padding-right: 1vw;
+    text-align: left; }
+  .forInterview table td, .forQualified table td, .userManagement table td {
     font-size: 0.7vw;
     padding-left: 1vw;
     padding-right: 1vw; }
 
-.forQualified {
-  margin-left: 5vw;
-  width: 70vw;
-  margin-top: 5vh; }
-  .forQualified table th {
-    font-size: 1vw;
-    padding-left: 1vw;
-    padding-right: 1vw; }
-  .forQualified table td {
-    font-size: 0.7vw;
-    padding-left: 1vw;
-    padding-right: 1vw; }
+.forInterview .btn-viewForInterviewApplicant {
+  background: #2196F3;
+  border: 1px solid #2196F3;
+  color: #fff;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh; }
+
+.userManagement input {
+  border: 1px solid #E0E0E0;
+  width: 15vw;
+  height: 2vh;
+  font-size: 1vw;
+  padding-left: 1vw;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh; }
+
+.userManagement select {
+  border: 1px solid #E0E0E0;
+  width: 15vw;
+  height: 3vh;
+  font-size: 1vw;
+  padding-left: 1vw;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh; }
+
+.userManagement #btn-addNewUser {
+  background: #4CAF50;
+  border: 1px solid #4CAF50;
+  color: #fff;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh; }
+
+.userManagement .editUser, .userManagement .saveUser {
+  background: #2196F3;
+  border: 1px solid #2196F3;
+  color: #fff;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh; }
+
+.userManagement .deleteUser, .userManagement .cancelUser {
+  background: #fff;
+  border: 1px solid #d50000;
+  color: #d50000;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh; }
 
 .admin-login-container {
   color: #607D8B;
@@ -306,6 +372,21 @@
     border: 1px solid #012450;
     color: #012450;
     font-size: 1vw; }
+
+.input_grades_exam {
+  width: 1.8vw;
+  padding-left: 5px; }
+
+.interviewer-container {
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-top: 5vh; }
+  .interviewer-container .input_interview {
+    width: 1.8vw;
+    padding-left: 5px; }
+
+.printable-interviewee {
+  margin-top: 100vh; }
 
 .schedule-container {
   border: 1px solid #CFD8DC;

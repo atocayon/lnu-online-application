@@ -17,103 +17,107 @@ date_default_timezone_set('Asia/Taipei');
     <?php
       if (isset($_SESSION['user'])) {
 
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "lnu-online-application";
-        $con = mysqli_connect($servername,$username,$password,$dbname);
-        $date = date("Y-m-d");
-        $query = $con->query("UPDATE application_period SET status = '0' WHERE dateEnd <= '$date'");
-        ?>
+        if ($_SESSION['office'] == 1 || $_SESSION['office'] == "1") {
+          $servername = "localhost";
+          $username = "root";
+          $password = "";
+          $dbname = "lnu-online-application";
+          $con = mysqli_connect($servername,$username,$password,$dbname);
+          $date = date("Y-m-d");
+          $query = $con->query("UPDATE application_period SET status = '0' WHERE dateEnd <= '$date'");
+          ?>
 
-        <!--Header-->
-        <?php require "header.php"; ?>
+          <!--Header-->
+          <?php require "header.php"; ?>
 
-        <!--Navbar-->
-        <?php require "navbar.php"; ?>
-        <!--End Navbar-->
+          <!--Navbar-->
+          <?php require "navbar.php"; ?>
+          <!--End Navbar-->
 
-        <div class="flex-row">
+          <div class="flex-row">
 
-          <div class="flex-column sidebar">
-            <div class="sidebar-schedule">
-              <a href="#" id="link-schedule">Set Application Schedule</a>
+            <div class="flex-column sidebar">
+              <div class="sidebar-schedule">
+                <a href="#" id="link-schedule">Set Application Schedule</a>
+              </div>
+
+              <div class="sidebar-applicant">
+                <a href="#" id="link-applicants">Applicants</a>
+
+              </div>
+
+              <div class="sidebar-forExam">
+                <a href="#" id="link-forExam">For Exam</a>
+              </div>
+
+              <div class="sidebar-forInterview">
+                <a href="#" id="link-forInterview">For Interview</a>
+              </div>
+
+              <div class="sidebar-forQualified">
+                <a href="#" id="link-forQualified">Qualified</a>
+              </div>
+
+              <div class="sidebar-userManagement">
+                <a href="#" id="link-userManagement">User Management</a>
+              </div>
+
+              <div class="sidebar-logout">
+                <a href="admin-logout.php" id="link-logout">Logout, <?= $_SESSION['user'] ?></a>
+              </div>
             </div>
 
-            <div class="sidebar-applicant">
-              <a href="#" id="link-applicants">Applicants</a>
-
+            <div class="flex-column schedule" style="display:none">
+              <div class="">
+                <?php include 'setSchedule.php'; ?>
+              </div>
             </div>
 
-            <div class="sidebar-forExam">
-              <a href="#" id="link-forExam">For Exam</a>
+
+
+            <div class="flex-column applicant" >
+                  <div class="">
+                      <?php include 'list-applicants.php'; ?>
+                  </div>
             </div>
 
-            <div class="sidebar-forInterview">
-              <a href="#" id="link-forInterview">For Interview</a>
+            <div class="flex-column view-applicant" style="display:none" >
+              <div class="">
+                <?php include 'printable.php' ?>
+              </div>
             </div>
 
-            <div class="sidebar-forQualified">
-              <a href="#" id="link-forQualified">Qualified</a>
+            <div class="flex-column forExam" style="display:none">
+              <div class="">
+                <?php include 'list-approvedApplicants.php'; ?>
+              </div>
             </div>
 
-            <div class="sidebar-userManagement">
-              <a href="#" id="link-userManagement">User Management</a>
+            <div class="flex-column forInterview" style="display:none">
+              <div class="">
+                <?php include 'list-forInterview.php'; ?>
+              </div>
             </div>
 
-            <div class="sidebar-logout">
-              <a href="admin-logout.php" id="link-logout">Logout, <?= $_SESSION['user'] ?></a>
+            <div class="flex-column forQualified" style="display:none">
+              <div class="">
+                <?php include 'list-qualified.php'; ?>
+              </div>
+            </div>
+
+            <div class="flex-column userManagement" style="display:none">
+              <div class="">
+                <?php include 'userManagement.php'; ?>
+              </div>
             </div>
           </div>
 
-          <div class="flex-column schedule" style="display:none">
-            <div class="">
-              <?php include 'setSchedule.php'; ?>
-            </div>
-          </div>
+          <?php
+        }else{
+          require "interviewer.php";
+        }
 
 
-
-          <div class="flex-column applicant" >
-                <div class="">
-                    <?php include 'list-applicants.php'; ?>
-                </div>
-          </div>
-
-          <div class="flex-column view-applicant" style="display:none" >
-            <div class="">
-              <?php include 'printable.php' ?>
-            </div>
-          </div>
-
-          <div class="flex-column forExam" style="display:none">
-            <div class="">
-              <?php include 'list-approvedApplicants.php'; ?>
-            </div>
-          </div>
-
-          <div class="flex-column forInterview" style="display:none">
-            <div class="">
-              <?php include 'list-forInterview.php'; ?>
-            </div>
-          </div>
-
-          <div class="flex-column forQualified" style="display:none">
-            <div class="">
-              <?php include 'list-qualified.php'; ?>
-            </div>
-          </div>
-
-          <div class="flex-column userManagement" style="display:none">
-            <div class="">
-              <h1>User Management</h1>
-            </div>
-          </div>
-
-
-        </div>
-
-        <?php
       }else{
         require "login.php";
       }

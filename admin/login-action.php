@@ -18,7 +18,8 @@ $sql = $con->query("SELECT * FROM admin_accounts WHERE uname = '$username' AND p
 if ($sql) {
   $row = $sql->fetch_assoc();
   $_SESSION["user"] = $row['uname'];
-  echo json_encode(array("select" => $row['uname']));
+  $_SESSION["office"] = $row['office'];
+  echo json_encode(array("select" => "success"));
 }else{
   echo json_encode(array("select" => "failed"));
 }
