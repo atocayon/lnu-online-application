@@ -742,7 +742,7 @@ $insert = $con->query("INSERT INTO exam_result (
 
       }
 
-      $forInterviewPeriod = forInterviewPeriod($con,$new_date,$numberOfApplicantsForExamDate, $applicantID, $period, $setDate, $res,$email,$mail);
+      $forInterviewPeriod = forInterviewPeriod($con,$new_date,$numberOfApplicantsForInterviewDate, $applicantID, $period, $setDate, $res,$email,$mail);
 
       if ($forInterviewPeriod == 1) {
         echo json_encode(array("insert" => "success"));

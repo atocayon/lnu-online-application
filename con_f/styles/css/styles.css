@@ -388,6 +388,40 @@
 .printable-interviewee {
   margin-top: 100vh; }
 
+.view-doneInterview {
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-top: 5vh; }
+  .view-doneInterview .btn-viewApplicantDoneInterview {
+    background: #2196F3;
+    border: 1px solid #2196F3;
+    color: #fff;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh; }
+  .view-doneInterview .btn-getQualifiedDoneInterview {
+    background: #4CAF50;
+    border: 1px solid #4CAF50;
+    color: #fff;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh; }
+  .view-doneInterview .btn-removeDoneInterview {
+    background: #fff;
+    border: 1px solid #d50000;
+    color: #d50000;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh; }
+
+.view-qualified {
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-top: 5vh; }
+
 .schedule-container {
   border: 1px solid #CFD8DC;
   margin-left: 18vw;

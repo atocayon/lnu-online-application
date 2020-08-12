@@ -779,6 +779,7 @@ $(document).ready(function() {
   $("#tbl-userManagement").DataTable();
   $("#tbl-interviewer").DataTable();
   $("#tbl-doneInterviews").DataTable();
+  $("#tbl-qualifiedApplicant").DataTable();
 
  $(".btn-viewApplicant").click(function(){
    var value = $(this).attr("value");
@@ -1304,6 +1305,8 @@ $(document).ready(function() {
        $("#for-interview").hide();
        $("#back-home").show();
        $(".interviewer-container").hide();
+       $(".view-doneInterview").hide();
+       $(".view-qualified").hide();
        $(".view-applicant").show();
        $(".printable-form-container-admin").show();
        $(".buttonPrint").show();
@@ -1426,6 +1429,8 @@ $(document).ready(function() {
    $(".view-applicant").hide();
    $(".printable-form-container-admin").hide();
    $(".buttonPrint").hide();
+   $(".view-doneInterview").hide();
+   $(".view-qualified").hide();
    $("#tbl-nameOfSchoolAttended tbody tr").remove();
    $("#tbl-characterReference tbody tr").remove();
  });
@@ -1536,21 +1541,83 @@ $(document).ready(function() {
    $(".view-applicant").hide();
    $(".printable-form-container-admin").hide();
    $(".buttonPrint").hide();
+   $(".view-qualified").hide();
    $("#tbl-nameOfSchoolAttended tbody tr").remove();
    $("#tbl-characterReference tbody tr").remove();
    $(".view-doneInterview").show();
+   $(".view-qualified").hide();
  });
 
- $("#for-interview").click(function(){
+ $("#for-interview").click(function(event){
+   event.preventDefault();
    $("#for-interview").show();
    $("#back-home").hide();
    $(".interviewer-container").show();
    $(".view-applicant").show();
    $(".printable-form-container-admin").hide();
    $(".buttonPrint").hide();
+   $(".view-qualified").hide();
    $("#tbl-nameOfSchoolAttended tbody tr").remove();
    $("#tbl-characterReference tbody tr").remove();
    $(".view-doneInterview").hide();
+   $(".view-qualified").hide();
+ });
+
+ $("#listQualified").click(function(){
+   $("#for-interview").show();
+   $("#back-home").hide();
+   $(".interviewer-container").hide();
+   $(".view-applicant").hide();
+   $(".printable-form-container-admin").hide();
+   $(".buttonPrint").hide();
+   $("#tbl-nameOfSchoolAttended tbody tr").remove();
+   $("#tbl-characterReference tbody tr").remove();
+   $(".view-doneInterview").hide();
+   $(".view-qualified").show();
+ });
+
+ $(".btn-getQualifiedDoneInterview").click(function(){
+   var value = $(this).attr("value");
+   console.log(value);
+
+   $.ajax({
+     url: "getQualified.php",
+     type: "POST",
+     dataType: "json",
+     data:{
+       id: value,
+       office: $("#office").val()
+     },
+     success: function(data){
+       console.log(data);
+       location.reload(true);
+     },
+     error: function(err){
+       alert(err);
+     }
+   });
+ });
+
+ $(".btn-notQualifiedDoneInterview").click(function(){
+   var value = $(this).attr("value");
+   console.log(value);
+
+   $.ajax({
+     url: "notQualified.php",
+     type: "POST",
+     dataType: "json",
+     data:{
+       id: value,
+       office: $("#office").val()
+     },
+     success: function(data){
+       console.log(data);
+       location.reload(true);
+     },
+     error: function(err){
+       alert(data);
+     }
+   });
  });
 
 

@@ -1,5 +1,5 @@
-
-  <table id="tbl-doneInterviews">
+<div class="">
+  <table id="tbl-qualifiedApplicant">
     <thead>
       <tr>
         <th>Name</th>
@@ -9,13 +9,12 @@
         <th>Action</th>
       </tr>
     </thead>
-    <input type="text" value="<?= $office ?>"  id="office" hidden>
     <tbody>
       <?php
       $query_select = $con->query("SELECT *
         FROM
         applicant_tbl
-        WHERE (applicationStatus = 4) AND (firstCoursePreference = '$office' OR secondCoursePreference = '$office') ");
+        WHERE (applicationStatus = 5) AND (firstCoursePreference = '$office' OR secondCoursePreference = '$office') ");
 
         if ($query_select) {
           while ($row = mysqli_fetch_array($query_select)) {
@@ -49,9 +48,7 @@
                ?>
             </td>
             <td>
-              <button type="button" class="btn-viewApplicantDoneInterview viewApplicantInterviewee" value="<?= $row['applicantID'] ?>" id="<?= $row['applicantID'] ?>_viewDoneApplicantInterviewee">View</button>
-              <button type="button" class="btn-getQualifiedDoneInterview" value="<?= $row['applicantID'] ?>" id="<?= $row['applicantID'] ?>_getQualifiedDoneApplicantInterviewee" >Get Qualified</button>
-              <button type="button" class="btn-notQualifiedDoneInterview" value="<?= $row['applicantID'] ?>" id="<?= $row['applicantID'] ?>_notQualifiedDoneApplicantInterviewee"  >Not Qualified</button>
+              <button type="button" class="btn-viewApplicantQualifiedInterview viewApplicantInterviewee" value="<?= $row['applicantID'] ?>" id="<?= $row['applicantID'] ?>_viewQualifiedApplicantInterviewee">View</button>
             </td>
 
             <?php
@@ -61,3 +58,4 @@
       ?>
     </tbody>
   </table>
+</div>

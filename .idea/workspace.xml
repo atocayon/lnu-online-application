@@ -1,36 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a52a8bd1-4c72-4d96-a7d4-15ecbb1aea87" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="a52a8bd1-4c72-4d96-a7d4-15ecbb1aea87" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hostingPass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/online-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/online-application.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/acceptApplicant.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/acceptApplicant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/doneInterview.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/doneInterview.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/insertExamResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/insertExamResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/interviewer.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/interviewer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/navbar_interviewer.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/navbar_interviewer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/con_f/styles/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/con_f/styles/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/con_f/styles/css/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/con_f/styles/css/styles.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/con_f/styles/scss/adminDisplay.scss" beforeDir="false" afterPath="$PROJECT_DIR$/con_f/styles/scss/adminDisplay.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form.php" beforeDir="false" afterPath="$PROJECT_DIR$/form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lnu-online-application.sql" beforeDir="false" afterPath="$PROJECT_DIR$/lnu-online-application.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/request.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1UljRMZcYXcMgDCTZrgUNtaD1CF" />
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-client" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-google" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/hayageek/oauth2-yahoo" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/stevenmaguire/oauth2-microsoft" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+    </include_path>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="ProjectId" id="1UljRMZcYXcMgDCTZrgUNtaD1CF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Projects/ReactProjects/document-tracking" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -43,11 +71,12 @@
       <option name="presentableId" value="Default" />
       <updated>1575938066964</updated>
       <workItem from="1575938069868" duration="24000" />
+      <workItem from="1594608064810" duration="5366000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -59,5 +88,16 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2281" y="350" width="614" height="404" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594608189250">
+      <screen x="1600" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2281" y="350" width="614" height="404" key="#com.intellij.fileTypes.FileTypeChooser/1600.0.1920.1080/0.27.1600.873/3520.0.1600.900@1600.0.1920.1080" timestamp="1594608189250" />
+    <state x="2376" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1594614766747">
+      <screen x="1600" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2376" y="310" width="424" height="484" key="FileChooserDialogImpl/1600.0.1920.1080/0.27.1600.873/3520.0.1600.900@1600.0.1920.1080" timestamp="1594614766747" />
   </component>
 </project>

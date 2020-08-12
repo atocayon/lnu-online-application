@@ -183,7 +183,8 @@ if ($count !== '0') {
                       <select class="form-input" name="first-course-preference" id="first-course-preference">
                           <option value="">Select Course</option>
                           <?php
-                          while($row1 = mysqli_fetch_array($query_course)){
+                          $query_course1 = $con->query("SELECT * FROM office WHERE id != 1");
+                          while($row1 = mysqli_fetch_array($query_course1)){
                             ?>
                               <option value="<?= $row1['id'] ?>"><?= $row1['course'] ?></option>
                             <?php
@@ -200,7 +201,8 @@ if ($count !== '0') {
                       <select class="form-input" name="second-course-preference" id="second-course-preference">
                           <option value="">Select Course</option>
                           <?php
-                          while($row2 = mysqli_fetch_array($query_course)){
+                            $query_course2 = $con->query("SELECT * FROM office WHERE id != 1");
+                          while($row2 = mysqli_fetch_array($query_course2)){
                             ?>
                               <option value="<?= $row2['id'] ?>"><?= $row2['course'] ?></option>
                             <?php

@@ -20,91 +20,109 @@ date_default_timezone_set('Asia/Taipei');
         $password = "";
         $dbname = "lnu-online-application";
         $con = mysqli_connect($servername,$username,$password,$dbname);
-         $office = $_SESSION["office"];
-        ?>
+         
+         $date = date("Y-m-d");
+         $query = $con->query("UPDATE application_period SET status = '0' WHERE dateEnd <= '$date'");
+         $check = $con->query("SELECT count(id) as count, id FROM application_period WHERE status = '1'");
+         $result_check = $check->fetch_assoc();
+         $count = $result_check['count'];
+         if ($count !== '0') {
+           ?>
 
-        <div class="interviewer-container">
-          <table id="tbl-interviewer">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>1st Course Preference</th>
-                <th>2nd Course Preference</th>
-                <th>Interview Date</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-                $query_select = $con->query("SELECT *
-                  FROM
-                  applicant_tbl
-                  WHERE (applicationStatus = 3) AND (firstCoursePreference = '$office' OR secondCoursePreference = '$office') ");
-
-                  if ($query_select) {
-                    while($row = mysqli_fetch_array($query_select)){
-                      ?>
-                        <td><?= $row['fname']." ".$row['mname']." ".$row['lname'] ?></td>
-                        <td><?php
-                          $firstCourse = $row['firstCoursePreference'];
-                          $query_firstCourse = $con->query("SELECT * FROM office WHERE id = '$firstCourse'");
-                          $res_firstCourse = $query_firstCourse->fetch_assoc();
-                          echo $res_firstCourse['course'];
-                        ?></td>
-                        <td>
-                          <?php
-                            $secondCourse = $row['secondCoursePreference'];
-                            $query_secondCourse = $con->query("SELECT * FROM office WHERE id = '$secondCourse'");
-                            $res_secondCourse = $query_secondCourse->fetch_assoc();
-                            echo $res_secondCourse['course'];
-                          ?>
-                        </td>
-                        <td>
-                          <?php
-                           $date = date('Y-m-d');
-                           $applicant_id = $row['applicantID'];
-                           $select_interviewDate = $con->query("SELECT * FROM interview_period WHERE applicantID = '$applicant_id'");
-                           $res_selectInterviewDate = $select_interviewDate->fetch_assoc();
-                           if ($res_selectInterviewDate['interview_date'] < $date) {
-                             echo "<span style='color:red'>".$res_selectInterviewDate['interview_date']."</span>";
-                           }else{
-                             echo "<span>".$res_selectInterviewDate['interview_date']."</span>";
-                           }
-                           ?>
-                        </td>
-                        <td>
-                          <input type="text" class="input_interview" id="<?= $row['applicantID'] ?>_grammar" title="Grammar" style="display:none;">
-                          <input type="text" class="input_interview" id="<?= $row['applicantID'] ?>_clarity" title="Clarity" style="display:none;">
-                          <input type="text" class="input_interview" id="<?= $row['applicantID'] ?>_fluency" title="Fluency" style="display:none;">
-                          <input type="text" class="input_interview" id="<?= $row['applicantID'] ?>_development_deliveryOfInfo" title="Development Delivery of Info" style="display:none;">
-                          <input type="text" class="input_interview" id="<?= $row['applicantID'] ?>_interest" title="Interest" style="display:none;">
-                          <button type="button" name="button" value="<?= $row['applicantID'] ?>" id="<?= $row['applicantID'] ?>_viewApplicantInterviewee" class="viewApplicantInterviewee">view</button>
-                          <button type="button" name="button" value="<?= $row['applicantID'] ?>" id="<?= $row['applicantID'] ?>_evalutateApplicantInterviewee" class="evauluateApplicantInterviewee">evaluate</button>
-                          <button type="button" name="button" value="<?= $row['applicantID'] ?>" id="<?= $row['applicantID'] ?>_saveApplicantInterviewee" class="saveApplicantInterviewee" style="display:none;">save</button>
-                          <button type="button" name="button" value="<?= $row['applicantID'] ?>" id="<?= $row['applicantID'] ?>_cancelApplicantInterviewee" class="cancelApplicantInterviewee" style="display:none;">cancel</button>
-                        </td>
-                      <?php
-                    }
-                  }
-
-               ?>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="flex-column view-applicant" style="display:none" >
-          <div class="printable-interviewee">
-            <?php include 'printable.php' ?>
-          </div>
-        </div>
+           <div class="interviewer-container">
+             <table id="tbl-interviewer">
+               <thead>
+                 <tr>
+                   <th>Name</th>
+                   <th>1st Course Preference</th>
+                   <th>2nd Course Preference</th>
+                   <th>Interview Date</th>
+                   <th>Action</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <?php
+                   $query_select_applicant_forInterview = $con->query("SELECT *
+                     FROM
+                     applicant_tbl
+                     WHERE (applicationStatus = 3) AND (firstCoursePreference = '$office' OR secondCoursePreference = '$office') ");
 
 
-        <div class="flex-column view-doneInterview" style="display:none">
-          <div class="done-interviewee">
-            <?php include 'doneInterview.php' ?>
-          </div>
-        </div>
-        <?php
+                       while($resApplicantForInterview = mysqli_fetch_array( $query_select_applicant_forInterview)){
+                         ?>
+                           <td><?= $resApplicantForInterview['fname']." ".$resApplicantForInterview['mname']." ".$resApplicantForInterview['lname'] ?></td>
+                           <td><?php
+                             $firstCourse = $resApplicantForInterview['firstCoursePreference'];
+                             $query_firstCourse = $con->query("SELECT * FROM office WHERE id = '$firstCourse'");
+                             $res_firstCourse = $query_firstCourse->fetch_assoc();
+                             echo $res_firstCourse['course'];
+                           ?></td>
+                           <td>
+                             <?php
+                               $secondCourse = $resApplicantForInterview['secondCoursePreference'];
+                               $query_secondCourse = $con->query("SELECT * FROM office WHERE id = '$secondCourse'");
+                               $res_secondCourse = $query_secondCourse->fetch_assoc();
+                               echo $res_secondCourse['course'];
+                             ?>
+                           </td>
+                           <td>
+                             <?php
+                              $date = date('Y-m-d');
+                              $applicant_id = $resApplicantForInterview['applicantID'];
+                              $select_interviewDate = $con->query("SELECT * FROM interview_period WHERE applicantID = '$applicant_id'");
+                              $res_selectInterviewDate = $select_interviewDate->fetch_assoc();
+                              if ($res_selectInterviewDate['interview_date'] < $date) {
+                                echo "<span style='color:red'>".$res_selectInterviewDate['interview_date']."</span>";
+                              }else{
+                                echo "<span>".$res_selectInterviewDate['interview_date']."</span>";
+                              }
+                              ?>
+                           </td>
+                           <td>
+                             <input type="text" class="input_interview" id="<?= $resApplicantForInterview['applicantID'] ?>_grammar" title="Grammar" style="display:none;">
+                             <input type="text" class="input_interview" id="<?= $resApplicantForInterview['applicantID'] ?>_clarity" title="Clarity" style="display:none;">
+                             <input type="text" class="input_interview" id="<?= $resApplicantForInterview['applicantID'] ?>_fluency" title="Fluency" style="display:none;">
+                             <input type="text" class="input_interview" id="<?= $resApplicantForInterview['applicantID'] ?>_development_deliveryOfInfo" title="Development Delivery of Info" style="display:none;">
+                             <input type="text" class="input_interview" id="<?= $resApplicantForInterview['applicantID'] ?>_interest" title="Interest" style="display:none;">
+                             <button type="button" name="button" value="<?= $resApplicantForInterview['applicantID'] ?>" id="<?= $resApplicantForInterview['applicantID'] ?>_viewApplicantInterviewee" class="viewApplicantInterviewee">view</button>
+                             <button type="button" name="button" value="<?= $resApplicantForInterview['applicantID'] ?>" id="<?= $resApplicantForInterview['applicantID'] ?>_evalutateApplicantInterviewee" class="evauluateApplicantInterviewee">evaluate</button>
+                             <button type="button" name="button" value="<?= $resApplicantForInterview['applicantID'] ?>" id="<?= $resApplicantForInterview['applicantID'] ?>_saveApplicantInterviewee" class="saveApplicantInterviewee" style="display:none;">save</button>
+                             <button type="button" name="button" value="<?= $resApplicantForInterview['applicantID'] ?>" id="<?= $resApplicantForInterview['applicantID'] ?>_cancelApplicantInterviewee" class="cancelApplicantInterviewee" style="display:none;">cancel</button>
+                           </td>
+                         <?php
+                       }
+
+
+                  ?>
+               </tbody>
+             </table>
+           </div>
+
+           <div class="flex-column view-applicant" style="display:none" >
+             <div class="printable-interviewee">
+               <?php include 'printable.php' ?>
+             </div>
+           </div>
+
+
+           <div class="flex-column view-doneInterview" style="display:none">
+             <div class="done-interviewee">
+               <?php include 'doneInterview.php' ?>
+             </div>
+           </div>
+
+           <div class="flex-column view-qualified" style="display: none">
+                 <div class="qualified-applicant">
+                   <?php include "qualified.php" ?>
+               </div>
+           </div>
+           <?php
+         }else{
+           ?>
+             <h1 style="text-align: center;margin-top: 20vh;font-weight: bold;color: ">Application Period Not Started</h1>
+           <?php
+         }
+
       }
 
     ?>

@@ -145,11 +145,9 @@ function forExamPeriod($con,$new_date,$numberOfApplicantsForExamDate, $applicant
       $insertForExam = $con->query("INSERT INTO
         exam_period (applicantID,
           exam_date,
-          exam_time,
           application_period_id,
           remarks) VALUES ('$applicantID',
             '$newSetDate',
-            '$time',
             '$period',
             'n/a')");
 
@@ -175,9 +173,7 @@ function forExamPeriod($con,$new_date,$numberOfApplicantsForExamDate, $applicant
           Your Application in Leyte Normal University has been approved<br>
           <b>Exam Schedule<b>
           <br>
-          <b>Date: '.$newSetDate.'</b>
-          <br>
-          <b>Time:'.$time.'</b>';
+          <b>Date: '.$newSetDate.'</b>';
 
           $mail->send();
           echo 'Message has been sent';

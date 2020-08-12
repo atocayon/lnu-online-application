@@ -8,7 +8,11 @@
         <a href="#" id="doneInterview">Done Interview</a>
     </div>
 
+    <div>
+        <a href="#" id="listQualified">Qualified</a>
+    </div>
+
     <div class="">
-      <a href="#">Logout, <?= $_SESSION['user'] ?></a>
+      <a href="admin-logout.php">Logout, <?= $_SESSION['user'] ?></a>
     </div>
 </div>
