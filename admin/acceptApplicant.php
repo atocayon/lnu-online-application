@@ -5,6 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+require '../con_f/db/db.php';
 
 
 // Load Composer's autoloader
@@ -13,12 +14,6 @@ require '../vendor/autoload.php';
 // Instantiation and passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "lnu-online-application";
-$con = mysqli_connect($servername,$username,$password,$dbname);
 
 $applicantID = $_GET['id'];
 $email = $_GET['email'];

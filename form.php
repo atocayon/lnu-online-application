@@ -1,9 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "lnu-online-application";
-$con = mysqli_connect($servername,$username,$password,$dbname);
+require './con_f/db/db.php';
+
 
 if (mysqli_connect_errno()) {
   print_r("Failed to connect to MYSQL: ". mysqli_connect_error());

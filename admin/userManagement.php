@@ -1,3 +1,6 @@
+<?php 
+ require '../con_f/db/db.php';
+?>
 <div class="">
   <table id="tbl-userManagement">
     <thead>
@@ -11,11 +14,7 @@
     </thead>
     <tbody>
       <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "lnu-online-application";
-        $con = mysqli_connect($servername,$username,$password,$dbname);
+        
         $select = $con->query("SELECT * FROM admin_accounts ORDER BY id ASC");
         while ($row = mysqli_fetch_array($select)) {
           ?>

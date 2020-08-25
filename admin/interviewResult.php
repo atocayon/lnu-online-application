@@ -1,10 +1,6 @@
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "lnu-online-application";
-$con = mysqli_connect($servername,$username,$password,$dbname);
+require '../con_f/db/db.php';
 
 $id = $_POST['id'];
 $grammar = $_POST['grammar'];

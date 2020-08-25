@@ -1,13 +1,12 @@
+<?php 
+ require '../con_f/db/db.php';
+?>
 <div class="flex-row justify-center">
   <div class="schedule-container">
     <h1>Application Period Schedule</h1>
 
     <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "lnu-online-application";
-    $con = mysqli_connect($servername,$username,$password,$dbname);
+    
     $date = date("Y-m-d");
     $query = $con->query("SELECT count(id) as count FROM application_period WHERE status = '1'");
     $result = $query->fetch_assoc();

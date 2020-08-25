@@ -1,3 +1,6 @@
+<?php 
+ require '../con_f/db/db.php';
+?>
 <table id="tbl_approvedApplicants">
   <thead>
     <tr>
@@ -9,11 +12,7 @@
   </thead>
   <tbody>
     <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "lnu-online-application";
-    $con = mysqli_connect($servername,$username,$password,$dbname);
+  
     $date = date("Y-m-d");
       $sql = $con->query("SELECT * FROM applicant_tbl INNER JOIN application_period ON applicant_tbl.applicationPeriod = application_period.id WHERE applicant_tbl.applicationStatus = 2 AND application_period.status = 1");
       if ($sql) {

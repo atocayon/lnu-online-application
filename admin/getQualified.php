@@ -14,11 +14,8 @@ require '../vendor/autoload.php';
 $mail = new PHPMailer(true);
 
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "lnu-online-application";
-$con = mysqli_connect($servername,$username,$password,$dbname);
+require '../con_f/db/db.php';
+
 
 $applicantID = $_POST['id'];
 $office = $_POST['office'];

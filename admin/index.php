@@ -1,6 +1,8 @@
 <?php
 session_start();
 date_default_timezone_set('Asia/Taipei');
+require '../con_f/db/db.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -18,11 +20,7 @@ date_default_timezone_set('Asia/Taipei');
       if (isset($_SESSION['user'])) {
 
         if ($_SESSION['office'] == 1 || $_SESSION['office'] == "1") {
-          $servername = "localhost";
-          $username = "root";
-          $password = "";
-          $dbname = "lnu-online-application";
-          $con = mysqli_connect($servername,$username,$password,$dbname);
+      
           $date = date("Y-m-d");
           $query = $con->query("UPDATE application_period SET status = '0' WHERE dateEnd <= '$date'");
           ?>
