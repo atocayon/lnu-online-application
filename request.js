@@ -722,7 +722,7 @@ $(document).ready(function() {
           },
           cache: false,
             success: function(data){
-            window.location.replace("http://localhost/online-application/admin/");
+            window.location.replace("http://localhost/lnu-online-application/admin/");
           },
           error: function(err){
             alert("Unregistered user");
@@ -1513,7 +1513,7 @@ $(document).ready(function() {
          $("#"+value+"_fluency").val('');
          $("#"+value+"_development_deliveryOfInfo").val('');
          $("#"+value+"_interest").val('');
-          window.location.replace("http://localhost/online-application/admin/");
+          window.location.replace("http://localhost/lnu-online-application/admin/");
        }
 
      },
