@@ -26,15 +26,17 @@ require 'con_f/db/db.php';
 <?php require "navbar.php"; ?>
 <!--End Navbar-->
 
+<div class="main-page">
+  <?php require "main.php"; ?>
+</div>
+
 <div class="form_application">
   <!-- Forms -->
   <?php require "form.php"; ?>
   <!-- End of Forms -->
 </div>
 
-<div class="main-page">
-  <?php require "main.php"; ?>
-</div>
+
 
 <div class="printable-page">
   <?php require "printable.php"; ?>
@@ -48,6 +50,7 @@ require 'con_f/db/db.php';
   <?php require "confirmation_modal.php"; ?>
 </div>
 
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>

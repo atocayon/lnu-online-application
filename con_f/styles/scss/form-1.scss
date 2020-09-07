@@ -39,5 +39,18 @@
   }
 
 
+  @media screen and (max-width: 1024px) {
+    font-size: 1rem;
+
+    .form-1-title{
+     
+      width: 250px;
+      
+  
+      h2{
+       font-size: 1.5rem;
+      }
+    }
+  }
 
 }

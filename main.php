@@ -1,4 +1,3 @@
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <div class="flex-row justify-center">
   <div class="lnu-keyword">
     INTEGRITY

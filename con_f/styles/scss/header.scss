@@ -1,6 +1,5 @@
 .header{
   background-color: $darkBlue;
-
   img{
     width: 120px;
     padding: 15px 15px 15px 30px;
@@ -20,5 +19,20 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: #fafafa;
+
+   
+  }
+
+  @media screen and (max-width: 1024px){
+    img{
+      width: 90px;
+      padding: 15px 15px 15px 30px;
+    }
+
+    .header-mainText{
+     
+      font-size: 3.5rem;
+     
+    }
   }
 }

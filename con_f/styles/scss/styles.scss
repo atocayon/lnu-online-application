@@ -12,9 +12,10 @@
 @import "adminDisplay";
 @import "adminSetApplicationPeriod";
 body{
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0px !important;
   font-family: 'Abel', sans-serif;
+  overflow: auto;
   // background-image: url("../../../img/logo-background.png");
   // background-repeat: no-repeat;
   // background-attachment: fixed;

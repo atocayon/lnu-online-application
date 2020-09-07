@@ -32,4 +32,12 @@
   .step-1, #step-1-text{
     font-weight: bold;
   }
+
+  @media screen and (max-width: 1024px) {
+    div{
+      margin-left: 1px;
+      margin-right: 1px;
+      padding: 2px;
+    }
+  }
 }
