@@ -1,6 +1,9 @@
 <?php
 require './con_f/db/db.php';
-
+$servername = "localhost";
+$username = "act";
+$password = "kiraismyname";
+$dbname = "lnu-online-application";
 if (mysqli_connect_errno()) {
   print_r("Failed to connect to MYSQL: ". mysqli_connect_error());
 }
@@ -70,92 +73,133 @@ $secondPersonReferenceName = $_POST["secondPersonReferenceName"];
 $secondPersonReferenceAddress = $_POST["secondPersonReferenceAddress"];
 $secondPersonReferenceContactNum = $_POST["secondPersonReferenceContactNum"];
 
-$insert_applicant_tbl = $con->query("INSERT INTO applicant_tbl (
-  applicantID,
-  applicationType,
-  returneeMonth,
-  returneeYear,
-  returneePasser,
-  returneeSelectedCourse,
-  firstCoursePreference,
-  secondCoursePreference,
-  lname,
-  fname,
-  mname,
-  dateOfBirth,
-  age,
-  sex,
-  civilStatus,
-  citizenship,
-  completeHomeAddress,
-  completeCityAddress,
-  telNo,
-  mobileNo,
-  emailAdd,
-  applicationStatus,
-  applicationDate,
-  dateApprove,
-  applicationPeriod
-) VALUES (
-  '$applicant_id',
-  '$applicationType',
-  '$returneeMonth',
-  '$returneeYear',
-  '$returneePasser',
-  '$returneeSelectedCourse',
-  '$firstCoursePreference',
-  '$secondCoursePreference',
-  '$lastName',
-  '$firstName',
-  '$middleName',
-  '$birthDay',
-  '$age',
-  '$sex',
-  '$status',
-  '$citizenship',
-  '$completeHomeAddress',
-  '$completeCityAddress',
-  '$telNumber',
-  '$mobileNumber',
-  '$emailAddress',
-  1,
-  '$applicationDate',
-  0000-00-00,
-  '$applicationPeriod'
-)");
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+   // set the PDO error mode to exception
+   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+   // begin the transaction
+   $conn->beginTransaction();
+   $conn->exec(
+    "INSERT INTO applicant_tbl (
+      applicantID,
+      applicationType,
+      returneeMonth,
+      returneeYear,
+      returneePasser,
+      returneeSelectedCourse,
+      firstCoursePreference,
+      secondCoursePreference,
+      lname,
+      fname,
+      mname,
+      dateOfBirth,
+      age,
+      sex,
+      civilStatus,
+      citizenship,
+      completeHomeAddress,
+      completeCityAddress,
+      telNo,
+      mobileNo,
+      emailAdd,
+      applicationStatus,
+      applicationDate,
+      applicationPeriod
+    ) VALUES (
+      '$applicant_id',
+      '$applicationType',
+      '$returneeMonth',
+      '$returneeYear',
+      '$returneePasser',
+      '$returneeSelectedCourse',
+      '$firstCoursePreference',
+      '$secondCoursePreference',
+      '$lastName',
+      '$firstName',
+      '$middleName',
+      '$birthDay',
+      '$age',
+      '$sex',
+      '$status',
+      '$citizenship',
+      '$completeHomeAddress',
+      '$completeCityAddress',
+      '$telNumber',
+      '$mobileNumber',
+      '$emailAddress',
+      1,
+      '$applicationDate',
+      '$applicationPeriod'
+    )"
+   );
+
+
+}catch(PDOException $e)
+{
+// roll back the transaction if something failed
+$conn->rollback();
+echo "Error: " . $e->getMessage();
+}
+
+$conn = null;
 
 
 
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+   // set the PDO error mode to exception
+   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$insert_guardian_tbl = $con->query("INSERT INTO guardian_tbl (
-  applicantID,
-  name,
-  occupation,
-  contactNo
-) VALUES (
-  '$applicant_id',
-  '$guardianName',
-  '$guardianOccupation',
-  '$contactNumber'
-)");
+   // begin the transaction
+   $conn->beginTransaction();
+   $conn->exec("INSERT INTO guardian_tbl (
+    applicantID,
+    name,
+    occupation,
+    contactNo
+  ) VALUES (
+    '$applicant_id',
+    '$guardianName',
+    '$guardianOccupation',
+    '$contactNumber'
+  )");
+}catch(PDOException $e)
+{
+// roll back the transaction if something failed
+$conn->rollback();
+echo "Error: " . $e->getMessage();
+}
 
-$insert_typeSchoolLastAttended_tbl = $con->query("INSERT INTO school_last_attended(
-  applicantID,
-  type,
-  category,
-  generalWeightedAverage,
-  membershipOrganization,
-  hobbiesTalentsInterest
-) VALUES (
-  '$applicant_id',
-  '$typeOfSchool',
-  '$categoryOfSchool',
-  '$generalWeightedAverage',
-  '$membershipOrganization',
-  '$hobbiesTalentsInterest'
-)");
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+   // set the PDO error mode to exception
+   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
+   // begin the transaction
+   $conn->beginTransaction();
+   $conn->exec("INSERT INTO school_last_attended(
+    applicantID,
+    type,
+    category,
+    generalWeightedAverage,
+    membershipOrganization,
+    hobbiesTalentsInterest
+  ) VALUES (
+    '$applicant_id',
+    '$typeOfSchool',
+    '$categoryOfSchool',
+    '$generalWeightedAverage',
+    '$membershipOrganization',
+    '$hobbiesTalentsInterest'
+  )");
+}catch(PDOException $e)
+{
+// roll back the transaction if something failed
+$conn->rollback();
+echo "Error: " . $e->getMessage();
+}
 
 try {
    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
