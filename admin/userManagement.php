@@ -15,7 +15,7 @@
     <tbody>
       <?php
         
-        $select = $con->query("SELECT * FROM admin_accounts ORDER BY id ASC");
+        $select = $con->query("SELECT a.uname, a.pword, a.role, b.course AS office  FROM admin_accounts a LEFT JOIN office b ON a.office = b.id ORDER BY a.id ASC");
         while ($row = mysqli_fetch_array($select)) {
           ?>
             <tr>
@@ -75,8 +75,8 @@
           <select class="form-input"  id="office">
               <option value="">-- select office --</option>
               <?php
-
-                while($row2 = mysqli_fetch_array($query_course)){
+                $query_course2 = $con->query("SELECT * FROM office");
+                while($row2 = mysqli_fetch_array($query_course2)){
                   ?>
                     <option value="<?= $row2['id'] ?>"><?= $row2['course'] ?></option>
                   <?php

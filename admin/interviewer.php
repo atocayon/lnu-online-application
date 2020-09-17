@@ -24,6 +24,8 @@ date_default_timezone_set('Asia/Taipei');
          $check = $con->query("SELECT count(id) as count, id FROM application_period WHERE status = '1'");
          $result_check = $check->fetch_assoc();
          $count = $result_check['count'];
+         $office = $_SESSION["office"];
+
          if ($count !== '0') {
            ?>
 
