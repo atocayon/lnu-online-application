@@ -14,7 +14,7 @@
   <tbody id="applicants-tbl">
     <?php
     $date = date("Y-m-d");
-    $sql = $con->query("SELECT * FROM applicant_tbl INNER JOIN application_period ON applicant_tbl.applicationPeriod = application_period.id WHERE applicant_tbl.applicationStatus = 1 AND application_period.status = 1");
+    $sql = $con->query("SELECT * FROM applicant_tbl LEFT JOIN application_period ON applicant_tbl.applicationPeriod = application_period.id WHERE applicant_tbl.applicationStatus = 1 AND application_period.status = 1");
 
     while ($row = mysqli_fetch_array($sql)) {
       ?>

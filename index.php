@@ -1,14 +1,17 @@
 <?php
 date_default_timezone_set('Asia/Taipei');
-require 'con_f/db/db.php';
+require './con_f/db/db.php';
 ?>
 <html lang="en">
 <head>
   <meta charset="utf-8">
     <link rel="icon" href="img/logo.png" type="image/gif">
     <title>LNU Online Application</title>
-    <link rel="stylesheet" type="text/css" href="con_f/styles/css/styles.css">
-    <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
+    <link rel="stylesheet" type="text/css" href="./con_f/styles/css/jquery.dataTables.css">
+
+    <link rel="stylesheet" type="text/css" href="./con_f/styles/css/styles.css">
+    <link rel="stylesheet" href="./con_f/styles/css/print.min.css">
+
 </head>
 <body>
   <?php
@@ -51,15 +54,12 @@ require 'con_f/db/db.php';
 </div>
 
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="./con_f/js/jquery.min.js"></script>
+<script src="./con_f/js/jquery-ui.min.js"></script>
+<script type="text/javascript" charset="utf8" src="./con_f/js/jquery.dataTables.js"></script>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-<script src="request.js"></script>
+<script src="./con_f/js/print.min.js"></script>
+<script src="./con_f/js/request.js"></script>
 <script>
  var year = new Date().getFullYear();
  var month = new Date().getMonth() + 1;
