@@ -19,8 +19,17 @@
         ?>
           <tr>
             <td><?= $row1["fname"]." ".$row1["mname"]." ".$row1["lname"] ?></td>
-            <td><?= $row1["firstCoursePreference"] ?></td>
-            <td><?= $row1["secondCoursePreference"] ?></td>
+            <?php $sql2 = $con->query("SELECT * FROM office WHERE id= '".$row1["firstCoursePreference"]."'");
+                $row_sql2 = $sql2 -> fetch_assoc();
+                echo $row_sql2["course"];
+              ?>
+               </td>
+            <td>
+                 <?php $sql3 = $con->query("SELECT * FROM office WHERE id= '".$row1["secondCoursePreference"]."'");
+                $row_sql3 = $sql3 -> fetch_assoc();
+                echo $row_sql3["course"];
+              ?>
+              </td>
             <td><button type="button" name="button"  class="btn-viewForInterviewApplicant">View</button></td>
           </tr>
         <?php

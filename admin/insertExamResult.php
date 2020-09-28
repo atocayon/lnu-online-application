@@ -684,6 +684,7 @@ $insert = $con->query("INSERT INTO exam_result (
                   return 1;
               } catch (Exception $e) {
                   echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                  return 1;
               }
 
           }
@@ -732,6 +733,7 @@ $insert = $con->query("INSERT INTO exam_result (
                 return 1;
             } catch (Exception $e) {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                return 1;
             }
 
 

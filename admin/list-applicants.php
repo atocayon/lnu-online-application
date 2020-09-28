@@ -20,8 +20,17 @@
       ?>
         <tr>
           <td><?= $row["fname"]." ".$row["mname"]." ".$row["lname"] ?></td>
-          <td><?= $row["firstCoursePreference"] ?></td>
-          <td><?= $row["secondCoursePreference"] ?></td>
+          <td>
+              <?php $sql1 = $con->query("SELECT * FROM office WHERE id= '".$row["firstCoursePreference"]."'");
+                $row_sql1 = $sql1 -> fetch_assoc();
+                echo $row_sql1["course"];
+              ?></td>
+          <td>
+             <?php $sql2 = $con->query("SELECT * FROM office WHERE id= '".$row["secondCoursePreference"]."'");
+                $row_sql2 = $sql2 -> fetch_assoc();
+                echo $row_sql2["course"];
+              ?>
+           </td>
           <td>
             <?php $data = array('id' => $row['applicantID'], 'email' => $row['emailAdd']); ?>
 
