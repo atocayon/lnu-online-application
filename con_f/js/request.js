@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
   $(function () {
     //First Form
     //Status Checkbox
@@ -135,8 +135,8 @@ $(document).ready(function () {
         );
         firstSchoolInclusiveDate_day = firstSchoolInclusiveDate.getDate();
         firstSchoolInclusiveDate_month =
-          ((firstSchoolInclusiveDate.getMonth() + 1) >= 10)
-            ? (firstSchoolInclusiveDate.getMonth() + 1)
+          firstSchoolInclusiveDate.getMonth() + 1 >= 10
+            ? firstSchoolInclusiveDate.getMonth() + 1
             : "0" + (firstSchoolInclusiveDate.getMonth() + 1);
         firstSchoolInclusiveDate_year = firstSchoolInclusiveDate.getFullYear();
 
@@ -145,8 +145,8 @@ $(document).ready(function () {
         );
         secondSchoolInclusiveDate_day = secondSchoolInclusiveDate.getDate();
         secondSchoolInclusiveDate_month =
-          ((secondSchoolInclusiveDate.getMonth() + 1) >= 10)
-            ? (secondSchoolInclusiveDate.getMonth() + 1)
+          secondSchoolInclusiveDate.getMonth() + 1 >= 10
+            ? secondSchoolInclusiveDate.getMonth() + 1
             : "0" + (secondSchoolInclusiveDate.getMonth() + 1);
         secondSchoolInclusiveDate_year = secondSchoolInclusiveDate.getFullYear();
 
@@ -155,8 +155,8 @@ $(document).ready(function () {
         );
         thirdSchoolInclusiveDate_day = thirdSchoolInclusiveDate.getDate();
         thirdSchoolInclusiveDate_month =
-          ((thirdSchoolInclusiveDate.getMonth() + 1) >= 10)
-            ? (thirdSchoolInclusiveDate.getMonth() + 1)
+          thirdSchoolInclusiveDate.getMonth() + 1 >= 10
+            ? thirdSchoolInclusiveDate.getMonth() + 1
             : "0" + (thirdSchoolInclusiveDate.getMonth() + 1);
         thirdSchoolInclusiveDate_year = thirdSchoolInclusiveDate.getFullYear();
 
@@ -165,8 +165,8 @@ $(document).ready(function () {
         );
         fourthSchoolInclusiveDate_day = fourthSchoolInclusiveDate.getDate();
         fourthSchoolInclusiveDate_month =
-          ((fourthSchoolInclusiveDate.getMonth() + 1) >= 10)
-            ? (fourthSchoolInclusiveDate.getMonth() + 1)
+          fourthSchoolInclusiveDate.getMonth() + 1 >= 10
+            ? fourthSchoolInclusiveDate.getMonth() + 1
             : "0" + (fourthSchoolInclusiveDate.getMonth() + 1);
         fourthSchoolInclusiveDate_year = fourthSchoolInclusiveDate.getFullYear();
 
@@ -292,6 +292,12 @@ $(document).ready(function () {
           cache: false,
           success: function (data) {
             if (data.insertApplicant === "success") {
+              $("html, body").animate(
+                {
+                  scrollTop: 0,
+                },
+                500
+              );
               console.log(data);
               console.log("success");
               $(".modal-container").show();
@@ -723,6 +729,10 @@ $(document).ready(function () {
     $(".buttonPrint").hide();
   });
 
+
+  function login(){
+    
+  }
   $("#btn-admin-login").click(function () {
     if ($("#username").val() !== "" && $("#password").val() !== "") {
       $.ajax({
@@ -776,7 +786,7 @@ $(document).ready(function () {
       },
       success: function (data) {
         console.log(data);
-        location.reload(true);
+        location.reload();
       },
       error: function (err) {
         alert("error");
@@ -1172,7 +1182,7 @@ $(document).ready(function () {
         success: function (data) {
           console.log(data);
           if (data.insert === "success") {
-            location.reload(true);
+            location.reload();
           }
         },
         error: function (err) {},

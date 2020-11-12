@@ -18,7 +18,9 @@
       while ($row1 = mysqli_fetch_array($sql1)) {
         ?>
           <tr>
+          
             <td><?= $row1["fname"]." ".$row1["mname"]." ".$row1["lname"] ?></td>
+            <td>
             <?php $sql2 = $con->query("SELECT * FROM office WHERE id= '".$row1["firstCoursePreference"]."'");
                 $row_sql2 = $sql2 -> fetch_assoc();
                 echo $row_sql2["course"];

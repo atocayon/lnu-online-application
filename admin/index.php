@@ -123,11 +123,12 @@ require '../con_f/db/db.php';
       }
 
     ?>
-    <script type="text/javascript" charset="utf8" src="../con_f/js/jquery.dataTables.js"></script>
-
+    
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../con_f/js/jquery.min.js"></script>
     <script src="../con_f/js/jquery-ui.min.js"></script>
+    <script src="../con_f/js/jquery.dataTables.js"></script>
+
     <script src="../con_f/js/print.min.js"></script>
     <script src="../con_f/js/request.js"></script>
   </body>

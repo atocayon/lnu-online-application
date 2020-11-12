@@ -15,7 +15,7 @@
     <tbody>
       <?php
         
-        $select = $con->query("SELECT a.uname, a.pword, a.role, b.course AS office  FROM admin_accounts a LEFT JOIN office b ON a.office = b.id ORDER BY a.id ASC");
+        $select = $con->query("SELECT a.id, a.uname, a.pword, a.role, b.course AS office  FROM admin_accounts a LEFT JOIN office b ON a.office = b.id ORDER BY a.id ASC");
         while ($row = mysqli_fetch_array($select)) {
           ?>
             <tr>

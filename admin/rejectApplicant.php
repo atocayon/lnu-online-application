@@ -28,13 +28,13 @@ if ($reject) {
             $mail->isSMTP();                                            // Send using SMTP
             $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-            $mail->Username   = 'info.leytenormaluniversity@gmail.com';                     // SMTP username
-            $mail->Password   = 's v g y i n t t f y u l g n b m';                               // SMTP password
+            $mail->Username   = 'lnuonlineapplication@gmail.com';                     // SMTP username
+            $mail->Password   = 'mvwcsouggvgekazz';                               // SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
             $mail->Port       = 587;                                    // TCP port to connect to
 
             //Recipients
-            $mail->setFrom('info.leytenormaluniversity@gmail.com', 'Leyte Normal University');
+            $mail->setFrom('lnuonlineapplication@gmail.com', 'Leyte Normal University');
             $mail->addAddress($email);     // Add a recipient             // Name is optional
 
             // Content

@@ -381,7 +381,7 @@
 .userManagement input {
   border: 1px solid #E0E0E0;
   width: 15vw;
-  height: 2vh;
+  height: 3vh;
   font-size: 1vw;
   padding-left: 1vw;
   padding-top: 0.5vh;
@@ -390,7 +390,7 @@
 .userManagement select {
   border: 1px solid #E0E0E0;
   width: 15vw;
-  height: 3vh;
+  height: 5vh;
   font-size: 1vw;
   padding-left: 1vw;
   padding-top: 0.5vh;
@@ -404,6 +404,7 @@
   padding-right: 0.5vw;
   padding-top: 0.5vh;
   padding-bottom: 0.5vh;
+  width: 5vw;
 }
 .userManagement .editUser, .userManagement .saveUser {
   background: #2196F3;
@@ -413,6 +414,7 @@
   padding-right: 0.5vw;
   padding-top: 0.5vh;
   padding-bottom: 0.5vh;
+  width: 5vw;
 }
 .userManagement .deleteUser, .userManagement .cancelUser {
   background: #fff;
@@ -422,6 +424,7 @@
   padding-right: 0.5vw;
   padding-top: 0.5vh;
   padding-bottom: 0.5vh;
+  width: 5vw;
 }
 
 .admin-login-container {
@@ -469,8 +472,10 @@
 }
 
 .input_grades_exam {
-  width: 1.8vw;
-  padding-left: 5px;
+  width: 15vw !important;
+  margin-top: 1vh !important;
+  margin-bottom: 1vh !important;
+  padding-left: 2vw !important;
 }
 
 .interviewer-container {
@@ -695,12 +700,12 @@ body {
 .modal-container {
   display: none;
   position: absolute;
-  top: 10%;
-  left: 40%;
+  top: 20vh;
+  left: 35vw;
   border: 1px solid #fff;
   background: #fff;
-  width: 20vw;
-  height: 25vh;
+  width: 30vw;
+  height: 30vh;
   padding-top: 0;
   padding-bottom: 1vw;
   padding-left: 0;
@@ -715,7 +720,7 @@ body {
 }
 
 #btn-modal {
-  width: 5vw;
+  width: 10vw;
   height: 4vh;
   background: #012450;
   color: #fff;

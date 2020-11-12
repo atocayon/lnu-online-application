@@ -135,12 +135,12 @@ body{
 .modal-container{
   display: none;
   position: absolute;
-  top: 10%;
-  left: 40%;
+  top: 20vh;
+  left: 35vw;
   border: 1px solid #fff;
   background: #fff;
-  width: 20vw;
-  height: 25vh;
+  width: 30vw;
+  height: 30vh;
   padding-top: 0;
   padding-bottom: 1vw;
   padding-left: 0;
@@ -157,7 +157,7 @@ body{
 }
 
 #btn-modal{
-  width: 5vw;
+  width: 10vw;
   height: 4vh;
   background: $darkBlue;
   color: #fff;

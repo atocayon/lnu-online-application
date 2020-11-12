@@ -1,9 +1,8 @@
 <?php
-require './con_f/db/db.php';
 $servername = "localhost";
 $username = "act";
 $password = "kiraismyname";
-$dbname = "lnu-online-application";
+$dbname = "lnu_online_application";
 if (mysqli_connect_errno()) {
   print_r("Failed to connect to MYSQL: ". mysqli_connect_error());
 }
@@ -171,6 +170,7 @@ try {
 $conn->rollback();
 echo "Error: " . $e->getMessage();
 }
+$conn = null;
 
 try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -200,6 +200,7 @@ try {
 $conn->rollback();
 echo "Error: " . $e->getMessage();
 }
+$conn = null;
 
 try {
    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

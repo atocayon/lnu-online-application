@@ -132,7 +132,7 @@ width: 80vw;
   input{
     border: 1px solid #E0E0E0;
     width: 15vw;
-    height: 2vh;
+    height: 3vh;
     font-size: 1vw;
     padding-left: 1vw;
     padding-top: 0.5vh;
@@ -141,7 +141,7 @@ width: 80vw;
   select{
     border: 1px solid #E0E0E0;
     width: 15vw;
-    height: 3vh;
+    height: 5vh;
     font-size: 1vw;
     padding-left: 1vw;
     padding-top: 0.5vh;
@@ -156,6 +156,7 @@ width: 80vw;
     padding-right: 0.5vw;
     padding-top: 0.5vh;
     padding-bottom: 0.5vh;
+    width: 5vw;
   }
 
   .editUser, .saveUser{
@@ -166,6 +167,7 @@ width: 80vw;
     padding-right: 0.5vw;
     padding-top: 0.5vh;
     padding-bottom: 0.5vh;
+    width: 5vw;
   }
   .deleteUser, .cancelUser{
     background: #fff;
@@ -175,6 +177,7 @@ width: 80vw;
     padding-right: 0.5vw;
     padding-top: 0.5vh;
     padding-bottom: 0.5vh;
+    width: 5vw;
   }
 
 
@@ -233,8 +236,10 @@ width: 80vw;
 }
 
 .input_grades_exam{
-  width: 1.8vw;
-  padding-left: 5px;
+  width: 15vw !important;
+  margin-top: 1vh !important;
+  margin-bottom: 1vh !important;
+  padding-left: 2vw !important;
 }
 
 .interviewer-container{
